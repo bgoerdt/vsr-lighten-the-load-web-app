@@ -1,2 +1,2 @@
-vsr-lighten-the-load-app
+vsr-lighten-the-load-web-app
 ========================
