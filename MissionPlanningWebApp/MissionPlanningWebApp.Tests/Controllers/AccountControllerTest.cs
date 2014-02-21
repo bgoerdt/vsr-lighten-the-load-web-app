@@ -16,7 +16,7 @@ namespace MissionPlanningWebApp.Tests.Controllers
         public void Login()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            AccountController controller = new AccountController();
 
             // Act
             ViewResult result = controller.Login() as ViewResult;
