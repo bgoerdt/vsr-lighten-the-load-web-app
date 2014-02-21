@@ -1,5 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MissionPlanningWebApp.Models;
+using MissionPlanningWebApp.Controllers;
+using System.Web.Security;
+using System.Web.Mvc;
 
 namespace MissionPlanningWebApp.Tests.Controllers
 {
@@ -9,10 +13,19 @@ namespace MissionPlanningWebApp.Tests.Controllers
         [TestMethod]
         public void Login()
         {
-            //arrange 
-            // act 
-            // assert
+            AccountController accountController = new AccountController();
+            ViewResult viewResult = accountController.Login() as ViewResult;
 
+            Assert.AreEqual(viewResult.ViewName, "Login");
+        }
+
+        [TestMethod]
+        public void Register()
+        {
+            AccountController accountController = new AccountController();
+            ViewResult viewResult = accountController.Register() as ViewResult;
+
+            Assert.AreEqual(viewResult.ViewName, "Register");
         }
 
       

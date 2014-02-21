@@ -12,21 +12,21 @@ namespace MissionPlanningWebApp.Controllers
 		{
 			ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
-			return View();
+			return View("Index");
 		}
 
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your app description page.";
 
-			return View();
+			return View("About");
 		}
 
 		public ActionResult Contact()
 		{
 			ViewBag.Message = "Your contact page.";
 
-			return View();
+			return View("Contact");
 		}
 	}
 }
