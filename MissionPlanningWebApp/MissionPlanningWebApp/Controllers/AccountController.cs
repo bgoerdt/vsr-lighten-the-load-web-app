@@ -18,7 +18,7 @@ namespace MissionPlanningWebApp.Controllers
 
 		public ActionResult Index()
 		{
-			return View();
+			return View("Index");
 		}
 
 		//
@@ -27,7 +27,7 @@ namespace MissionPlanningWebApp.Controllers
 		[AllowAnonymous]
 		public ActionResult Login()
 		{
-			return View();
+			return View("Login");
 		}
 
 		//
@@ -78,7 +78,7 @@ namespace MissionPlanningWebApp.Controllers
 		[AllowAnonymous]
 		public ActionResult Register()
 		{
-			return View();
+			return View("Register");
 		}
 
 		//
@@ -115,7 +115,7 @@ namespace MissionPlanningWebApp.Controllers
 
 		public ActionResult ChangePassword()
 		{
-			return View();
+			return View("ChangePassword");
 		}
 
 		//
@@ -160,7 +160,7 @@ namespace MissionPlanningWebApp.Controllers
 
 		public ActionResult ChangePasswordSuccess()
 		{
-			return View();
+			return View("ChangePasswordSuccess");
 		}
 
 		#region Status Codes
@@ -203,4 +203,13 @@ namespace MissionPlanningWebApp.Controllers
 		}
 		#endregion
 	}
+
+    public interface IMembershipService
+    {
+        int MinPasswordLength { get; }
+
+        bool ValidateUser(string userName, string password);
+        MembershipCreateStatus CreateUser(string userName, string password, string email);
+        bool ChangePassword(string userName, string oldPassword, string newPassword);
+    }
 }

@@ -22,6 +22,8 @@ namespace MissionPlanningWebApp.Tests.Controllers
 			ViewResult result = controller.Index() as ViewResult;
 
 			// Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.ViewName, "Index");
 			Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", result.ViewBag.Message);
 		}
 
@@ -36,6 +38,7 @@ namespace MissionPlanningWebApp.Tests.Controllers
 
 			// Assert
 			Assert.IsNotNull(result);
+            Assert.AreEqual(result.ViewName, "About");
 		}
 
 		[TestMethod]
@@ -49,6 +52,7 @@ namespace MissionPlanningWebApp.Tests.Controllers
 
 			// Assert
 			Assert.IsNotNull(result);
+            Assert.AreEqual(result.ViewName, "Contact");
 		}
 	}
 }
