@@ -1,0 +1,76 @@
+﻿@model MissionPlanningWebApp.Models.DistributionRules
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DistributionRules</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChrIndex)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChrIndex)
+            @Html.ValidationMessageFor(model => model.ChrIndex)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChrCond)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChrCond)
+            @Html.ValidationMessageFor(model => model.ChrCond)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChrData)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChrData)
+            @Html.ValidationMessageFor(model => model.ChrData)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipIndex)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EquipIndex)
+            @Html.ValidationMessageFor(model => model.EquipIndex)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConstrCond)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConstrCond)
+            @Html.ValidationMessageFor(model => model.ConstrCond)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ConstrRHS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ConstrRHS)
+            @Html.ValidationMessageFor(model => model.ConstrRHS)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
