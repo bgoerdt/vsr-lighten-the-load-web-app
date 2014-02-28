@@ -157,11 +157,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DistributionRulesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MissionRuleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DistributionRules.cs" />
+    <Compile Include="Models\MissionRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +276,11 @@
     <Content Include="Views\DistributionRules\Create.cshtml" />
     <Content Include="Views\DistributionRules\Edit.cshtml" />
     <Content Include="Views\DistributionRules\Delete.cshtml" />
+    <Content Include="Views\MissionRule\Index.cshtml" />
+    <Content Include="Views\MissionRule\Details.cshtml" />
+    <Content Include="Views\MissionRule\Create.cshtml" />
+    <Content Include="Views\MissionRule\Edit.cshtml" />
+    <Content Include="Views\MissionRule\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

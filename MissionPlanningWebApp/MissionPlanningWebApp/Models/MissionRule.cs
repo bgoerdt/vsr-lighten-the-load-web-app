@@ -15,7 +15,7 @@ namespace MissionPlanningWebApp.Models
 		public char RuleCond { get; set; }
 		public int RuleData { get; set; }
 		public int EquipIndex { get; set; }
-		public int ConstrCond { get; set; }
+		public char ConstrCond { get; set; }
 		public int ConstrRHS { get; set; }
 	}
 
