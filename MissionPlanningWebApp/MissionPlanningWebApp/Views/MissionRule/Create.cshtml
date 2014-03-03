@@ -25,11 +25,7 @@
             @Html.LabelFor(model => model.RuleCond)
         </div>
         <div class="editor-field">
-			<select name="dropdown">
-				<option><</option>
-				<option>=</option>
-				<option>></option>
-			</select>
+			@Html.DropDownListFor(model => model.RuleCond, new SelectList(new string[]{"<","=",">"}))
             @Html.ValidationMessageFor(model => model.RuleCond)
         </div>
 
@@ -53,7 +49,7 @@
             @Html.LabelFor(model => model.ConstrCond)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ConstrCond)
+            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(new string[]{"<","=",">"}))
             @Html.ValidationMessageFor(model => model.ConstrCond)
         </div>
 

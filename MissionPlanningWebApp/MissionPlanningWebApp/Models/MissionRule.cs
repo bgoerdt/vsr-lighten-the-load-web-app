@@ -12,10 +12,10 @@ namespace MissionPlanningWebApp.Models
 
 		public int ID { get; set; }
 		public int ParamIndex { get; set; }
-		public char RuleCond { get; set; }
+		public string RuleCond { get; set; }
 		public int RuleData { get; set; }
 		public int EquipIndex { get; set; }
-		public char ConstrCond { get; set; }
+		public string ConstrCond { get; set; }
 		public int ConstrRHS { get; set; }
 	}
 
