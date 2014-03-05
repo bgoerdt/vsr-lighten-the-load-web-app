@@ -1,85 +1,35 @@
 param($installPath, $toolsPath, $package, $project)
 
-try {
-    # Set up variables
-    $timestamp = (Get-Date).ToString('yyyyMMddHHmmss')
-    $projectName = [IO.Path]::GetFileName($project.ProjectName.Trim([IO.PATH]::DirectorySeparatorChar, [IO.PATH]::AltDirectorySeparatorChar))
-    $catalogName = "aspnet-$projectName-$timestamp"
-    $connectionString ="Data Source=(LocalDb)\v11.0;Initial Catalog=$catalogName;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\$catalogName.mdf"
-    $connectionStringToken = 'Data Source=(LocalDb)\v11.0;'
-    $config = $project.ProjectItems | Where-Object { $_.Name -eq "Web.config" }    
-    $configPath = ($config.Properties | Where-Object { $_.Name -eq "FullPath" }).Value
-    
-    #Load the Config File
-    $xml = New-Object System.Xml.XmlDocument
-    $xml.Load($configPath)
-    
-    function CommentNode($node) {
-        if (!$node) {
-            return;
-        }
-        
-        $commentNode = $xml.CreateComment($node.OuterXml)
-        $parent = $node.ParentNode
-        $parent.InsertBefore($commentNode, $node) | Out-Null
-        $parent.RemoveChild($node) | Out-Null
-    }
-    
-    # Comment out older providers
-    $node = $xml.SelectSingleNode("/configuration/system.web/membership/providers/add[@type='System.Web.Security.SqlMembershipProvider']")
-    $addedNode = $xml.SelectSingleNode("/configuration/system.web/membership/providers/add[@name='DefaultMembershipProvider']")
-    
-    if ($node) {
-        # Copy all attributes other than 'name', 'type' and 'connectionStringName' to the newly added node.
-        $node.Attributes | Where { ! (@('name', 'type', 'connectionStringName') -contains $_.name) } | ForEach {
-            $addedNode.SetAttribute($_.name, $_.value)
-        }
-    }
-    
-    $oldConnectionNode = $xml.SelectSingleNode("/configuration/connectionStrings/add[@name='$($node.connectionStringName)']")
-    CommentNode $node
-    CommentNode $oldConnectionNode
-    
-    $node = $xml.SelectSingleNode("/configuration/system.web/profile/providers/add[@type='System.Web.Profile.SqlProfileProvider']")
-    $oldConnectionNode = $xml.SelectSingleNode("/configuration/connectionStrings/add[@name='$($node.connectionStringName)']")
-    CommentNode $node
-    CommentNode $oldConnectionNode
-    
-    $node = $xml.SelectSingleNode("/configuration/system.web/roleManager/providers/add[@type='System.Web.Security.SqlRoleProvider']")
-    $oldConnectionNode = $xml.SelectSingleNode("/configuration/connectionStrings/add[@name='$($node.connectionStringName)']")
-    $connectionStringsToComment += $node.connectionStringName
-    CommentNode $node
-    CommentNode $oldConnectionNode
-    
-    # Verify that the connectionStrings node exists
-    $connectionStrings = $xml.SelectSingleNode("/configuration/connectionStrings")
-    if (!$connectionStrings) {
-        $connectionStrings = $xml.CreateElement("connectionStrings")
-        $xml.configuration.AppendChild($connectionStrings) | Out-Null
-    }
-    
-    if (!($connectionStrings.SelectNodes("add[@name='DefaultConnection']") | Where { $_.connectionString.StartsWith($connectionStringToken, 'OrdinalIgnoreCase') })) {
-        # If there aren't any connection strings that look like ours, proceed to add one
-        $newConnectionNode = $xml.CreateElement("add")
-        $newConnectionNode.SetAttribute("name", 'DefaultConnection')
-        $newConnectionNode.SetAttribute("providerName", "System.Data.SqlClient")
-        $newConnectionNode.SetAttribute("connectionString", $connectionString)
-        
-        $connectionStrings.AppendChild($newConnectionNode) | Out-Null
-    }
-    
-    # Save the Config File 
-    $xml.Save($configPath)
-    
-} catch {
-    Write-Error "Unable to update the web.config file at $configPath. Add the following connection string to your config: <add name=`"DefaultConnection`" providerName=`"System.Data.SqlClient`" connectionString=`"$connectionString`" />"
+function Invoke-ConnectionFactoryConfigurator($assemblyPath, $project)
+{
+    $appDomain = [AppDomain]::CreateDomain(
+        'EntityFramework.PowerShell',
+        $null,
+        (New-Object System.AppDomainSetup -Property @{ ShadowCopyFiles = 'true' }))
+
+    $appDomain.CreateInstanceFrom(
+        $assemblyPath,
+        'System.Data.Entity.ConnectionFactoryConfig.ConnectionFactoryConfigurator',
+        $false,
+        0,
+        $null,
+        $project,
+        $null,
+        $null) | Out-Null
+
+    [AppDomain]::Unload($appDomain)
 }
 
+Invoke-ConnectionFactoryConfigurator (Join-Path $toolsPath EntityFramework.PowerShell.dll) $project
+
+Write-Host
+Write-Host "Type 'get-help EntityFramework' to see all available Entity Framework commands."
+
 # SIG # Begin signature block
-# MIIaRAYJKoZIhvcNAQcCoIIaNTCCGjECAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
+# MIIaRgYJKoZIhvcNAQcCoIIaNzCCGjMCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUM2fyakiWFghUj5OcFEF6koKx
-# /6OgghUtMIIEoDCCA4igAwIBAgIKYRnMkwABAAAAZjANBgkqhkiG9w0BAQUFADB5
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU4nG54zEClXzFX9aYwYpo8BH3
+# YWygghUtMIIEoDCCA4igAwIBAgIKYRnMkwABAAAAZjANBgkqhkiG9w0BAQUFADB5
 # MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVk
 # bW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSMwIQYDVQQDExpN
 # aWNyb3NvZnQgQ29kZSBTaWduaW5nIFBDQTAeFw0xMTEwMTAyMDMyMjVaFw0xMzAx
@@ -192,29 +142,29 @@ try {
 # v5uCwSdUtrFqPYmhdmG0bqETpr+qR/ASb/2KMmyy/t9RyIwjyWa9nR2HEmQCPS2v
 # WY+45CHltbDKY7R4VAXUQS5QrJSwpXirs6CWdRrZkocTdSIvMqgIbqBbjCW/oO+E
 # yiHW6x5PyZruSeD3AWVviQt9yGnI5m7qp5fOMSn/DsVbXNhNG6HY+i+ePy5VFmvJ
-# E6P9MYIEgTCCBH0CAQEwgYcweTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hp
+# E6P9MYIEgzCCBH8CAQEwgYcweTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hp
 # bmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jw
 # b3JhdGlvbjEjMCEGA1UEAxMaTWljcm9zb2Z0IENvZGUgU2lnbmluZyBQQ0ECCmEZ
-# zJMAAQAAAGYwCQYFKw4DAhoFAKCBrjAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIB
+# zJMAAQAAAGYwCQYFKw4DAhoFAKCBsDAZBgkqhkiG9w0BCQMxDAYKKwYBBAGCNwIB
 # BDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQU
-# 9xYM6Gt10B10F4T8cFicUQvWvVIwTgYKKwYBBAGCNwIBDDFAMD6gJIAiAE0AaQBj
-# AHIAbwBzAG8AZgB0ACAAQQBTAFAALgBOAEUAVKEWgBRodHRwOi8vd3d3LmFzcC5u
-# ZXQvIDANBgkqhkiG9w0BAQEFAASCAQCuP8jCT3sq6XqWKCAcNJF601H1Zr+nKpXF
-# UkZm2Og5DjNN0EovL6vbw5GFU3+jnvW3NTGF3w8Ni/IkJj9KLbnz/MamhpoCY2N8
-# p3adGz5bvVxacZsiIcq3LRcOiasKCxuFu/bemfulxcOeho9rVc3zudiu3GbgsErb
-# ZH098KrmX7Vc/0VZgR9hlhN9QNXY0+ZkuKaB2URiowz8CePkSaMW5kuCF3H5eUpA
-# WUImlvqdgCsNDwUxIAVr5gkDjFZwky+VhNPT8e/ZtQiXxZBnftYujuRpp2wZTwLk
-# vAz/SA/X+mTKZJwtZloO4//l5WnBj2tg6ML3U4qk+mvhZIylsCy/oYICHTCCAhkG
-# CSqGSIb3DQEJBjGCAgowggIGAgEBMIGFMHcxCzAJBgNVBAYTAlVTMRMwEQYDVQQI
-# EwpXYXNoaW5ndG9uMRAwDgYDVQQHEwdSZWRtb25kMR4wHAYDVQQKExVNaWNyb3Nv
-# ZnQgQ29ycG9yYXRpb24xITAfBgNVBAMTGE1pY3Jvc29mdCBUaW1lLVN0YW1wIFBD
-# QQIKYQUZlgAAAAAAGzAHBgUrDgMCGqBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0B
-# BwEwHAYJKoZIhvcNAQkFMQ8XDTEyMDYwNDE2NTkzMFowIwYJKoZIhvcNAQkEMRYE
-# FEHQYQK8DGgOoGQf028vCOnG6FGYMA0GCSqGSIb3DQEBBQUABIIBAGzVRWMbRJoL
-# kuebcjjH8n5+KlB8oAcCLRgU+unIJP105kip47XIqvUH/8AOFVN4Oto6RVtqwNA2
-# a+uYuSdfwdZjKNL/SjkXd0vSB5j86xEx7ac6Apd+/6YES1SsuAm2OR7swBkXiTId
-# EIlkZ1XekIZ7dHz4bu+Ee5FoVm2wKn4RZbTtEcyGHr/BAPHXwWuoObDrt6KJW+qK
-# ivYWvN05JqNal/Zsd3P+azKaEk9FJncuK1zdSJXmixam8ZHm+ixNlwO3nX5bi8ix
-# yJORXvJZGE2QrSufiH/+HhONa8n6YMRuWw6Ws/2io5w+NGlThiTe0n3AuKbB773Z
-# YZgAzu+XkmI=
+# aRQ2a/UgAzqOb3Wvyd0Y2tRWtIEwUAYKKwYBBAGCNwIBDDFCMECgIoAgAEUAbgB0
+# AGkAdAB5ACAARgByAGEAbQBlAHcAbwByAGuhGoAYaHR0cDovL21zZG4uY29tL2Rh
+# dGEvZWYgMA0GCSqGSIb3DQEBAQUABIIBAMQdz1xbjYGj57Z6LNm3laDw2S6QJFye
+# QUSbvlY7kcxqlHQrERkp3wwR34emJSnTayLTcTPaCCvzUaGsZi86i+IW6HdA/3A/
+# IwEZgAkai/qXZCYEEBvV9ja+iMRowFPAySU+ROh4LFbCTLzm4vez6qaLyui/JQNr
+# 46DZptV5XM0idAbgOfmtCMMipqRkrNqt7Zj8cuxu3cJBKOvhUOdLfEIxq1UW9pNy
+# 8c/aOStE0kLFInw3G1GL9IJnS43eTcgeIDMkrwX70o+rLS7lN1U3txL25IrBTUcY
+# Q6dxj4zSDxIjn3Tq2jqa8B6lR1OMEahj4INmR6vC+mFNspHODHWgt7GhggIdMIIC
+# GQYJKoZIhvcNAQkGMYICCjCCAgYCAQEwgYUwdzELMAkGA1UEBhMCVVMxEzARBgNV
+# BAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jv
+# c29mdCBDb3Jwb3JhdGlvbjEhMB8GA1UEAxMYTWljcm9zb2Z0IFRpbWUtU3RhbXAg
+# UENBAgphBRmWAAAAAAAbMAcGBSsOAwIaoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3
+# DQEHATAcBgkqhkiG9w0BCQUxDxcNMTIwNjI4MjA0MzU0WjAjBgkqhkiG9w0BCQQx
+# FgQUlE+8FmmwI9Hd6gz+luAdOPsKxHgwDQYJKoZIhvcNAQEFBQAEggEAiJCupwRm
+# YW3NHK2EdgaQ+VCIjXwVrEj6ElX4c30nAYXxnCOIesErL/N/jMYnM3Fo+GNsOikL
+# x9Mzo4sZv/c6bchLtnagS6MzQyDFiBPF+pngSMg2PpIDHsIBg2vPzClWx6+hCDxE
+# Yf9f7/s/vQEpEbHLjzQZJqoji2LV5HRxnHbT3J13atUF2yqgzyTRlOF2MPp3vLX1
+# 7q5KnOBrWsfyxoYskJEddsbH7zilomWyVZ2zcpG8Ui/h2xoN50AXtMQntx9VYxwT
+# D5U5ECSdKzXeUIwktYBPtxor5yGBda63PNxjUHYXSRvFrdnLtXTiMiIQzEzJUdk9
+# 6p75IHbjyjvZfg==
 # SIG # End signature block
