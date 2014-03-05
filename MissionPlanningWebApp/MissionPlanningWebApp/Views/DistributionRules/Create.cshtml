@@ -4,6 +4,10 @@
     ViewBag.Title = "Create";
 }
 
+@{
+    string[] options = { "<", ">", "=" };
+}
+
 <h2>Create</h2>
 
 @using (Html.BeginForm()) {
@@ -25,7 +29,7 @@
             @Html.LabelFor(model => model.ChrCond)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ChrCond, new SelectList(new string[] {"<", ">", "="}))
+            @Html.DropDownListFor(model => model.ChrCond, new SelectList(@options))
             @Html.ValidationMessageFor(model => model.ChrCond)
         </div>
 
@@ -49,7 +53,7 @@
             @Html.LabelFor(model => model.ConstrCond)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(new string[] { "<", ">", "=" }))
+            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
             @Html.ValidationMessageFor(model => model.ConstrCond)
         </div>
 

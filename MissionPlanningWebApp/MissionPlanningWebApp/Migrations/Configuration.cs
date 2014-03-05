@@ -19,20 +19,20 @@ namespace MissionPlanningWebApp.Migrations
                 new DistributionRules()
                 {
                     ChrIndex = 0,
-                    ChrCond = "L",
+                    ChrCond = "<",
                     ChrData = 6,
                     EquipIndex = 0,
-                    ConstrCond = "L",
+                    ConstrCond = "<",
                     ConstrRHS = 6
                 },
 
                 new DistributionRules()
                 {
                     ChrIndex = 0,
-                    ChrCond = "G",
+                    ChrCond = ">",
                     ChrData = 8,
                     EquipIndex = 0,
-                    ConstrCond = "L",
+                    ConstrCond = "<",
                     ConstrRHS = 12
                 }
                 );
