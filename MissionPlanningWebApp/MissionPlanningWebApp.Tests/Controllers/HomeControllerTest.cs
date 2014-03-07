@@ -24,7 +24,6 @@ namespace MissionPlanningWebApp.Tests.Controllers
 			// Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(result.ViewName, "Index");
-			Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", result.ViewBag.Message);
 		}
 
 		[TestMethod]
