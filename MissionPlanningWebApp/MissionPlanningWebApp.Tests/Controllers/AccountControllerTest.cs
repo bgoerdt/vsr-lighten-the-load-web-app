@@ -32,7 +32,7 @@ namespace MissionPlanningWebApp.Tests.Controllers
             ViewResult viewResult = accountController.Register() as ViewResult;
 
             Assert.AreEqual(viewResult.ViewName, "Register");
-        }
+		}
 
     }
 }
