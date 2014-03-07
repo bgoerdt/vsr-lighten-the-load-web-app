@@ -151,3 +151,4 @@ $RECYCLE.BIN/
 .DS_Store
 MissionPlanningWebApp/MissionPlanningWebApp/App_Data/MissionRules.mdf
 MissionPlanningWebApp/MissionPlanningWebApp/App_Data/MissionRules_log.ldf
+MissionPlanningWebApp/MissionPlanningWebApp/MissionPlanningWebApp.csproj.orig
