@@ -15,7 +15,7 @@ namespace MissionPlanningWebApp.Tests.Models
             // arrange
             MissionParameter missionParameter = new MissionParameter();
             missionParameter.Name = "knife";
-           // missionParameter.Value = 2;
+            missionParameter.Value = 2;
           //
             // act
 
@@ -23,7 +23,7 @@ namespace MissionPlanningWebApp.Tests.Models
             // assert
 
             Assert.AreEqual(missionParameter.Name, "knife");
-           // Assert.AreEqual(missionParameter.value, 2);
+           Assert.AreEqual(missionParameter.Value, 2);
            
             
         }
