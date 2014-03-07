@@ -11,6 +11,12 @@ namespace MissionPlanningWebApp.Tests.SpecFlow
 {
     public static class WebBrowser
     {
+        private static Process process = new Process();
+
+        private static string port = "63369";
+        private static string iisExpressFile = @"C:\Program Files\IIS Express\iisexpress.exe";
+        private static string configFile = Environment.CurrentDirectory.Replace(@".Tests\bin\Debug", "Web.config");
+
         public static IE Current
         {
             get
@@ -26,31 +32,25 @@ namespace MissionPlanningWebApp.Tests.SpecFlow
             }
         }
 
+        public static string localhost = "http://localhost:63369/";
+
         public static void Setup()
         {
-            // create a new process to start
-            // the ASP.Net Development Server
+            process = new Process(); // iisExpress process
 
-            Process p = new Process();
-
-            // set the initial properties 
-
-            //string path = Environment.CurrentDirectory.Replace(@"WebAppUITesting\bin", string.Empty);
-            //string path = Environment.CurrentDirectory.Replace(@".Tests\bin", @"Web.config");
-            string path = Environment.CurrentDirectory.Replace(@".Tests\bin", string.Empty);
-            path = path.Replace(@"\Debug", string.Empty);
-            p.StartInfo.FileName = @"C:\Program Files\IIS Express\iisexpress.exe";
-            p.StartInfo.Arguments =
-                   String.Format("/port:63369 /path:{0}", path);
-            p.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            // initialize properties
+            process.StartInfo.FileName = iisExpressFile;
+            process.StartInfo.Arguments = String.Format("/port:{0} /config:{1}", port, configFile);
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
 
             // start the process
-
-            p.Start();
+            process.Start();
         }
 
         public static void Cleanup()
         {
+            process.Close();
+            
             WebBrowser.Current.Close();
             WebBrowser.Current.Dispose();
         }

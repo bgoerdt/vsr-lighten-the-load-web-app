@@ -16,10 +16,7 @@ namespace MissionPlanningWebApp.Tests.SpecFlow
         [Given(@"I have navigated to /DistributionRules")]
         public void GivenIHaveNavigatedToDistributionRules()
         {
-            WebBrowser.Setup();
-            WebBrowser.Current.GoTo("http://localhost:63369/DistributionRules/Index.cshtml");
-
-            //string url = WebBrowser.Current.Url;
+            WebBrowser.Current.GoTo(WebBrowser.localhost + "DistributionRules");
 
             Assert.IsTrue(true);
         }
