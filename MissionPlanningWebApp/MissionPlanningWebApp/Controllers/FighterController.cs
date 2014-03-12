@@ -9,12 +9,12 @@ using MissionPlanningWebApp.Models;
 
 namespace MissionPlanningWebApp.Controllers
 {
-    public class FightersController : Controller
+    public class FighterController : Controller
     {
         private FighterDBContext db = new FighterDBContext();
 
         //
-        // GET: /Fighters/
+        // GET: /Fighter/
 
         public ActionResult Index()
         {
@@ -22,7 +22,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // GET: /Fighters/Details/5
+        // GET: /Fighter/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -35,7 +35,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // GET: /Fighters/Create
+        // GET: /Fighter/Create
 
         public ActionResult Create()
         {
@@ -43,7 +43,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // POST: /Fighters/Create
+        // POST: /Fighter/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -60,7 +60,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // GET: /Fighters/Edit/5
+        // GET: /Fighter/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -73,7 +73,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // POST: /Fighters/Edit/5
+        // POST: /Fighter/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -89,7 +89,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // GET: /Fighters/Delete/5
+        // GET: /Fighter/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -102,7 +102,7 @@ namespace MissionPlanningWebApp.Controllers
         }
 
         //
-        // POST: /Fighters/Delete/5
+        // POST: /Fighter/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
