@@ -1,0 +1,57 @@
+﻿@model MissionPlanningWebApp.Models.MissionRule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MissionRule</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParamIndex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParamIndex)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RuleCond)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RuleCond)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RuleData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RuleData)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipIndex)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipIndex)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ConstrCond)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConstrCond)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ConstrRHS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConstrRHS)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

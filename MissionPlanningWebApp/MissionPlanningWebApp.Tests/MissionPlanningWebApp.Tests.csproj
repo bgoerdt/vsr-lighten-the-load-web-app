@@ -33,17 +33,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Microsoft.mshtml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -111,20 +131,57 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WatiN.Core">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\WatiN.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\MissionPlanningWebApp.Specs\MissionRulesSteps.cs">
+      <Link>SpecFlow\MissionRulesSteps.cs</Link>
+    </Compile>
     <Compile Include="Controllers\AccountControllerTest.cs" />
+    <Compile Include="Controllers\DistributionRulesControllerTest.cs" />
+    <Compile Include="Controllers\MissionParameterControllerTest.cs" />
+    <Compile Include="Controllers\MissionRuleControllerTest.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DistributionRulesModelTest.cs" />
+    <Compile Include="Models\MissionParametersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="SpecFlow\DistributionRules.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DistributionRules.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SpecFlow\DistributionRulesSteps.cs" />
+    <Compile Include="SpecFlow\WebBrowser.cs" />
+    <Compile Include="SpecFlow\Steps.cs" />
+    <Compile Include="SpecFlow\SignUpSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <None Include="SpecFlow\MissionRules.feature" />
+    <None Include="SpecFlow\DistributionRules.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DistributionRules.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SpecFlow\SpecFlowSignup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecFlowSignup.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MissionPlanningWebApp.Specs\MissionPlanningWebApp.Specs.csproj">
+      <Project>{65c3b2bd-0cb5-445d-ba5f-8cc1b10212f9}</Project>
+      <Name>MissionPlanningWebApp.Specs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MissionPlanningWebApp\MissionPlanningWebApp.csproj">
       <Project>{2366F76B-1CF7-4E34-B5C0-98440CDDC161}</Project>
       <Name>MissionPlanningWebApp</Name>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MissionPlanningWebApp.Models.DistributionRules>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChrIndex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChrCond)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChrData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipIndex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConstrCond)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConstrRHS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChrIndex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChrCond)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChrData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipIndex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConstrCond)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConstrRHS)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

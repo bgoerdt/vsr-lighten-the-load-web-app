@@ -43,7 +43,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.SHDocVw">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Microsoft.mshtml.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -140,6 +149,9 @@
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
+    <Reference Include="WatiN.Core">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\WatiN.Core.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
@@ -155,13 +167,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FightersController.cs" />
+    <Compile Include="Controllers\DistributionRulesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MissionRuleController.cs" />
+    <Compile Include="Controllers\MissionParameterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403031839483_Initial.cs" />
+    <Compile Include="Migrations\201403031839483_Initial.Designer.cs">
+      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Fighter.cs" />
+    <Compile Include="Models\MissionParameter.cs" />
+    <Compile Include="Models\DistributionRules.cs" />
+    <Compile Include="Models\MissionRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +254,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -247,7 +270,10 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Styles\DistributionRules.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -268,20 +294,42 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Views\Fighters\Index.cshtml" />
     <Content Include="Views\Fighters\Details.cshtml" />
     <Content Include="Views\Fighters\Create.cshtml" />
     <Content Include="Views\Fighters\Edit.cshtml" />
     <Content Include="Views\Fighters\Delete.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\DistributionRules\Index.cshtml" />
+    <Content Include="Views\DistributionRules\Details.cshtml" />
+    <Content Include="Views\DistributionRules\Create.cshtml" />
+    <Content Include="Views\DistributionRules\Edit.cshtml" />
+    <Content Include="Views\DistributionRules\Delete.cshtml" />
+    <Content Include="Views\Fighter\Index.cshtml" />
+    <Content Include="Views\MissionRule\Index.cshtml" />
+    <Content Include="Views\MissionRule\Details.cshtml" />
+    <Content Include="Views\MissionRule\Create.cshtml" />
+    <Content Include="Views\MissionRule\Edit.cshtml" />
+    <Content Include="Views\MissionRule\Delete.cshtml" />
+    <Content Include="Views\Fighter\Index.cshtml" />
+    <Content Include="Views\MissionParameter\Index.cshtml" />
+    <Content Include="Views\MissionParameter\Details.cshtml" />
+    <Content Include="Views\MissionParameter\Create.cshtml" />
+    <Content Include="Views\MissionParameter\Edit.cshtml" />
+    <Content Include="Views\MissionParameter\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201403031839483_Initial.cs.resx">
+      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403031839483_Initial.resx">
+      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
