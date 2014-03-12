@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Write automated tests for your web applications using the WatiN framework and execute them through Internet Explorer and FireFox.</description>
     <summary>Write automated tests for your web applications using the WatiN framework and execute them through Internet Explorer and FireFox.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
     <tags>watin web testing automation ie firefox internet explorer</tags>
   </metadata>
 </package>

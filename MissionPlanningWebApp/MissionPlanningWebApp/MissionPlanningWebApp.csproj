@@ -180,9 +180,13 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\DistributionRules.cs" />
+
     <Compile Include="Models\Fighter.cs" />
+
+
+    <Compile Include="Models\DistributionRules.cs" />
     <Compile Include="Models\MissionRule.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +308,7 @@
     <Content Include="Views\MissionRule\Create.cshtml" />
     <Content Include="Views\MissionRule\Edit.cshtml" />
     <Content Include="Views\MissionRule\Delete.cshtml" />
+    <Content Include="Views\Fighter\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
