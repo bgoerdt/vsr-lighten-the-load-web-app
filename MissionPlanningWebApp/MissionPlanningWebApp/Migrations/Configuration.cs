@@ -1,31 +1,41 @@
 namespace MissionPlanningWebApp.Migrations
 {
+    using MissionPlanningWebApp.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MissionPlanningWebApp.Models.EquipmentDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MissionPlanningWebApp.Models.DistributionRulesDBContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(MissionPlanningWebApp.Models.EquipmentDBContext context)
+        protected override void Seed(MissionPlanningWebApp.Models.DistributionRulesDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.DistributionRules.AddOrUpdate(
+                new DistributionRules()
+                {
+                    ChrIndex = 0,
+                    ChrCond = "<",
+                    ChrData = 6,
+                    EquipIndex = 0,
+                    ConstrCond = "<",
+                    ConstrRHS = 6
+                },
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                new DistributionRules()
+                {
+                    ChrIndex = 0,
+                    ChrCond = ">",
+                    ChrData = 8,
+                    EquipIndex = 0,
+                    ConstrCond = "<",
+                    ConstrRHS = 12
+                }
+                );
         }
     }
 }
