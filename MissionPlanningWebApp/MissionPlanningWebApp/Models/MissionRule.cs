@@ -10,6 +10,7 @@ namespace MissionPlanningWebApp.Models
 	public class MissionRule
 	{
 		// constructor
+		public MissionRule() { }
 		public MissionRule(int id, int pInd, string rCond, int rDat, int eInd, string constrCond, int constrRHS)
 		{
 			ID = id;
