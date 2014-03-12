@@ -171,6 +171,7 @@
     <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MissionRuleController.cs" />
+    <Compile Include="Controllers\MissionParameterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +184,7 @@
 
     <Compile Include="Models\Fighter.cs" />
 
+    <Compile Include="Models\MissionParameter.cs" />
 
     <Compile Include="Models\DistributionRules.cs" />
     <Compile Include="Models\MissionRule.cs" />
@@ -257,6 +259,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -309,6 +312,11 @@
     <Content Include="Views\MissionRule\Edit.cshtml" />
     <Content Include="Views\MissionRule\Delete.cshtml" />
     <Content Include="Views\Fighter\Index.cshtml" />
+    <Content Include="Views\MissionParameter\Index.cshtml" />
+    <Content Include="Views\MissionParameter\Details.cshtml" />
+    <Content Include="Views\MissionParameter\Create.cshtml" />
+    <Content Include="Views\MissionParameter\Edit.cshtml" />
+    <Content Include="Views\MissionParameter\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
