@@ -1,0 +1,43 @@
+﻿@model MissionPlanningWebApp.Models.Fighter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Fighter</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Toughness)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Toughness)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Size)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Size)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Experience)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Experience)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PerformanceFitnessTest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PerformanceFitnessTest)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

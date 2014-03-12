@@ -1,135 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="MissionPlanningWebApp.Specs" Label="MissionPlanningWebApp.Specs" Category="Project" />
-    <Node Id="EntityFramework 5.0.0" Label="EntityFramework 5.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.Core 1.2" Label="Microsoft.AspNet.Providers.Core 1.2" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.LocalDB 1.1" Label="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Package" />
-    <Node Id="NUnit 2.6.3" Label="NUnit 2.6.3" Category="Package" />
-    <Node Id="SpecFlow 1.9.0" Label="SpecFlow 1.9.0" Category="Package" />
-    <Node Id="SpecFlow.NUnit 1.1.1" Label="SpecFlow.NUnit 1.1.1" Category="Package" />
-    <Node Id="MissionPlanningWebApp.Tests" Label="MissionPlanningWebApp.Tests" Category="Project" />
-    <Node Id="EntityFramework 5.0.0" Label="EntityFramework 5.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Mvc 4.0.20710.0" Label="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Label="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.Core 1.2" Label="Microsoft.AspNet.Providers.Core 1.2" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.LocalDB 1.1" Label="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Package" />
-    <Node Id="Microsoft.AspNet.Razor 2.0.20715.0" Label="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Label="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Label="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.OData 4.0.0" Label="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Label="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebPages 2.0.20710.0" Label="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.Data.Edm 5.2.0" Label="Microsoft.Data.Edm 5.2.0" Category="Package" />
-    <Node Id="Microsoft.Data.OData 5.2.0" Label="Microsoft.Data.OData 5.2.0" Category="Package" />
-    <Node Id="Microsoft.Net.Http 2.0.20710.0" Label="Microsoft.Net.Http 2.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
-    <Node Id="Newtonsoft.Json 4.5.11" Label="Newtonsoft.Json 4.5.11" Category="Package" />
-    <Node Id="System.Spatial 5.2.0" Label="System.Spatial 5.2.0" Category="Package" />
-    <Node Id="MissionPlanningWebApp" Label="MissionPlanningWebApp" Category="Project" />
-    <Node Id="EntityFramework 5.0.0" Label="EntityFramework 5.0.0" Category="Package" />
-    <Node Id="jQuery 1.8.2" Label="jQuery 1.8.2" Category="Package" />
-    <Node Id="jquery.mobile 1.2.0" Label="jquery.mobile 1.2.0" Category="Package" />
-    <Node Id="jQuery.UI.Combined 1.8.24" Label="jQuery.UI.Combined 1.8.24" Category="Package" />
-    <Node Id="jQuery.Validation 1.10.0" Label="jQuery.Validation 1.10.0" Category="Package" />
-    <Node Id="knockoutjs 2.2.0" Label="knockoutjs 2.2.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Mvc 4.0.20710.0" Label="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Label="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.Core 1.2" Label="Microsoft.AspNet.Providers.Core 1.2" Category="Package" />
-    <Node Id="Microsoft.AspNet.Providers.LocalDB 1.1" Label="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Package" />
-    <Node Id="Microsoft.AspNet.Razor 2.0.20715.0" Label="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.Web.Optimization 1.0.0" Label="Microsoft.AspNet.Web.Optimization 1.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi 4.0.20710.0" Label="Microsoft.AspNet.WebApi 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Label="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Label="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.OData 4.0.0" Label="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Label="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.AspNet.WebPages 2.0.20710.0" Label="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.Data.Edm 5.2.0" Label="Microsoft.Data.Edm 5.2.0" Category="Package" />
-    <Node Id="Microsoft.Data.OData 5.2.0" Label="Microsoft.Data.OData 5.2.0" Category="Package" />
-    <Node Id="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Label="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Category="Package" />
-    <Node Id="Microsoft.Net.Http 2.0.20710.0" Label="Microsoft.Net.Http 2.0.20710.0" Category="Package" />
-    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
-    <Node Id="Modernizr 2.6.2" Label="Modernizr 2.6.2" Category="Package" />
-    <Node Id="Newtonsoft.Json 4.5.11" Label="Newtonsoft.Json 4.5.11" Category="Package" />
-    <Node Id="NUnit 2.6.3" Label="NUnit 2.6.3" Category="Package" />
-    <Node Id="SpecFlow 1.9.0" Label="SpecFlow 1.9.0" Category="Package" />
-    <Node Id="SpecFlow.NUnit 1.1.1" Label="SpecFlow.NUnit 1.1.1" Category="Package" />
-    <Node Id="System.Spatial 5.2.0" Label="System.Spatial 5.2.0" Category="Package" />
-    <Node Id="WebGrease 1.3.0" Label="WebGrease 1.3.0" Category="Package" />
+    <Node Id="EntityFramework 5.0.0" Category="Package" Bounds="143.341666666667,167.88,136.196666666667,25.96" Label="EntityFramework 5.0.0" />
+    <Node Id="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package" Bounds="1031.59166666667,111.92,199.696666666667,25.96" Label="Microsoft.AspNet.Mvc 4.0.20710.0" />
+    <Node Id="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Package" Bounds="795.693333333333,55.9600000000002,269.493333333333,25.96" Label="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" />
+    <Node Id="Microsoft.AspNet.Providers.Core 1.2" Category="Package" Bounds="235.812675361633,111.920000254313,210.306666666667,25.96" Label="Microsoft.AspNet.Providers.Core 1.2" />
+    <Node Id="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Package" Bounds="329.476653849284,53.9802603912354,227.926666666667,25.96" Label="Microsoft.AspNet.Providers.LocalDB 1.1" />
+    <Node Id="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package" Bounds="962.343198242188,231.759051818848,207.543333333333,25.96" Label="Microsoft.AspNet.Razor 2.0.20715.0" />
+    <Node Id="Microsoft.AspNet.Web.Optimization 1.0.0" Category="Package" Bounds="1360.20833333333,167.88,238.463333333333,25.96" Label="Microsoft.AspNet.Web.Optimization 1.0.0" />
+    <Node Id="Microsoft.AspNet.WebApi 4.0.20710.0" Category="Package" Bounds="1095.505,55.9600000000002,219.87,25.96" Label="Microsoft.AspNet.WebApi 4.0.20710.0" />
+    <Node Id="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package" Bounds="679.496531575521,237.698259936523,252.846666666667,25.96" Label="Microsoft.AspNet.WebApi.Client 4.0.20710.0" UseManualLocation="True" />
+    <Node Id="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package" Bounds="745.907728034212,175.798951400406,247.38,25.96" Label="Microsoft.AspNet.WebApi.Core 4.0.20710.0" UseManualLocation="True" />
+    <Node Id="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Package" Bounds="476.1193420283,109.940360391235,221.26,25.96" Label="Microsoft.AspNet.WebApi.OData 4.0.0" UseManualLocation="True" />
+    <Node Id="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Package" Bounds="729.58,111.92,271.72,25.96" Label="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" />
+    <Node Id="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package" Bounds="1096.72333333333,167.88,233.433333333333,25.96" Label="Microsoft.AspNet.WebPages 2.0.20710.0" />
+    <Node Id="Microsoft.Data.Edm 5.2.0" Category="Package" Bounds="341.62,223.84,151.64,25.96" Label="Microsoft.Data.Edm 5.2.0" />
+    <Node Id="Microsoft.Data.OData 5.2.0" Category="Package" Bounds="504.486666666667,167.88,161.906666666667,25.96" Label="Microsoft.Data.OData 5.2.0" />
+    <Node Id="Microsoft.Net.Http 2.0.20710.0" Category="Package" Bounds="194.638320565382,295.637902800812,181.45,25.96" Label="Microsoft.Net.Http 2.0.20710.0" UseManualLocation="True" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" Bounds="1199.88653157552,223.840178291016,208.076666666667,25.96" Label="Microsoft.Web.Infrastructure 1.0.0.0" />
+    <Node Id="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Category="Package" Bounds="1710.67333333333,55.96,293.533333333333,25.96" Label="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" />
+    <Node Id="MissionPlanningWebApp" Category="Project" Bounds="1402.91,0,153.06,25.96" Label="MissionPlanningWebApp" />
+    <Node Id="MissionPlanningWebApp.Specs" Category="Project" Bounds="312.440002441406,-1.97983960876462,186,25.96" Label="MissionPlanningWebApp.Specs" />
+    <Node Id="MissionPlanningWebApp.Tests" Category="Project" Bounds="550.318870401082,-69.9507373702493,182.476666666667,25.96" Label="MissionPlanningWebApp.Tests" UseManualLocation="True" />
+    <Node Id="Modernizr 2.6.2" Category="Package" Bounds="1346.18166666667,55.9600000000002,102.516666666667,25.96" Label="Modernizr 2.6.2" />
+    <Node Id="NUnit 2.6.3" Category="Package" Bounds="-0.680657971700043,111.920001525879,78.88,25.96" Label="NUnit 2.6.3" />
+    <Node Id="Newtonsoft.Json 4.5.11" Category="Package" Bounds="736.117986241541,317.41521413774,141.923333333333,25.96" Label="Newtonsoft.Json 4.5.11" UseManualLocation="True" />
+    <Node Id="SpecFlow 1.9.0" Category="Package" Bounds="108.1993420283,111.920001525879,97.6133333333333,25.96" Label="SpecFlow 1.9.0" />
+    <Node Id="SpecFlow.NUnit 1.1.1" Category="Package" Bounds="167.841666666667,55.9600000000003,131.196666666667,25.96" Label="SpecFlow.NUnit 1.1.1" />
+    <Node Id="System.Spatial 5.2.0" Category="Package" Bounds="523.455,223.84,123.97,25.96" Label="System.Spatial 5.2.0" />
+    <Node Id="WatiN 2.1.0" Category="Package" Bounds="651.85833577474,53.9802603912354,81.1633333333333,25.96" Label="WatiN 2.1.0" />
+    <Node Id="WebGrease 1.3.0" Category="Package" Bounds="1438.14166666667,223.84,108.596666666667,25.96" Label="WebGrease 1.3.0" />
+    <Node Id="jQuery 1.8.2" Category="Package" Bounds="1719.99166666667,167.88,82.8966666666668,25.96" Label="jQuery 1.8.2" />
+    <Node Id="jQuery.UI.Combined 1.8.24" Category="Package" Bounds="1509.99333333333,111.92,160.893333333333,25.96" Label="jQuery.UI.Combined 1.8.24" />
+    <Node Id="jQuery.Validation 1.10.0" Category="Package" Bounds="1851.78666666667,111.92,145.306666666667,25.96" Label="jQuery.Validation 1.10.0" />
+    <Node Id="jquery.mobile 1.2.0" Category="Package" Bounds="1701.42666666667,111.92,120.026666666667,25.96" Label="jquery.mobile 1.2.0" />
+    <Node Id="knockoutjs 2.2.0" Category="Package" Bounds="1574.90333333333,55.96,105.073333333333,25.96" Label="knockoutjs 2.2.0" />
   </Nodes>
   <Links>
-    <Link Source="Microsoft.AspNet.Providers.Core 1.2" Target="EntityFramework 5.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Providers.LocalDB 1.1" Target="Microsoft.AspNet.Providers.Core 1.2" Category="Package Dependency" />
-    <Link Source="SpecFlow.NUnit 1.1.1" Target="SpecFlow 1.9.0" Category="Package Dependency" />
-    <Link Source="SpecFlow.NUnit 1.1.1" Target="NUnit 2.6.3" Category="Package Dependency" />
-    <Link Source="MissionPlanningWebApp.Specs" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp.Specs" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" />
-    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Target="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Providers.Core 1.2" Target="EntityFramework 5.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Providers.LocalDB 1.1" Target="Microsoft.AspNet.Providers.Core 1.2" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Newtonsoft.Json 4.5.11" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Data.OData 5.2.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" />
-    <Link Source="Microsoft.Data.OData 5.2.0" Target="System.Spatial 5.2.0" Category="Package Dependency" />
-    <Link Source="Microsoft.Data.OData 5.2.0" Target="Microsoft.Data.Edm 5.2.0" Category="Package Dependency" />
-    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Installed Package" />
-    <Link Source="jquery.mobile 1.2.0" Target="jQuery 1.8.2" Category="Package Dependency" />
-    <Link Source="jQuery.UI.Combined 1.8.24" Target="jQuery 1.8.2" Category="Package Dependency" />
-    <Link Source="jQuery.Validation 1.10.0" Target="jQuery 1.8.2" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Target="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Providers.Core 1.2" Target="EntityFramework 5.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Providers.LocalDB 1.1" Target="Microsoft.AspNet.Providers.Core 1.2" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Web.Optimization 1.0.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.Web.Optimization 1.0.0" Target="WebGrease 1.3.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi 4.0.20710.0" Target="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Newtonsoft.Json 4.5.11" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Data.OData 5.2.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
-    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" />
-    <Link Source="Microsoft.Data.OData 5.2.0" Target="System.Spatial 5.2.0" Category="Package Dependency" />
-    <Link Source="Microsoft.Data.OData 5.2.0" Target="Microsoft.Data.Edm 5.2.0" Category="Package Dependency" />
-    <Link Source="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Target="jQuery.Validation 1.10.0" Category="Package Dependency" />
-    <Link Source="SpecFlow.NUnit 1.1.1" Target="SpecFlow 1.9.0" Category="Package Dependency" />
-    <Link Source="SpecFlow.NUnit 1.1.1" Target="NUnit 2.6.3" Category="Package Dependency" />
-    <Link Source="MissionPlanningWebApp" Target="jquery.mobile 1.2.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="jQuery.UI.Combined 1.8.24" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="knockoutjs 2.2.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Web.Optimization 1.0.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.WebApi 4.0.20710.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="Modernizr 2.6.2" Category="Installed Package" />
-    <Link Source="MissionPlanningWebApp" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" />
+    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" Bounds="1071.23168945313,137.879974365234,42.4842529296875,85.1184387207031" />
+    <Link Source="Microsoft.AspNet.Mvc 4.0.20710.0" Target="Microsoft.AspNet.WebPages 2.0.20710.0" Category="Package Dependency" Bounds="1150.45999690597,137.880000254313,36.526177306715,24.9269147961386" />
+    <Link Source="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Target="Microsoft.AspNet.Mvc 4.0.20710.0" Category="Package Dependency" Bounds="977.062152066744,81.9197952697754,99.0855129883744,27.5862793255463" />
+    <Link Source="Microsoft.AspNet.Providers.Core 1.2" Target="EntityFramework 5.0.0" Category="Package Dependency" Bounds="249.745582036886,137.880000254313,61.1767408855256,26.4306484465868" />
+    <Link Source="Microsoft.AspNet.Providers.LocalDB 1.1" Target="Microsoft.AspNet.Providers.Core 1.2" Category="Package Dependency" Bounds="371.757251201079,79.9402603912354,48.7259149134252,27.5500851663971" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.0.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" Bounds="1353.21051841068,193.840098474121,85.518608182605,27.2661751163513" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.0.0" Target="WebGrease 1.3.0" Category="Package Dependency" Bounds="1482.45532226563,193.839996337891,4.9327392578125,21.2334442138672" />
+    <Link Source="Microsoft.AspNet.WebApi 4.0.20710.0" Target="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Package Dependency" Bounds="953.183953514101,81.9198482070923,173.392648420539,28.538416579" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" Bounds="385.030774367898,263.658260803223,304.270763337611,33.866329080832" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Target="Newtonsoft.Json 4.5.11" Category="Package Dependency" Bounds="806.108705250194,263.658260803223,0.651177219563465,44.757905697397" />
+    <Link Source="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" Bounds="825.726262222966,201.758945922852,30.518503789389,29.6661143363222" />
+    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Client 4.0.20710.0" Category="Package Dependency" Bounds="609.016721287135,135.900360565186,166.860342562541,97.2654842144314" />
+    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" Bounds="642.495632698846,135.900360565186,162.590280853924,37.857620478411" />
+    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Data.OData 5.2.0" Category="Package Dependency" Bounds="585.936653461105,135.900360391235,0.519358169004477,22.9818289385076" />
+    <Link Source="Microsoft.AspNet.WebApi.OData 4.0.0" Target="Microsoft.Net.Http 2.0.20710.0" Category="Package Dependency" Bounds="295.584564208984,135.900360107422,254.632843017578,151.639465332031" />
+    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.AspNet.WebApi.Core 4.0.20710.0" Category="Package Dependency" Bounds="866.284863410682,137.880001525879,1.88348720377837,28.937953001009" />
+    <Link Source="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" Bounds="901.741516113281,137.880004882813,307.397888183594,84.6152801513672" />
+    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.AspNet.Razor 2.0.20715.0" Category="Package Dependency" Bounds="1104.30808919331,193.840078291016,79.1959723126545,34.338711015183" />
+    <Link Source="Microsoft.AspNet.WebPages 2.0.20710.0" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" Bounds="1234.42810178584,193.840078291016,40.8542834295715,25.2662297972535" />
+    <Link Source="Microsoft.Data.OData 5.2.0" Target="Microsoft.Data.Edm 5.2.0" Category="Package Dependency" Bounds="464.946594238281,193.839996337891,81.5255737304688,27.1557769775391" />
+    <Link Source="Microsoft.Data.OData 5.2.0" Target="System.Spatial 5.2.0" Category="Package Dependency" Bounds="585.440002441406,193.839996337891,0,21" />
+    <Link Source="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Target="jQuery.Validation 1.10.0" Category="Package Dependency" Bounds="1872.98071289063,81.9199981689453,29.010986328125,24.2306365966797" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Installed Package" Bounds="1066.73486328125,20.7807636260986,336.175170898438,34.2665882110596" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" Bounds="566.380798339844,16.6435813903809,836.529235839844,40.8912658691406" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.Web.Optimization 1.0.0" Category="Installed Package" Bounds="1479.43994140625,25.9599990844727,0,132.92000579834" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.WebApi 4.0.20710.0" Category="Installed Package" Bounds="1277.81262207031,25.9599990844727,138.07275390625,28.1990737915039" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Installed Package" Bounds="677.144592285156,25.9597644805908,777.027770996094,82.6349544525146" />
+    <Link Source="MissionPlanningWebApp" Target="Microsoft.jQuery.Unobtrusive.Validation 2.0.30116.0" Category="Installed Package" Bounds="1555.67114257813,24.2654266357422,205.188232421875,30.3765563964844" />
+    <Link Source="MissionPlanningWebApp" Target="Modernizr 2.6.2" Category="Installed Package" Bounds="1423.89392089844,25.9599990844727,36.526123046875,24.9268188476563" />
+    <Link Source="MissionPlanningWebApp" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" Bounds="284.801849365234,15.1277332305908,1118.10818481445,39.1092128753662" />
+    <Link Source="MissionPlanningWebApp" Target="WatiN 2.1.0" Category="Installed Package" Bounds="741.976623535156,17.4668350219727,660.933410644531,39.3834381103516" />
+    <Link Source="MissionPlanningWebApp" Target="jQuery.UI.Combined 1.8.24" Category="Installed Package" Bounds="1486.86242675781,25.9599990844727,77.9093017578125,80.7577438354492" />
+    <Link Source="MissionPlanningWebApp" Target="jquery.mobile 1.2.0" Category="Installed Package" Bounds="1494.28491210938,25.9599990844727,198.716552734375,85.7382965087891" />
+    <Link Source="MissionPlanningWebApp" Target="knockoutjs 2.2.0" Category="Installed Package" Bounds="1513.76879882813,25.9599990844727,70.924072265625,26.8169631958008" />
+    <Link Source="MissionPlanningWebApp.Specs" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" Bounds="414.254136117738,23.9801603912354,15.3157396789032,22.5544912673583" />
+    <Link Source="MissionPlanningWebApp.Specs" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" Bounds="280.501530026706,23.9801603912354,86.4060229369236,29.1066411017584" />
+    <Link Source="MissionPlanningWebApp.Specs" Target="WatiN 2.1.0" Category="Installed Package" Bounds="472.009933517298,23.9801603912354,171.014756169314,33.3449576888866" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.Mvc.FixedDisplayModes 1.0.0" Category="Installed Package" Bounds="671.337857350819,-43.9907374572754,221.071141436386,96.3545704465069" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.Providers.LocalDB 1.1" Category="Installed Package" Bounds="471.820050541527,-43.9907374572754,148.987195185337,93.1980237397663" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.WebApi.OData 4.0.0" Category="Installed Package" Bounds="593.327001131038,-43.9907374572754,44.2755413907878,145.321811599929" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="Microsoft.AspNet.WebApi.WebHost 4.0.20710.0" Category="Installed Package" Bounds="655.838195800781,-43.9907379150391,164.908752441406,149.88550567627" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="SpecFlow.NUnit 1.1.1" Category="Installed Package" Bounds="307.783416748047,-43.9907379150391,314.823150634766,100.592247009277" />
+    <Link Source="MissionPlanningWebApp.Tests" Target="WatiN 2.1.0" Category="Installed Package" Bounds="646.886437004012,-43.9907374572754,36.8060499909573,89.6454083044543" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="NUnit 2.6.3" Category="Package Dependency" Bounds="86.5646293148662,81.9199002543132,101.718998447886,29.2386807471305" />
+    <Link Source="SpecFlow.NUnit 1.1.1" Target="SpecFlow 1.9.0" Category="Package Dependency" Bounds="181.996734057539,81.9199002543132,33.7143232211989,24.6834822780473" />
+    <Link Source="jQuery.UI.Combined 1.8.24" Target="jQuery 1.8.2" Category="Package Dependency" Bounds="1630.10363769531,137.880004882813,83.4898681640625,27.3221435546875" />
+    <Link Source="jQuery.Validation 1.10.0" Target="jQuery 1.8.2" Category="Package Dependency" Bounds="1807.76037597656,137.880004882813,78.87158203125,27.0776062011719" />
+    <Link Source="jquery.mobile 1.2.0" Target="jQuery 1.8.2" Category="Package Dependency" Bounds="1761.43994140625,137.880004882813,0,21" />
   </Links>
   <Categories>
-    <Category Id="Project" />
+    <Category Id="Installed Package" />
     <Category Id="Package" />
+    <Category Id="Package Dependency" />
+    <Category Id="Project" />
   </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
   <Styles>
     <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
       <Condition Expression="HasCategory('Project')" />
