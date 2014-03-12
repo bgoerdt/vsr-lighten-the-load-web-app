@@ -1,0 +1,22 @@
+﻿body {
+}
+
+#table {
+    align-self:center;
+    border:solid;
+    border-color:black;
+    border-style:solid
+}
+
+#td {
+    text-align:center;
+    border:solid;
+    border-color:black;
+    border-style:solid;
+}
+
+#th {
+    border:solid;
+    border-color:black;
+    border-style:solid;
+}

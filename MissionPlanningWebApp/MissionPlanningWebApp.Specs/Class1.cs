@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MissionPlanningWebApp.Specs
 {
-    class Class1
+    public class Class1
     {
     }
 }
