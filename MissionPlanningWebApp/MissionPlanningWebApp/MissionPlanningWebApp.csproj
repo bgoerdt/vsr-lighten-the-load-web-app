@@ -168,7 +168,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DistributionRulesController.cs" />
-    <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MissionRuleController.cs" />
     <Compile Include="Controllers\MissionParameterController.cs" />
@@ -181,14 +180,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
-
     <Compile Include="Models\Fighter.cs" />
-
     <Compile Include="Models\MissionParameter.cs" />
-
     <Compile Include="Models\DistributionRules.cs" />
     <Compile Include="Models\MissionRule.cs" />
-
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +294,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Fighters\Details.cshtml" />
+    <Content Include="Views\Fighters\Create.cshtml" />
+    <Content Include="Views\Fighters\Edit.cshtml" />
+    <Content Include="Views\Fighters\Delete.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\DistributionRules\Index.cshtml" />
     <Content Include="Views\DistributionRules\Details.cshtml" />

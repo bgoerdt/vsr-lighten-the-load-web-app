@@ -1,0 +1,47 @@
+﻿@model MissionPlanningWebApp.Models.Fighter
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Fighter</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Toughness)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Toughness)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Size)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Size)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Experience)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Experience)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PerformanceFitnessTest)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PerformanceFitnessTest)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
