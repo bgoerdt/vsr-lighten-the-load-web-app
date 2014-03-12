@@ -144,9 +144,11 @@
     </Compile>
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Controllers\DistributionRulesControllerTest.cs" />
+    <Compile Include="Controllers\MissionParameterControllerTest.cs" />
     <Compile Include="Controllers\MissionRuleControllerTest.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\DistributionRulesModelTest.cs" />
+    <Compile Include="Models\MissionParametersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="SpecFlow\DistributionRules.feature.cs">
@@ -157,16 +159,22 @@
     <Compile Include="SpecFlow\DistributionRulesSteps.cs" />
     <Compile Include="SpecFlow\WebBrowser.cs" />
     <Compile Include="SpecFlow\Steps.cs" />
+    <Compile Include="SpecFlow\SignUpSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="SpecFlow\MissionRules.feature" />
     <None Include="SpecFlow\DistributionRules.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DistributionRules.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SpecFlow\SpecFlowSignup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecFlowSignup.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
