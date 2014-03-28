@@ -88,6 +88,29 @@ namespace MissionPlanningWebApp.Controllers
             return View(missionparameter);
         }
 
+        // 
+        // POST: /MissionParameter/Edit/IsSelected
+
+        public class CheckedInfo
+        {
+            public int ID { get; set; }
+            public bool ck { get; set; }
+        }
+
+        [HttpPost]
+        public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
+        {
+            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
+            missionparameter.IsSelected = info.ck;
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionparameter).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return new ContentResult { Content = "success" };
+        }
+
         //
         // GET: /MissionParameter/Delete/5
 

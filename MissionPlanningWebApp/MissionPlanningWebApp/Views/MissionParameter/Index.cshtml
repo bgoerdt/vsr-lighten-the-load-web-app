@@ -32,7 +32,14 @@
             @Html.DisplayFor(modelItem => item.Value)
         </td>
         <td>
-            @Html.EditorFor(modelItem => item.IsSelected)
+            @if(item.IsSelected)
+            {
+                <input type="checkbox" class="ckbox" id="@item.ID" checked/>
+            }
+            else
+            {
+                <input type="checkbox" class="ckbox" id="@item.ID"/>
+            }
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
@@ -43,3 +50,25 @@
 }
 
 </table>
+
+@section Scripts {
+<script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckbox').click(function () {
+            var checked = $(this).is(':checked');
+            var id = $(this).attr('id');
+
+            var data = {
+                id: id,
+                ck: checked
+            };
+
+            $.post('/MissionParameter/UpdateChecked', data, function (data) {
+                alert(data);
+            });
+        });
+    });
+</script>
+
+    }
