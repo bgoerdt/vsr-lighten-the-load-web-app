@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.Value)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsSelected)
+            @Html.EditorFor(modelItem => item.IsSelected)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
