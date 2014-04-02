@@ -4,6 +4,10 @@
     ViewBag.Title = "Edit";
 }
 
+@{
+    string[] options = { "<", ">", "=" };
+}
+
 <h2>Edit</h2>
 
 @using (Html.BeginForm()) {
@@ -27,7 +31,7 @@
             @Html.LabelFor(model => model.RuleCond)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.RuleCond)
+            @Html.DropDownListFor(model => model.RuleCond, new SelectList(@options))
             @Html.ValidationMessageFor(model => model.RuleCond)
         </div>
 
@@ -51,7 +55,7 @@
             @Html.LabelFor(model => model.ConstrCond)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ConstrCond)
+            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
             @Html.ValidationMessageFor(model => model.ConstrCond)
         </div>
 
