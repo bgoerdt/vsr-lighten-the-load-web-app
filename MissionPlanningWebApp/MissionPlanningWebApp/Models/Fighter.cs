@@ -3,19 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 namespace MissionPlanningWebApp.Models
 {
     public class Fighter
     {
         public int ID { get; set; }
-        public float Toughness { get; set; }
-        public int Size { get; set; }
-        public int Experience { get; set; }
-        public int PerformanceFitnessTest { get; set; }
+        public string Name { get; set; }
+
+        public virtual ICollection<FighterCharacteristic> FighterCharacteristics { get; set; }
     }
 
-    public class FighterDBContext : DbContext
+    public class FighterCharacteristic
     {
-        public DbSet<Fighter> Fighter { get; set; }
+        public float CharValue { get; set; }
+
+        [Key]
+        [Column(Order = 0)]
+        [ForeignKey("Fighter")]
+        public int FighterID { get; set; }
+        public virtual Fighter Fighter { get; set; }
+
+        [Key][Column(Order = 1)]
+        [ForeignKey("Characteristic")]
+        public int CharID { get; set; }
+        public virtual Characteristic Characteristic { get; set; }
+    }
+
+    public class Characteristic
+    {
+        public int ID { get; set; }
+        public string Char { get; set; }
     }
 }

@@ -14,18 +14,18 @@
         <legend>MissionRule</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ParamIndex)
+            @Html.LabelFor(model => model.ParamId, "Param")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ParamIndex)
-            @Html.ValidationMessageFor(model => model.ParamIndex)
+            @Html.DropDownList("ParamId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ParamId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.RuleCond)
         </div>
         <div class="editor-field">
-			@Html.DropDownListFor(model => model.RuleCond, new SelectList(new string[]{"<","=",">"}))
+            @Html.EditorFor(model => model.RuleCond)
             @Html.ValidationMessageFor(model => model.RuleCond)
         </div>
 
@@ -38,18 +38,18 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.EquipIndex)
+            @Html.LabelFor(model => model.EquipId, "Equip")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EquipIndex)
-            @Html.ValidationMessageFor(model => model.EquipIndex)
+            @Html.DropDownList("EquipId", String.Empty)
+            @Html.ValidationMessageFor(model => model.EquipId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.ConstrCond)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(new string[]{"<","=",">"}))
+            @Html.EditorFor(model => model.ConstrCond)
             @Html.ValidationMessageFor(model => model.ConstrCond)
         </div>
 

@@ -4,10 +4,6 @@
     ViewBag.Title = "Create";
 }
 
-@{
-    string[] options = { "<", ">", "=" };
-}
-
 <h2>Create</h2>
 
 @using (Html.BeginForm()) {
@@ -18,18 +14,18 @@
         <legend>DistributionRules</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ChrIndex)
+            @Html.LabelFor(model => model.ChrId, "Chr")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ChrIndex)
-            @Html.ValidationMessageFor(model => model.ChrIndex)
+            @Html.DropDownList("ChrId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ChrId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.ChrCond)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ChrCond, new SelectList(@options))
+            @Html.EditorFor(model => model.ChrCond)
             @Html.ValidationMessageFor(model => model.ChrCond)
         </div>
 
@@ -42,18 +38,18 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.EquipIndex)
+            @Html.LabelFor(model => model.EquipId, "Equip")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EquipIndex)
-            @Html.ValidationMessageFor(model => model.EquipIndex)
+            @Html.DropDownList("EquipId", String.Empty)
+            @Html.ValidationMessageFor(model => model.EquipId)
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.ConstrCond)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
+            @Html.EditorFor(model => model.ConstrCond)
             @Html.ValidationMessageFor(model => model.ConstrCond)
         </div>
 

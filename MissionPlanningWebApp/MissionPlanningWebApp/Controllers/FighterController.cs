@@ -11,14 +11,14 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class FighterController : Controller
     {
-        private FighterDBContext db = new FighterDBContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /Fighter/
 
         public ActionResult Index()
         {
-            return View(db.Fighter.ToList());
+            return View(db.Fighters.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Fighter fighter = db.Fighter.Find(id);
+            Fighter fighter = db.Fighters.Find(id);
             if (fighter == null)
             {
                 return HttpNotFound();
@@ -39,6 +39,21 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Create()
         {
+            var characteristics = db.Characteristics.ToList(); // add characteristics
+
+            var fighterCharacteristics = new List<FighterCharacteristic>();
+            foreach (Characteristic chr in characteristics)
+            {
+                FighterCharacteristic fChr = new FighterCharacteristic();
+                fChr.CharID = chr.ID;
+                fChr.Characteristic = chr;
+                fChr.CharValue = 0;
+
+                fighterCharacteristics.Add(fChr);
+            }
+
+            ViewData["fighterChr"] = fighterCharacteristics;
+
             return View();
         }
 
@@ -51,9 +66,10 @@ namespace MissionPlanningWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Fighter.Add(fighter);
+                db.Fighters.Add(fighter);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                //CreateFighterChrs(fighter);
             }
 
             return View(fighter);
@@ -64,7 +80,7 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Fighter fighter = db.Fighter.Find(id);
+            Fighter fighter = db.Fighters.Find(id);
             if (fighter == null)
             {
                 return HttpNotFound();
@@ -93,7 +109,7 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Fighter fighter = db.Fighter.Find(id);
+            Fighter fighter = db.Fighters.Find(id);
             if (fighter == null)
             {
                 return HttpNotFound();
@@ -108,8 +124,8 @@ namespace MissionPlanningWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Fighter fighter = db.Fighter.Find(id);
-            db.Fighter.Remove(fighter);
+            Fighter fighter = db.Fighters.Find(id);
+            db.Fighters.Remove(fighter);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -119,5 +135,27 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public void CreateFighterChrs(Fighter fighter)
+        {
+            fighter.FighterCharacteristics = new List<FighterCharacteristic>();
+
+            var characteristics = db.Characteristics.ToList();
+            foreach (Characteristic chr in characteristics)
+            {
+                FighterCharacteristic fchr = new FighterCharacteristic();
+                fchr.CharID = chr.ID;
+                fchr.Characteristic = chr;
+                fchr.CharValue = 0;
+                fchr.FighterID = fighter.ID;
+                fchr.Fighter = fighter;
+
+                fighter.FighterCharacteristics.Add(fchr);
+            }
+
+            db.Entry(fighter).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
     }
 }

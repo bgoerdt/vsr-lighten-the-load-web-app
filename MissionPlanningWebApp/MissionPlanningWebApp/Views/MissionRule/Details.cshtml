@@ -10,10 +10,17 @@
     <legend>MissionRule</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ParamIndex)
+         @Html.DisplayNameFor(model => model.Param.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ParamIndex)
+        @Html.DisplayFor(model => model.Param.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParamName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParamName)
     </div>
 
     <div class="display-label">
@@ -31,10 +38,17 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.EquipIndex)
+         @Html.DisplayNameFor(model => model.Equip.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.EquipIndex)
+        @Html.DisplayFor(model => model.Equip.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipName)
     </div>
 
     <div class="display-label">

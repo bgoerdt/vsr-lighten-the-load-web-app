@@ -11,7 +11,7 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class EquipmentController : Controller
     {
-        private EquipmentDBContext db = new EquipmentDBContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /Equipment/
@@ -119,6 +119,5 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-
     }
 }
