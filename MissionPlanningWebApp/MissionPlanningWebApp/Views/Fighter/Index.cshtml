@@ -14,6 +14,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        @foreach (var chr in ViewData["characteristics"] as List<MissionPlanningWebApp.Models.Characteristic>)
+        {
+            <th>@Html.DisplayFor(c => chr.Char)</th>
+        }
         <th></th>
     </tr>
 
@@ -22,6 +26,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+        @*@foreach (var chr in item.FighterCharacteristics as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+        {
+            <td>@Html.DisplayFor(c => chr.CharValue)</td>
+        }*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |

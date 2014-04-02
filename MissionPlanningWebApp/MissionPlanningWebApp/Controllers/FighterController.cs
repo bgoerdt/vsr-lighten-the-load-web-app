@@ -18,6 +18,9 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Index()
         {
+            var characteristics = db.Characteristics.ToList();
+            ViewData["characteristics"] = characteristics;
+
             return View(db.Fighters.ToList());
         }
 
@@ -65,6 +68,12 @@ namespace MissionPlanningWebApp.Controllers
             {
                 db.Fighters.Add(fighter);
                 db.SaveChanges();
+
+                // create fighter characteristics
+                fighter.FighterCharacteristics = new List<FighterCharacteristic>();
+                db.Entry(fighter).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
