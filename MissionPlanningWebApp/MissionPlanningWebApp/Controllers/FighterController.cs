@@ -39,20 +39,17 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Create()
         {
-            var characteristics = db.Characteristics.ToList(); // add characteristics
-
             var fighterCharacteristics = new List<FighterCharacteristic>();
-            foreach (Characteristic chr in characteristics)
-            {
-                FighterCharacteristic fChr = new FighterCharacteristic();
-                fChr.CharID = chr.ID;
-                fChr.Characteristic = chr;
-                fChr.CharValue = 0;
+            foreach(Characteristic chr in db.Characteristics.ToList()) {
+                FighterCharacteristic fchr = new FighterCharacteristic();
+                fchr.CharID = chr.ID;
+                fchr.Characteristic = chr;
+                fchr.CharValue = 0;
 
-                fighterCharacteristics.Add(fChr);
+                fighterCharacteristics.Add(fchr);
             }
 
-            ViewData["fighterChr"] = fighterCharacteristics;
+            ViewData["fighterCharacteristics"] = fighterCharacteristics;
 
             return View();
         }
@@ -68,8 +65,7 @@ namespace MissionPlanningWebApp.Controllers
             {
                 db.Fighters.Add(fighter);
                 db.SaveChanges();
-
-                //CreateFighterChrs(fighter);
+                return RedirectToAction("Index");
             }
 
             return View(fighter);
@@ -135,27 +131,5 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-
-        public void CreateFighterChrs(Fighter fighter)
-        {
-            fighter.FighterCharacteristics = new List<FighterCharacteristic>();
-
-            var characteristics = db.Characteristics.ToList();
-            foreach (Characteristic chr in characteristics)
-            {
-                FighterCharacteristic fchr = new FighterCharacteristic();
-                fchr.CharID = chr.ID;
-                fchr.Characteristic = chr;
-                fchr.CharValue = 0;
-                fchr.FighterID = fighter.ID;
-                fchr.Fighter = fighter;
-
-                fighter.FighterCharacteristics.Add(fchr);
-            }
-
-            db.Entry(fighter).State = EntityState.Modified;
-            db.SaveChanges();
-        }
-
     }
 }

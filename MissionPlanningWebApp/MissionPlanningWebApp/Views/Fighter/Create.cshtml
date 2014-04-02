@@ -21,6 +21,21 @@
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
+        <table>
+            @foreach (var item in ViewData["fighterCharacteristics"] as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => item.Characteristic.Char)</td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(i => item.CharValue)
+                            @Html.ValidationMessageFor(i => item.CharValue)
+                        </div>
+                    </td>
+                </tr>
+            } 
+        </table>
+
         <p>
             <input type="submit" value="Create" />
         </p>
