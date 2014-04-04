@@ -57,7 +57,37 @@ namespace MissionPlanningWebApp.Controllers
             return View();
         }
 
-        //
+		/*private class FighterData
+		{
+			public int id;
+			public string name;
+			public ICollection<Tuple<int, int, int>> characteristics;
+		}*/
+
+		//
+		// POST: /Fighter/Create
+		[HttpPost]
+		public ActionResult Create(string name, float char1, float char2, float char3, float char4)
+		{
+			if (ModelState.IsValid)
+			{
+				Fighter fighter = new Fighter();
+				fighter.Name = name;
+				db.Fighters.Add(fighter);
+				db.SaveChanges();
+
+				var chars = db.Characteristics.ToList();
+				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[0].ID, char1));
+				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[1].ID, char2));
+				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[2].ID, char3));
+				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[3].ID, char4));
+				db.SaveChanges();
+			}
+
+			return View("Index","Fighter");
+		}
+
+        /*//
         // POST: /Fighter/Create
 
         [HttpPost]
@@ -78,7 +108,7 @@ namespace MissionPlanningWebApp.Controllers
             }
 
             return View(fighter);
-        }
+        }*/
 
         //
         // GET: /Fighter/Edit/5
