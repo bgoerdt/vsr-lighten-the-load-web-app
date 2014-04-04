@@ -175,17 +175,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201403031839483_Initial.cs" />
-    <Compile Include="Migrations\201403031839483_Initial.Designer.cs">
-      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201403071345592_InitialCreate.cs" />
-    <Compile Include="Migrations\201403071345592_InitialCreate.Designer.cs">
-      <DependentUpon>201403071345592_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201403071354162_UpdateEquipmentID.cs" />
-    <Compile Include="Migrations\201403071354162_UpdateEquipmentID.Designer.cs">
-      <DependentUpon>201403071354162_UpdateEquipmentID.cs</DependentUpon>
+    <Compile Include="Migrations\201404041720478_ComplexDataModel.cs" />
+    <Compile Include="Migrations\201404041720478_ComplexDataModel.Designer.cs">
+      <DependentUpon>201404041720478_ComplexDataModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -340,19 +332,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201403031839483_Initial.cs.resx">
-      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403031839483_Initial.resx">
-      <DependentUpon>201403031839483_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201403071345592_InitialCreate.resx">
-      <DependentUpon>201403071345592_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201403071354162_UpdateEquipmentID.resx">
-      <DependentUpon>201403071354162_UpdateEquipmentID.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201404041720478_ComplexDataModel.resx">
+      <DependentUpon>201404041720478_ComplexDataModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

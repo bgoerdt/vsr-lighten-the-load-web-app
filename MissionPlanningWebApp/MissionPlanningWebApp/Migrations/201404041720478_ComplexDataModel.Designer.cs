@@ -5,13 +5,13 @@ namespace MissionPlanningWebApp.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class UpdateEquipmentID : IMigrationMetadata
+    public sealed partial class ComplexDataModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateEquipmentID));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ComplexDataModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201403071354162_UpdateEquipmentID"; }
+            get { return "201404041720478_ComplexDataModel"; }
         }
         
         string IMigrationMetadata.Source
