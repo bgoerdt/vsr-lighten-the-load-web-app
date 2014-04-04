@@ -57,7 +57,39 @@ namespace MissionPlanningWebApp.Controllers
             return View();
         }
 
-        //
+		public class FighterData
+		{
+			public string name { get; set; }
+			public string chars { get; set; }
+		}
+
+		//
+		// POST: /Fighter/Create
+		[HttpPost]
+		public ContentResult ManualCreate(FighterData data)
+		{
+			Fighter fighter = new Fighter();
+			if (ModelState.IsValid)
+			{
+				fighter.Name = data.name;
+				db.Fighters.Add(fighter);
+
+				char[] delims = { ',' };
+				string[] charVals = data.chars.Split(delims,StringSplitOptions.RemoveEmptyEntries);
+				var chars = db.Characteristics.ToList();
+				int i = 0;
+				foreach (Characteristic characteristic in chars)
+				{
+					db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
+					i++;
+				}
+				db.SaveChanges();
+			}
+
+			return new ContentResult { Content = "success"};
+		}
+
+        /*//
         // POST: /Fighter/Create
 
         [HttpPost]
@@ -78,7 +110,7 @@ namespace MissionPlanningWebApp.Controllers
             }
 
             return View(fighter);
-        }
+        }*/
 
         //
         // GET: /Fighter/Edit/5

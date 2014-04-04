@@ -39,10 +39,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        @*@foreach (var chr in item.FighterCharacteristics as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+        @foreach (var chr in item.FighterCharacteristics)
         {
             <td>@Html.DisplayFor(c => chr.CharValue)</td>
-        }*@
+        }
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |

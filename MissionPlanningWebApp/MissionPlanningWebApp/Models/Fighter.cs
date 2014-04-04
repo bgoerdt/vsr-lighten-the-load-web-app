@@ -5,6 +5,8 @@ using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Resources;
+
 namespace MissionPlanningWebApp.Models
 {
     public class Fighter
@@ -17,6 +19,14 @@ namespace MissionPlanningWebApp.Models
 
     public class FighterCharacteristic
     {
+		public FighterCharacteristic(){}
+		public FighterCharacteristic(int fID, int cID, float cVal)
+		{
+			FighterID = fID;
+			CharID = cID;
+			CharValue = cVal;
+		}
+
         public float CharValue { get; set; }
 
         [Key]
