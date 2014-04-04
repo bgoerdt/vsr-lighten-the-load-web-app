@@ -9,7 +9,6 @@ namespace MissionPlanningWebApp.Tests
         [Given(@"you are on the home page")]
         public void GivenYouAreOnTheHomePage()
         {
-            ScenarioContext.Current.Pending();
         }
         
         [Given(@"these mission rules exist")]

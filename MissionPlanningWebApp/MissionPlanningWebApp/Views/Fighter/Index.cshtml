@@ -11,6 +11,9 @@
 </p>
 <table>
     <tr>
+        <th style="width:50px;">
+
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -24,6 +27,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @if(item.IsSelected)
+            {
+                <input type="checkbox" class="ckbox" id="@item.ID" checked/>
+            }
+            else
+            {
+                <input type="checkbox" class="ckbox" id="@item.ID"/>
+            }
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         @foreach (var chr in item.FighterCharacteristics)
@@ -35,7 +48,31 @@
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
+
     </tr>
 }
 
 </table>
+
+
+
+@section Scripts {
+    <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.ckbox').click(function () {
+                    var checked = $(this).is(':checked');
+                    var id = $(this).attr('id');
+
+                    var data = {
+                        id: id,
+                        ck: checked
+                    };
+
+                    $.post('/MissionParameter/UpdateChecked', data, function (data) {
+                        //alert(data);
+                    });
+                });
+            });
+    </script>
+}

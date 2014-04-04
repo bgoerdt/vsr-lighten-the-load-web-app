@@ -100,11 +100,11 @@ namespace MissionPlanningWebApp.Controllers
         [HttpPost]
         public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
         {
-            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
-            missionparameter.IsSelected = info.ck;
+            Fighter fighter = db.Fighters.Find(info.ID);
+            fighter.IsSelected = info.ck;
             if (ModelState.IsValid)
             {
-                db.Entry(missionparameter).State = EntityState.Modified;
+                db.Entry(fighter).State = EntityState.Modified;
                 db.SaveChanges();
             }
 
@@ -116,12 +116,12 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            MissionParameter missionparameter = db.MissionParameters.Find(id);
-            if (missionparameter == null)
+            Fighter fighter = db.Fighters.Find(id);
+            if (fighter == null)
             {
                 return HttpNotFound();
             }
-            return View(missionparameter);
+            return View(fighter);
         }
 
         //

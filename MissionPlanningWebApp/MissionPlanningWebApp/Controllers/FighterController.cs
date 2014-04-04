@@ -167,6 +167,28 @@ namespace MissionPlanningWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public class CheckedInfo
+        {
+            public int ID { get; set; }
+            public bool ck { get; set; }
+        }
+
+        [HttpPost]
+        public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
+        {
+            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
+            missionparameter.IsSelected = info.ck;
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionparameter).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return new ContentResult { Content = "success" };
+        }
+
+        
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
