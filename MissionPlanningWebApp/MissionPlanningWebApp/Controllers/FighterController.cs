@@ -57,34 +57,36 @@ namespace MissionPlanningWebApp.Controllers
             return View();
         }
 
-		/*private class FighterData
+		public class FighterData
 		{
-			public int id;
-			public string name;
-			public ICollection<Tuple<int, int, int>> characteristics;
-		}*/
+			public string name { get; set; }
+			public string chars { get; set; }
+		}
 
 		//
 		// POST: /Fighter/Create
 		[HttpPost]
-		public ActionResult Create(string name, float char1, float char2, float char3, float char4)
+		public ContentResult ManualCreate(FighterData data)
 		{
+			Fighter fighter = new Fighter();
 			if (ModelState.IsValid)
 			{
-				Fighter fighter = new Fighter();
-				fighter.Name = name;
+				fighter.Name = data.name;
 				db.Fighters.Add(fighter);
-				db.SaveChanges();
 
+				char[] delims = { ',' };
+				string[] charVals = data.chars.Split(delims,StringSplitOptions.RemoveEmptyEntries);
 				var chars = db.Characteristics.ToList();
-				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[0].ID, char1));
-				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[1].ID, char2));
-				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[2].ID, char3));
-				db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, chars[3].ID, char4));
+				int i = 0;
+				foreach (Characteristic characteristic in chars)
+				{
+					db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
+					i++;
+				}
 				db.SaveChanges();
 			}
 
-			return View("Index","Fighter");
+			return new ContentResult { Content = "success"};
 		}
 
         /*//

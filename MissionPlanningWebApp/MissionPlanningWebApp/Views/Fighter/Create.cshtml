@@ -6,7 +6,6 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create","Fighter")) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -28,7 +27,7 @@
                     <td>@Html.DisplayFor(i => item.Characteristic.Char)</td>
                     <td>
                         <div class="editor-field">
-                            @Html.EditorFor(i => item.CharValue)
+							<input class="text-box single-line ui-input-text ui-body-b ui-corner-all ui-shadow-inset valid charVal" data-val="true" data-val-number="The field CharValue must be a number." data-val-required="The CharValue field is required." id=@item.Characteristic.Char name="item.CharValue" type="text" value="0">
                             @Html.ValidationMessageFor(i => item.CharValue)
                         </div>
                     </td>
@@ -37,10 +36,10 @@
         </table>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" id="submitButton" />
         </p>
     </fieldset>
-}
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -51,18 +50,22 @@
 	<script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$('.ckbox').click(function () {
-				var checked = $(this).is(':checked');
-				var id = $(this).attr('id');
+			$('#submitButton').click(function () {
+				var name = $("#Name").val();
+				var chars = "";
+				$('.charVal').each(function (i, item) {
+					chars += $(item).val() + ",";
+				});
 
 				var data = {
-					id: id,
-					ck: checked
+					name: name,
+					chars: chars
 				};
 
-				$.post('/MissionParameter/UpdateChecked', data, function (data) {
-					alert(data);
+				$.post('/Fighter/ManualCreate', data, function (data) {
+					window.location.href = "@Url.Action("Index", "Fighter")";
 				});
+				
 			});
 		});
 	</script>
