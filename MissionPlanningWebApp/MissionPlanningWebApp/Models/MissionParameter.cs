@@ -13,9 +13,4 @@ namespace MissionPlanningWebApp.Models
         public int Value { get; set; }
         public Boolean IsSelected { get; set; } 
     }
-
-    public class MissionParameterDbContext : DbContext
-    {
-        public DbSet<MissionParameter> MissionParameters { get; set; }
-    }
 }

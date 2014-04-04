@@ -5,20 +5,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MissionPlanningWebApp.Models;
 
-namespace MissionPlanningWebApp.Controllers
+namespace MissionPlanningWebApp.Models
 {
     public class DistributionRulesController : Controller
     {
-        private DistributionRulesDBContext db = new DistributionRulesDBContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /DistributionRules/
 
         public ActionResult Index()
         {
-            return View(db.DistributionRules.ToList());
+            var distributionrules = db.DistributionRules.Include(d => d.Chr).Include(d => d.Equip);
+            return View(distributionrules.ToList());
         }
 
         //
@@ -39,6 +39,8 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ChrId = new SelectList(db.Characteristics, "ID", "Char");
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name");
             return View();
         }
 
@@ -56,6 +58,8 @@ namespace MissionPlanningWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ChrId = new SelectList(db.Characteristics, "ID", "Char", distributionrules.ChrId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", distributionrules.EquipId);
             return View(distributionrules);
         }
 
@@ -69,6 +73,8 @@ namespace MissionPlanningWebApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ChrId = new SelectList(db.Characteristics, "ID", "Char", distributionrules.ChrId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", distributionrules.EquipId);
             return View(distributionrules);
         }
 
@@ -85,6 +91,8 @@ namespace MissionPlanningWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ChrId = new SelectList(db.Characteristics, "ID", "Char", distributionrules.ChrId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", distributionrules.EquipId);
             return View(distributionrules);
         }
 

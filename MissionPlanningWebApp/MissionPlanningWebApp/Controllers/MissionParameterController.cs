@@ -11,7 +11,7 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class MissionParameterController : Controller
     {
-        private MissionParameterDbContext db = new MissionParameterDbContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /MissionParameter/

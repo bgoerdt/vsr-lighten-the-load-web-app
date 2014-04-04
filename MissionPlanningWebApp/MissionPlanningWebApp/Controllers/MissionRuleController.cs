@@ -11,14 +11,15 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class MissionRuleController : Controller
     {
-        private MissionRuleDbContext db = new MissionRuleDbContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /MissionRule/
 
         public ActionResult Index()
         {
-            return View(db.MissionRules.ToList());
+            var missionrules = db.MissionRules.Include(m => m.Param).Include(m => m.Equip);
+            return View(missionrules.ToList());
         }
 
         //
@@ -39,6 +40,8 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ParamId = new SelectList(db.MissionParameters, "ID", "Name");
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name");
             return View();
         }
 
@@ -56,6 +59,8 @@ namespace MissionPlanningWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ParamId = new SelectList(db.MissionParameters, "ID", "Name", missionrule.ParamId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", missionrule.EquipId);
             return View(missionrule);
         }
 
@@ -69,6 +74,8 @@ namespace MissionPlanningWebApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ParamId = new SelectList(db.MissionParameters, "ID", "Name", missionrule.ParamId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", missionrule.EquipId);
             return View(missionrule);
         }
 
@@ -85,6 +92,8 @@ namespace MissionPlanningWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ParamId = new SelectList(db.MissionParameters, "ID", "Name", missionrule.ParamId);
+            ViewBag.EquipId = new SelectList(db.Equipment, "ID", "Name", missionrule.EquipId);
             return View(missionrule);
         }
 

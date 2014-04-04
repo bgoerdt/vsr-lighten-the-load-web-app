@@ -7,14 +7,14 @@ namespace MissionPlanningWebApp.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Equipments", "EquipmentID", c => c.Int(nullable: false));
-            DropColumn("dbo.Equipments", "Quantity");
+            //AddColumn("dbo.Equipments", "EquipmentID", c => c.Int(nullable: false));
+            //DropColumn("dbo.Equipments", "Quantity");
         }
-        
+
         public override void Down()
         {
-            AddColumn("dbo.Equipments", "Quantity", c => c.Int(nullable: false));
-            DropColumn("dbo.Equipments", "EquipmentID");
+            //AddColumn("dbo.Equipments", "Quantity", c => c.Int(nullable: false));
+            //DropColumn("dbo.Equipments", "EquipmentID");
         }
     }
 }

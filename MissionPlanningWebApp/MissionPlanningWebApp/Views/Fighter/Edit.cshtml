@@ -16,35 +16,11 @@
         @Html.HiddenFor(model => model.ID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Toughness)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Toughness)
-            @Html.ValidationMessageFor(model => model.Toughness)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Size)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Size)
-            @Html.ValidationMessageFor(model => model.Size)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Experience)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Experience)
-            @Html.ValidationMessageFor(model => model.Experience)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PerformanceFitnessTest)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PerformanceFitnessTest)
-            @Html.ValidationMessageFor(model => model.PerformanceFitnessTest)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <p>
