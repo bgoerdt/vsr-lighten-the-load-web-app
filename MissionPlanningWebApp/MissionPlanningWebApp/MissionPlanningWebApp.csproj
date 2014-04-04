@@ -167,7 +167,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DistributionRulesController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -190,8 +189,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Controllers\DistributionRulesController.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Fighter.cs" />
+    <Compile Include="Models\LtLDbContext.cs" />
     <Compile Include="Models\MissionParameter.cs" />
     <Compile Include="Models\DistributionRules.cs" />
     <Compile Include="Models\MissionRule.cs" />
@@ -306,16 +307,21 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\DistributionRules\Index.cshtml" />
-    <Content Include="Views\DistributionRules\Details.cshtml" />
-    <Content Include="Views\DistributionRules\Create.cshtml" />
-    <Content Include="Views\DistributionRules\Edit.cshtml" />
-    <Content Include="Views\DistributionRules\Delete.cshtml" />
     <Content Include="Views\Equipment\Index.cshtml" />
     <Content Include="Views\Equipment\Edit.cshtml" />
     <Content Include="Views\Equipment\Details.cshtml" />
     <Content Include="Views\Equipment\Create.cshtml" />
     <Content Include="Views\Equipment\Delete.cshtml" />
+    <Content Include="Views\MissionParameter\Index.cshtml" />
+    <Content Include="Views\MissionParameter\Details.cshtml" />
+    <Content Include="Views\MissionParameter\Create.cshtml" />
+    <Content Include="Views\MissionParameter\Edit.cshtml" />
+    <Content Include="Views\MissionParameter\Delete.cshtml" />
+    <Content Include="Views\DistributionRules\Index.cshtml" />
+    <Content Include="Views\DistributionRules\Details.cshtml" />
+    <Content Include="Views\DistributionRules\Create.cshtml" />
+    <Content Include="Views\DistributionRules\Edit.cshtml" />
+    <Content Include="Views\DistributionRules\Delete.cshtml" />
     <Content Include="Views\MissionRule\Index.cshtml" />
     <Content Include="Views\MissionRule\Details.cshtml" />
     <Content Include="Views\MissionRule\Create.cshtml" />
@@ -326,11 +332,6 @@
     <Content Include="Views\Fighter\Create.cshtml" />
     <Content Include="Views\Fighter\Edit.cshtml" />
     <Content Include="Views\Fighter\Delete.cshtml" />
-    <Content Include="Views\MissionParameter\Index.cshtml" />
-    <Content Include="Views\MissionParameter\Details.cshtml" />
-    <Content Include="Views\MissionParameter\Create.cshtml" />
-    <Content Include="Views\MissionParameter\Edit.cshtml" />
-    <Content Include="Views\MissionParameter\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,7 +371,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63369</DevelopmentServerPort>
+          <DevelopmentServerPort>59962</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:63343/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -11,13 +11,7 @@ namespace MissionPlanningWebApp.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int EquipmentID { get; set; }
         public float Weight { get; set; }
         public float Firepower { get; set; }
-    }
-
-    public class EquipmentDBContext : DbContext
-    {
-        public DbSet<Equipment> Equipment { get; set; }
     }
 }

@@ -14,36 +14,27 @@
         <legend>Fighter</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Toughness)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Toughness)
-            @Html.ValidationMessageFor(model => model.Toughness)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Size)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Size)
-            @Html.ValidationMessageFor(model => model.Size)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Experience)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Experience)
-            @Html.ValidationMessageFor(model => model.Experience)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PerformanceFitnessTest)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PerformanceFitnessTest)
-            @Html.ValidationMessageFor(model => model.PerformanceFitnessTest)
-        </div>
+        <table>
+            @foreach (var item in ViewData["fighterCharacteristics"] as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => item.Characteristic.Char)</td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(i => item.CharValue)
+                            @Html.ValidationMessageFor(i => item.CharValue)
+                        </div>
+                    </td>
+                </tr>
+            } 
+        </table>
 
         <p>
             <input type="submit" value="Create" />

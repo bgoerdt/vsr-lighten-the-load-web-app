@@ -7,37 +7,30 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>DistributionRules</legend>
+    <legend>Equipment</legend>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Name)
+         @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.EquipmentID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EquipmentID)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Weight)
+         @Html.DisplayNameFor(model => model.Weight)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Weight)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Firepower)
+         @Html.DisplayNameFor(model => model.Firepower)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Firepower)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

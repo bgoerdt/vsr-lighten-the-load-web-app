@@ -11,35 +11,27 @@
     <legend>Equipment</legend>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Name)
+         @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.EquipmentID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EquipmentID)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Weight)
+         @Html.DisplayNameFor(model => model.Weight)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Weight)
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.Firepower)
+         @Html.DisplayNameFor(model => model.Firepower)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Firepower)
     </div>
 </fieldset>
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |

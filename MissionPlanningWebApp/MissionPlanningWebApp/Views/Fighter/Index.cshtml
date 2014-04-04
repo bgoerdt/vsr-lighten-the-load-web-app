@@ -12,34 +12,24 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Toughness)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Experience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PerformanceFitnessTest)
-        </th>
+        @foreach (var chr in ViewData["characteristics"] as List<MissionPlanningWebApp.Models.Characteristic>)
+        {
+            <th>@Html.DisplayFor(c => chr.Char)</th>
+        }
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Toughness)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Experience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PerformanceFitnessTest)
-        </td>
+        @*@foreach (var chr in item.FighterCharacteristics as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+        {
+            <td>@Html.DisplayFor(c => chr.CharValue)</td>
+        }*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
