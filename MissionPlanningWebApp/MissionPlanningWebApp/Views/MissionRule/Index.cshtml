@@ -1,75 +1,83 @@
 ﻿@model IEnumerable<MissionPlanningWebApp.Models.MissionRule>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Mission Rules";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Param.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParamName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RuleCond)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RuleData)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Equip.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConstrCond)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConstrRHS)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Param.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParamName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RuleCond)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RuleData)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Equip.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConstrCond)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConstrRHS)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@section FormattedTable{
+    <link href="~/Styles/TableFormat.css" rel="stylesheet" />
 }
 
-</table>
+<div id="content_box_1" class="content_box">
+
+    <!--<h2>Mission Rules</h2>-->
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Param.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RuleCond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RuleData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equip.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EquipName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstrCond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstrRHS)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Param.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RuleCond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RuleData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equip.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EquipName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConstrCond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConstrRHS)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

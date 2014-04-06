@@ -1,0 +1,39 @@
+body {
+}
+
+.content_box p
+{
+    text-align: center;
+}
+
+.content_box h2
+{
+    text-align: center;
+}
+
+table 
+{
+    border-collapse:collapse;
+    border-color:#35332b;
+    padding:3px 7px 2px 7px;
+    margin: 0px auto 0px auto;
+}
+
+th
+{
+    background-color:#990000;
+    color:#e7dbcb;
+    text-shadow: none;
+    border-color: #35332b;
+    border-style:solid;
+    padding:3px 7px 2px 7px;
+}
+td
+{
+    background-color:#e7dbcb;
+    color:black;
+    border-color: #35332b;
+    border-style:solid;
+    padding:3px 7px 2px 7px;
+}
+
