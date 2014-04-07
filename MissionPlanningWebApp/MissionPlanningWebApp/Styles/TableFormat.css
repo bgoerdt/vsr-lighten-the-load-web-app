@@ -4,11 +4,13 @@ body {
 .content_box p
 {
     text-align: center;
+    color: black;
 }
 
 .content_box h2
 {
     text-align: center;
+    color: black;
 }
 
 table 
