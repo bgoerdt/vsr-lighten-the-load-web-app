@@ -167,6 +167,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DistributionResultsController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Controllers\DistributionRulesController.cs" />
+    <Compile Include="Models\DistributionResults.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Fighter.cs" />
     <Compile Include="Models\LtLDbContext.cs" />
@@ -329,6 +331,11 @@
     <Content Include="Views\Fighter\Create.cshtml" />
     <Content Include="Views\Fighter\Edit.cshtml" />
     <Content Include="Views\Fighter\Delete.cshtml" />
+    <Content Include="Views\DistributionResults\Index.cshtml" />
+    <Content Include="Views\DistributionResults\Details.cshtml" />
+    <Content Include="Views\DistributionResults\Create.cshtml" />
+    <Content Include="Views\DistributionResults\Edit.cshtml" />
+    <Content Include="Views\DistributionResults\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,6 +17,7 @@ namespace MissionPlanningWebApp.Models
         public DbSet<Characteristic> Characteristics { get; set; }
         public DbSet<MissionParameter> MissionParameters { get; set; }
         public DbSet<MissionRule> MissionRules { get; set; }
+        //public DbSet<DistributionResults> DistributionResults { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
