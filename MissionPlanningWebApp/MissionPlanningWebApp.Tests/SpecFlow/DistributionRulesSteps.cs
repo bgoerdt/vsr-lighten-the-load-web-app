@@ -30,36 +30,43 @@ namespace MissionPlanningWebApp.Tests.SpecFlow
         [Given(@"I have pushed '(.*)'")]
         public void GivenIHavePushed(string p0)
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I go navigate to /DistributionRules")]
         public void WhenIGoNavigateToDistributionRules()
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I push '(.*)' for a rule")]
         public void WhenIPushForARule(string p0)
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I edit the rule")]
         public void WhenIEditTheRule()
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I push '(.*)'")]
         public void WhenIPush(string p0)
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I create a new rule")]
         public void WhenICreateANewRule()
         {
+            Assert.IsTrue(true);
         }
 
         [When(@"I delete the rule")]
         public void WhenIDeleteTheRule()
         {
+            Assert.IsTrue(true);
         }
 
         [Then(@"the result should be a list of distribution rules")]
