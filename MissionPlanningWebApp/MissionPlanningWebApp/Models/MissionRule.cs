@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace MissionPlanningWebApp.Models
 {
@@ -30,6 +31,7 @@ namespace MissionPlanningWebApp.Models
         [ForeignKey ("Param")]
 		public int ParamId { get; set; }
         public virtual MissionParameter Param { get; set; }
+		[DisplayName("Parameter")]
         public string ParamName
         {
             get
@@ -48,6 +50,7 @@ namespace MissionPlanningWebApp.Models
         [ForeignKey("Equip")]
 		public int EquipId { get; set; }
         public virtual Equipment Equip { get; set; }
+		[DisplayName("Equipment")]
         public string EquipName
         {
             get

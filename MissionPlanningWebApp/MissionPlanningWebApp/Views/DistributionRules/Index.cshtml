@@ -1,63 +1,70 @@
 ﻿@model IEnumerable<MissionPlanningWebApp.Models.DistributionRules>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Distribution Rules";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Chr.Char)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChrCond)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChrData)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Equip.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConstrCond)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConstrRHS)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Chr.Char)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChrCond)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChrData)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Equip.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConstrCond)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConstrRHS)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@section FormattedTable{
+    <link href="~/Styles/TableFormat.css" rel="stylesheet" />
 }
 
-</table>
+<div id="content_box_1" class="content_box">
+
+    <!--<h2>Distribution Rules</h2>-->
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chr.Char)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChrCond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChrData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equip.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstrCond)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstrRHS)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chr.Char)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChrCond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChrData)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equip.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConstrCond)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConstrRHS)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

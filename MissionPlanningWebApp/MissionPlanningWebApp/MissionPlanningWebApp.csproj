@@ -191,6 +191,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\camo.jpg" />
+    <Content Include="Content\camo40.jpg" />
+    <Content Include="Content\camo50.jpg" />
+    <Content Include="Content\camo60.jpg" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\icons-18-black.png" />
     <Content Include="Content\images\icons-18-white.png" />
@@ -275,6 +279,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Styles\DistributionRules.css" />
+    <Content Include="Styles\TableFormat.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -352,7 +357,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63369</DevelopmentServerPort>
+          <DevelopmentServerPort>59962</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:63343/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

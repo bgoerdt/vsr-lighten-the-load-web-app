@@ -10,17 +10,22 @@
         <script src="jquery-1.10.2.min.js"></script>
     </head>
     <body>
-        <div data-role="page" data-theme="b">
+        <div data-role="page" data-theme="f">
             <div data-role="header">
                 @if (IsSectionDefined("Header")) {
                     @RenderSection("Header")
                 } else {
                     <h1>@ViewBag.Title</h1>
                     @Html.Partial("_LoginPartial")
+					@Html.ActionLink("Home", "Index", "Home");
                 }
             </div>
             <div data-role="content">
                 @RenderBody()
+                @if (IsSectionDefined("FormattedTable"))
+                {
+                    @RenderSection("FormattedTable")
+                }
             </div>
         </div>
 

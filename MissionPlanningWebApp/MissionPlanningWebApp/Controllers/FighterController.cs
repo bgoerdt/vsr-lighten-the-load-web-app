@@ -57,7 +57,39 @@ namespace MissionPlanningWebApp.Controllers
             return View();
         }
 
-        //
+		public class FighterData
+		{
+			public string name { get; set; }
+			public string chars { get; set; }
+		}
+
+		//
+		// POST: /Fighter/Create
+		[HttpPost]
+		public ContentResult ManualCreate(FighterData data)
+		{
+			Fighter fighter = new Fighter();
+			if (ModelState.IsValid)
+			{
+				fighter.Name = data.name;
+				db.Fighters.Add(fighter);
+
+				char[] delims = { ',' };
+				string[] charVals = data.chars.Split(delims,StringSplitOptions.RemoveEmptyEntries);
+				var chars = db.Characteristics.ToList();
+				int i = 0;
+				foreach (Characteristic characteristic in chars)
+				{
+					db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
+					i++;
+				}
+				db.SaveChanges();
+			}
+
+			return new ContentResult { Content = "success"};
+		}
+
+        /*//
         // POST: /Fighter/Create
 
         [HttpPost]
@@ -78,7 +110,7 @@ namespace MissionPlanningWebApp.Controllers
             }
 
             return View(fighter);
-        }
+        }*/
 
         //
         // GET: /Fighter/Edit/5
@@ -111,7 +143,6 @@ namespace MissionPlanningWebApp.Controllers
 
         //
         // GET: /Fighter/Delete/5
-
         public ActionResult Delete(int id = 0)
         {
             Fighter fighter = db.Fighters.Find(id);
@@ -135,6 +166,28 @@ namespace MissionPlanningWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public class CheckedInfo
+        {
+            public int ID { get; set; }
+            public bool ck { get; set; }
+        }
+
+        [HttpPost]
+        public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
+        {
+            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
+            missionparameter.IsSelected = info.ck;
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionparameter).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return new ContentResult { Content = "success" };
+        }
+
+        
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

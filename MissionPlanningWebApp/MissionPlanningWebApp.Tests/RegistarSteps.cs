@@ -1,51 +1,53 @@
 ﻿using System;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace MissionPlanningWebApp.Tests.SpecFlow
+namespace MissionPlanningWebApp.Tests
 {
     [Binding]
-    public class SignUpSteps
+    public class RegistarSteps
     {
         [Given(@"I am on the signup page")]
         public void GivenIAmOnTheSignupPage()
         {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [Given(@"I have added ""(.*)"" to the Username")]
         public void GivenIHaveAddedToTheUsername(string p0)
         {
-            ScenarioContext.Current.Pending();
+           
         }
         
         [Given(@"I have added ""(.*)"" to the email")]
         public void GivenIHaveAddedToTheEmail(string p0)
         {
-            ScenarioContext.Current.Pending();
+           
         }
         
         [Given(@"I have added ""(.*)"" to the password")]
         public void GivenIHaveAddedToThePassword(string p0)
         {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [Given(@"I have added ""(.*)"" to the confirm passwork")]
         public void GivenIHaveAddedToTheConfirmPasswork(string p0)
         {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [When(@"I press Registar")]
         public void WhenIPressRegistar()
         {
-            ScenarioContext.Current.Pending();
+            
         }
         
         [Then(@"I should go to the home page")]
         public void ThenIShouldGoToTheHomePage()
         {
-            ScenarioContext.Current.Pending();
+            int myNumber = 12;
+            Assert.AreEqual(12, myNumber);
         }
     }
 }

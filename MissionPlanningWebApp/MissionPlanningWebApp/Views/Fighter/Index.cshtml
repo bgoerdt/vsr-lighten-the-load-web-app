@@ -1,41 +1,104 @@
 ﻿@model IEnumerable<MissionPlanningWebApp.Models.Fighter>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Warfighter";
 }
 
-<h2>Index</h2>
+@section FormattedTable{
+    <link href="~/Styles/TableFormat.css" rel="stylesheet" />
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        @foreach (var chr in ViewData["characteristics"] as List<MissionPlanningWebApp.Models.Characteristic>)
+<div id="content_box_1" class="content_box">
+
+    <!--<h2>Warfighter</h2>-->
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th style="width:50px;">
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            @foreach (var chr in ViewData["characteristics"] as List<MissionPlanningWebApp.Models.Characteristic>)
+            {
+                <th>@Html.DisplayFor(c => chr.Char)</th>
+            }
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
         {
-            <th>@Html.DisplayFor(c => chr.Char)</th>
+            <tr>
+                <td>
+                    @if (item.IsSelected)
+                    {
+                        <input type="checkbox" class="ckbox" id="@item.ID" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="ckbox" id="@item.ID" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                @{
+                    // Reset the values.
+                    int items = 0;
+                    string text = "";
+                }
+                @foreach (var chr in item.FighterCharacteristics)
+                {
+                    using(StreamWriter sw = File.AppendText("C:\\Users\\bchau\\VSR\\test.txt"))
+                    {
+                        items = items + 1;
+                        
+                        // Add the values.
+                        text = text + " " + chr.CharValue;
+
+                        // Add the ID.
+                        if (items % 4 == 0)
+                        {
+                            sw.WriteLine(item.ID + text);    
+                        }                        
+                    }
+                    
+                    <td>@Html.DisplayFor(c => chr.CharValue)</td>
+                }
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+
+            </tr>
         }
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        @*@foreach (var chr in item.FighterCharacteristics as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
-        {
-            <td>@Html.DisplayFor(c => chr.CharValue)</td>
-        }*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    </table>
 
-</table>
+
+
+    @section Scripts {
+        <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.ckbox').click(function () {
+                    var checked = $(this).is(':checked');
+                    var id = $(this).attr('id');
+
+                    var data = {
+                        id: id,
+                        ck: checked
+                    };
+
+                    $.post('/MissionParameter/UpdateChecked', data, function (data) {
+                        //alert(data);
+                    });
+                });
+            });
+        </script>
+    }
+</div>
