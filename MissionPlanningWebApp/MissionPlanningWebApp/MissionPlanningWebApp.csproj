@@ -192,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\camo.jpg" />
+    <Content Include="Content\camo40.jpg" />
+    <Content Include="Content\camo50.jpg" />
+    <Content Include="Content\camo60.jpg" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\icons-18-black.png" />
     <Content Include="Content\images\icons-18-white.png" />

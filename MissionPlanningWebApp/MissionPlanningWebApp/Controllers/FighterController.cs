@@ -143,7 +143,6 @@ namespace MissionPlanningWebApp.Controllers
 
         //
         // GET: /Fighter/Delete/5
-
         public ActionResult Delete(int id = 0)
         {
             Fighter fighter = db.Fighters.Find(id);

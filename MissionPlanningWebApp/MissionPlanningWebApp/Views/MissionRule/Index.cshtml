@@ -18,9 +18,6 @@
     <table>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Param.Name)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.ParamName)
             </th>
             <th>
@@ -28,9 +25,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.RuleData)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Equip.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.EquipName)
@@ -48,9 +42,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Param.Name)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.ParamName)
                 </td>
                 <td>
@@ -58,9 +49,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.RuleData)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Equip.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.EquipName)
@@ -73,7 +61,6 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
             </tr>
