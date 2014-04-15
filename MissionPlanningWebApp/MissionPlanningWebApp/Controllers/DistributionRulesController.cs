@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace MissionPlanningWebApp.Models
 {
@@ -55,6 +56,10 @@ namespace MissionPlanningWebApp.Models
             {
                 db.DistributionRules.Add(distributionrules);
                 db.SaveChanges();
+
+                //DEBUG ONLY - Comment out
+                WriteToFile();
+
                 return RedirectToAction("Index");
             }
 
@@ -126,6 +131,22 @@ namespace MissionPlanningWebApp.Models
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        public void WriteToFile()
+        {
+            List<DistributionRules> distributionRules = db.DistributionRules.ToList();
+
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Melanie\Documents\Rules_Distribution.txt"))
+            {
+                foreach (DistributionRules d in distributionRules)
+                {             
+                    string line = string.Format("{0} {1} {2} {3} {4} {5}",
+                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                    file.WriteLine("{0} {1} {2} {3} {4} {5}",
+                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                }
+            }
         }
     }
 }
