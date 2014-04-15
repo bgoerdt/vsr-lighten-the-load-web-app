@@ -1,0 +1,55 @@
+Number of warfighters = 3
+Total weight of equipment = 142
+
+Number of pieces of equipment 
+Warfighter[0]
+	Equipment[0]	 = 10
+	Equipment[1]	 = 0
+	Equipment[2]	 = 0
+	Equipment[3]	 = 0
+	Equipment[4]	 = 0
+	Equipment[5]	 = 0
+	Equipment[6]	 = 0
+	Equipment[7]	 = 0
+	Equipment[8]	 = 0
+	Equipment[9]	 = 0
+	Equipment[10]	 = 0
+	Equipment[11]	 = 0
+	Equipment[12]	 = 2
+	Equipment[13]	 = 0
+	Equipment[14]	 = 3
+	Equipment[15]	 = 0
+Warfighter[1]
+	Equipment[0]	 = 4
+	Equipment[1]	 = 0
+	Equipment[2]	 = 0
+	Equipment[3]	 = 0
+	Equipment[4]	 = 0
+	Equipment[5]	 = 0
+	Equipment[6]	 = 0
+	Equipment[7]	 = 0
+	Equipment[8]	 = 0
+	Equipment[9]	 = 0
+	Equipment[10]	 = 0
+	Equipment[11]	 = 0
+	Equipment[12]	 = 0
+	Equipment[13]	 = 0
+	Equipment[14]	 = 4
+	Equipment[15]	 = 0
+Warfighter[2]
+	Equipment[0]	 = 12
+	Equipment[1]	 = 0
+	Equipment[2]	 = 0
+	Equipment[3]	 = 0
+	Equipment[4]	 = 0
+	Equipment[5]	 = 0
+	Equipment[6]	 = 0
+	Equipment[7]	 = 0
+	Equipment[8]	 = 0
+	Equipment[9]	 = 0
+	Equipment[10]	 = 0
+	Equipment[11]	 = 0
+	Equipment[12]	 = 0
+	Equipment[13]	 = 0
+	Equipment[14]	 = 3
+	Equipment[15]	 = 0

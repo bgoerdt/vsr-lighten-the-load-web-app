@@ -1,0 +1,38 @@
+#Hash mark (#) indicates comments
+#Fist column indicate mission parameter number
+#Second column indicate 'Rules condition' : 
+#                        L means less than or equal to
+#                        E means equal to
+#                        G means greater than or equal to
+#Third column indicate right hand side data of rule condition
+#Fourth column indicate equipment number
+#Fifth column indicate 'constraint condition' :
+#                        L means less than or equal to
+#                        E means equal to
+#                        G means greater than or equal to
+#Sixth column indicate right hand side data of constraint condition
+#example:
+#If duration (mission parameter index=0) is less than or equal to 16,
+#then equipment 0 (M16) is equal to 10.
+#
+#MParaIndex, RuleCond, RuleData, EquipIndex, ConstrCond, ConstrRHS
+0     G     6      0     G     13
+0     G     14     0     G     26
+0     G     22     0     G     39
+0     G     30     0     G     52
+0     G     38     0     G     65
+#20    E     1      29    G     2
+#19    E     1      16    G     1
+#25    E     1      32    G     7
+#26    E     1      33    G     2
+#27    E     1      34    G     1
+22    E     1      14    G     10
+22    E     1      12    G     2
+#24    E     1      17    G     10
+#24    E     1      20    G     10
+30    E     1      15    G     4
+#31    E     1      16    G     1
+#35    E     1      22    G     13
+#35    E     1      23    G     13
+#29    E     1      19    G     1
+#29    E     1      31    G     1

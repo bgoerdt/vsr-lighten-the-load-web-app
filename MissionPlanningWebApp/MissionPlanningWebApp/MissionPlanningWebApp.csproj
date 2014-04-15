@@ -171,6 +171,7 @@
     <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MissionParameterController.cs" />
+    <Compile Include="Controllers\MissionPlanController.cs" />
     <Compile Include="Controllers\MissionRuleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -187,6 +188,7 @@
     <Compile Include="Models\LtLDbContext.cs" />
     <Compile Include="Models\MissionParameter.cs" />
     <Compile Include="Models\DistributionRules.cs" />
+    <Compile Include="Models\MissionPlan.cs" />
     <Compile Include="Models\MissionRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
