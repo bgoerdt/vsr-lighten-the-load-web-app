@@ -21,7 +21,7 @@ namespace MissionPlanningWebApp.Controllers
 		public ActionResult Create()
 		{
 			MissionPlan plan = new MissionPlan();
-			plan.planMission();
+			plan.planMission(HttpContext.Server.MapPath("~/App_Data/"));
 
 			return RedirectToAction("Index", plan);
 		}
