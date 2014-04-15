@@ -29,6 +29,29 @@ namespace MissionPlanningWebApp.Tests.Models
         }
 
         [TestMethod]
+        public void ChangePassword()
+        {
+            // arrange
+            ChangePasswordModel account = new ChangePasswordModel();
+            account.OldPassword = "gunnar@gunnar.com";
+            account.NewPassword = "gunnar1";
+            account.ConfirmPassword = "gunnar1";
+         
+
+            // act
+
+
+            // assert
+
+            Assert.AreEqual(account.OldPassword, "gunnar@gunnar.com");
+            Assert.AreEqual(account.NewPassword, "gunnar1");
+            Assert.AreEqual(account.ConfirmPassword, "gunnar1");
+           
+
+        }
+
+      
+        [TestMethod]
         public void LogIn()
         {
             // arrange

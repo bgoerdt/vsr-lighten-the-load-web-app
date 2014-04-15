@@ -12,8 +12,8 @@ namespace MissionPlanningWebApp.Tests
         [Given(@"I am on the signup page")]
         public void GivenIAmOnTheSignupPage()
         {
-            WebBrowser.Current.GoTo(WebBrowser.localhost + "Account" + "Register");
-            var element = WebBrowser.Current.Elements.First(Find.ByLabelText("Password"));
+          //  WebBrowser.Current.GoTo(WebBrowser.localhost + "Account" + "Register");
+           // var element = WebBrowser.Current.Elements.First(Find.ByLabelText("Password"));
         }
         
         [Given(@"I have added ""(.*)"" to the Username")]
