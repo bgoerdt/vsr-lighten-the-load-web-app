@@ -6,124 +6,53 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
+using System.Net;
+using System.Web.Routing;
 
 namespace MissionPlanningWebApp.Controllers
 {
     public class DistributionResultsController : Controller
     {
-        //private LtLDbContext db = new LtLDbContext();
+        private LtLDbContext db = new LtLDbContext();
 
         //
         // GET: /DistributionResults/
 
         public ActionResult Index()
         {
-            return View(new DistributionResults());
+            DistributionResults model = TempData["model"] as DistributionResults;
+            return View(model);
         }
 
-        ////
-        //// GET: /DistributionResults/Details/5
-
-        //public ActionResult Details(int id = 0)
-        //{
-        //    DistributionResults distributionresults = db.DistributionResults.Find(id);
-        //    if (distributionresults == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(distributionresults);
-        //}
-
-        ////
-        //// GET: /DistributionResults/Create
-
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        ////
-        //// POST: /DistributionResults/Create
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(DistributionResults distributionresults)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.DistributionResults.Add(distributionresults);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(distributionresults);
-        //}
-
-        ////
-        //// GET: /DistributionResults/Edit/5
-
-        //public ActionResult Edit(int id = 0)
-        //{
-        //    DistributionResults distributionresults = db.DistributionResults.Find(id);
-        //    if (distributionresults == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(distributionresults);
-        //}
-
-        ////
-        //// POST: /DistributionResults/Edit/5
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(DistributionResults distributionresults)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(distributionresults).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(distributionresults);
-        //}
-
-        ////
-        //// GET: /DistributionResults/Delete/5
-
-        //public ActionResult Delete(int id = 0)
-        //{
-        //    DistributionResults distributionresults = db.DistributionResults.Find(id);
-        //    if (distributionresults == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(distributionresults);
-        //}
-
-        ////
-        //// POST: /DistributionResults/Delete/5
-
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    DistributionResults distributionresults = db.DistributionResults.Find(id);
-        //    db.DistributionResults.Remove(distributionresults);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    db.Dispose();
-        //    base.Dispose(disposing);
-        //}
-
-        public void Distribute()
+        public ActionResult Distribute()
         {
-            DistributionResults model = new DistributionResults();
-            model.GetDistributionResults();
+            DistributionResults results = new DistributionResults();
+            results.GetDistributionResults();
+
+            foreach (FighterDistribution fDist in results.Results)
+            {
+                int fId = fDist.FighterID;
+                Fighter fighter = db.Fighters.ToList().Where(f => f.ID == fId).Single();
+                if (fighter == null)
+                {
+                    return HttpNotFound();
+                }
+                fDist.Fighter = fighter;
+
+                foreach (EquipmentDistribution eDist in fDist.Distributions)
+                {
+                    int eId = eDist.EquipID;
+                    Equipment equip = db.Equipment.ToList().Where(e => e.ID == eId).Single();
+                    if (equip == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    eDist.Equipment = equip;
+                }
+            }
+
+            TempData["model"] = results;
+            return RedirectToAction("Index");
         }
     }
 }

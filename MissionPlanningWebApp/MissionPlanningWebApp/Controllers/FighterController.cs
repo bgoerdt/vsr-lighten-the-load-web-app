@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
+using System.IO;
 
 namespace MissionPlanningWebApp.Controllers
 {
@@ -192,6 +193,23 @@ namespace MissionPlanningWebApp.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        public void WriteToFile() // TODO FighterCharacteristics must be in correct order to write to database
+        {
+            List<Fighter> fighters = db.Fighters.ToList();
+
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Melanie\Documents\Rules_Distribution.txt"))
+            {
+                foreach (Fighter f in fighters)
+                {
+                    string line = f.ID.ToString();
+                    foreach(FighterCharacteristic fChr in f.FighterCharacteristics) {
+                        line = line + " " + fChr.CharValue;
+                    }
+                    file.WriteLine(line);
+                }
+            }
         }
     }
 }

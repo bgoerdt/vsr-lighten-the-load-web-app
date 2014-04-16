@@ -56,10 +56,6 @@ namespace MissionPlanningWebApp.Models
             {
                 db.DistributionRules.Add(distributionrules);
                 db.SaveChanges();
-
-                //DEBUG ONLY - Comment out
-                WriteToFile();
-
                 return RedirectToAction("Index");
             }
 
