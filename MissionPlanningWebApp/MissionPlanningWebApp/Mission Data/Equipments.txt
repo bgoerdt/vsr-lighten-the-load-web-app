@@ -1,191 +1,134 @@
-#Hash mark (#) indicates comments
-#First number indicates the number of total equipments
-#In each equipments:
-#First column indicate equipment number
-#Second column indicate weight of equipment 
-#  -Mathematically, unit doesn't matter, but be consistent.
-#Third column indicate fire power of equipment
-#
-#The number of equipments
-90
-#
-#MRE 
-0     1.3	0.0
-#Water 
-1     27.6	0.0          
+#number of equipment
+66
+#MRE
+0	1.3	0
+#Water
+1	27.6	0
 #M16/M4
-2     7.8	3.0
+2	7.8	3
 #M249
-3     27.6	3.0
+3	27.6	3
 #M203
-4     72.5	4.0
-#Helmet 
-5     1.0	0.0
+4	72.5	3
+#Helmet
+5	1	0
 #Armor Vest
-6     1.0	0.0
+6	1	0
 #Armor Vest w/ SAPPI Plates
-7     7.8	0.0
+7	7.8	0
 #Armor Vest w/ SAPPI Plates & Accessories
-8     27.6	0.0 
+8	27.6	0
 #Ballistic Eye Protection
-9     72.5	3.0
+9	72.5	3
 #Knee, Elbow Pad Set
-10     1	0.0
-#Optics: ACOG (magifying site)
-11     21.1	4.0
+10	1	0
+#Optics: ACOG (magnifying site)
+11	21.1	0
 #Optics: Thermal
-12     1.0	0.0
+12	1	0
 #Optics: Pac4/PEQ2A (Infra Red lasers for aiming at night)
-13     1.0	0.0
+13	1	0
 #Optics: PVS-14 (night vision goggles)
-14     1.7	0.0
+14	1.7	0
 #Squad Radio
-15     27.6	2.0
+15	27.6	2
 #Lightweight Helmet
-16	3.45	0.0
+16	3.45	0
 #FR Gloves, Frog
-17	0.3	0.0
+17	0.3	0
 #Modular Tactical Vest
-18	14.45	0.0
+18	14.45	0
 #E-SAPI Set (medium, front and back)
-19	11	0.0
+19	11	0
 #Side-SAPI Set
-20	5	0.0
+20	5	0
 #Patrol Pack
-21	2.425	0.0
+21	2.425	0
 #RCO
-22	1.0	0.0
+22	1	0
 #Service Rifle, M16A4
-23	8.24	3.0
+23	8.24	3
 #Combat Assault Sling
-24	0.42	2.0
+24	0.42	2
 #M-16 Magazine with 30 Rounds
-25	1.05	0.0
+25	1.05	0
 #Multi-purpose Bayonet
-26	1.3	1.0
+26	1.3	1
 #Grenade, Hand, G8811 Fragmentation
-27	2	4.0
+27	2	4
 #100oz Hydration System (filled)
-28	6.906	0.0
+28	6.906	0
 #Individual First Aid Kit (IFAK)
-29	1	0.0
+29	1	0
 #Paint, Face, Camouflage Stick
-30	0.14	0.0
+30	0.14	0
 #Personal Illumination System
-31	0.625	0.0
+31	0.625	0
 #Ballistic Eye Wear
-32	0.15	0.0
+32	0.15	0
 #Ear Plugs with Case
-33	0.1	0.0
+33	0.1	0
 #M50 Gas Mask w/ Hood, All Accessories (medium)
-34	5.6	0.0
+34	5.6	0
 #GORTEX Top
-35	2.2	0.0
+35	2.2	0
 #GORTEX Bottom
-36	2.2	0.0
+36	2.2	0
 #PEQ-15 ATPIAL w/out SOFT CASE
-37	0.51	0.0
+37	0.51	0
 #IWNS-T
-38	2	0.0
+38	2	0
 #IISR/Quiet Pro w/ Spare Battery
-39	1.96	0.0
+39	1.96	0
 #Regular Complete Uniform
-40	8.408	0.0
+40	8.408	0
 #Squad Automatic Weapon, M249
-41	15.3	3.0
+41	15.3	3
 #LBE for M249
-42	7.341	0.0
+42	7.341	0
 #Cartridge, 5.56 Link (200)
-43	6.9	0.0
+43	6.9	0
 #PVS-17C
-44	3.0	0.0
-#AN/PAS-D(V2)
-45	2.8	0.0
-#G940 Green Smoke Grenade
-46	2.0	0.0
+44	3	0
+#AN/PAS-D (V2)
+45	3	0
+#G940 Green Smoke Grende
+46	2	0
 #CARTRIDGE, 40MM, HIGH EXPLOSIVE DUAL PURPOSE M433 QTY OF 18
-47	14.5	0.0
+47	14.5	0
 #Grenade Launcher, M203
-48	3.0	4.0
+48	3	4
 #Ammunition, Smoke
-49	2.4	0.0
+49	2.4	0
 #Ammunition, Flares
-50	1.0	0.0
+50	1	0
 #LBE for M203
-51	8.665	0.0
-#PSQ-18 (Enhanced Sight M203
-52	1.2	0.0
+51	8.665	0
+#PSQ-18 (Enhanced Sight M203)
+52	1.2	0
 #Thermal Binoculars
-53	3.75	0.0
+53	3.75	0
 #148
-54	1.88	0.0
+54	1.88	0
 #M9 Pistol
-55	2.1	2.0
+55	2.1	2
 #M9 Magazine with 15 Rounds
-56	0.45	0.0
-#UNIT 1 BAG/ 6 IV'S/ 02 TANK QUESTIONABLE
-57	25	0.0
+56	0.45	0
+#UNIT 1 BAG/ 6 IV's/ 02 TANK QUESTIONABLE
+57	25	0
 #IMPROVED LOAD BEARING EQUIPMENT
-58	10.5	0.0
+58	10.5	0
 #ENTRENCHING TOOL WITH CASE
-59	2.5	0.0
+59	2.5	0
 #EXTRA SOCKS
-60	0.16	0.0
+60	0.16	0
 #PONCHO
-61	1.6	0.0
+61	1.6	0
 #PONCHO LINER
-62	1.6	0.0
+62	1.6	0
 #TOOTH BRUSH WITH PASTE
-63	0.3	0.0
+63	0.3	0
 #CHAPSTICK
-64	0.01	0.0
-#100 WEIGHT FLEECE JACKET
-65	0.661	0.0
-#300 WEIGHT FLEECE JACKET
-66	1.322	0.0
-#POLYPRO TOP
-67	0.44	0.0
-#POLYPRO BOTTOM
-68	0.462	0.0
-#COLD WEATHER GLOVES AND MITTENS
-69	1.325	0.0
-#WATCH CAP
-70	0.55	0.0
-#SHAVING GEAR, TOWEL, FACE CLOTH
-71	2.0	0.0
-#INSECT REPELLANT
-72	0.75	0.0
-#SEWING KIT
-73	0.1	0.0
-#MAT, ISOPOR
-74	1.5	0.0
-#BIVY SACK
-75	2.2	0.0
-#MODULAR SLEEPING BAG
-76	4.5	0.0
-#TWO MAN TENT
-77	8.5	0.0
-#JLIST SUIT COMPLETE WITH BOOTS AND GLOVES
-78	10	0.0
-#BATTERIES, AA (4)
-79	0.375	0.0
-#UNIFORM, UTILITY, CAMOUFLAGE
-80	2.97	0.0
-#UNIFORM, UTILITY, BELT
-81	0.3	0.0
-#T-SHIRT, GREEN
-82	0.18	0.0
-#UNDERSHORTS, BOXER
-83	0.25	0.0
-#BOOTS, COMBAT WITH LACES
-84	4.1	0.0
-#SOCKS
-85	0.16	0.0
-#WATCH, WRIST
-86	0.1	0.0
-#CARD, ID
-87	0.028	0.0
-#DOG TAGS
-88	0.1	0.0
-#UNIFORM, UTILITY, CAP
-89	0.22	0.0
+64	0.01	0
+#trdys
+65	12	12

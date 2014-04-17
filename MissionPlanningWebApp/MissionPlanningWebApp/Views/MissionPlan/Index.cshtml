@@ -1,0 +1,51 @@
+﻿@model MissionPlanningWebApp.Models.MissionPlan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Suggested Mission Equipment</h2>
+
+<fieldset>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberOfWarfighters)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfWarfighters)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TotalWeightOfEquipment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotalWeightOfEquipment)
+    </div>
+        <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipmentWeightPerWarfighter)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipmentWeightPerWarfighter)
+    </div>
+
+    <table>
+        <tr>
+            <th>Equipment</th>
+            <th>Number</th>
+        </tr>
+    @foreach (var equip in Model.EquipmentList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => equip.Key.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => equip.Value)
+            </td>
+        </tr>
+    }
+
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

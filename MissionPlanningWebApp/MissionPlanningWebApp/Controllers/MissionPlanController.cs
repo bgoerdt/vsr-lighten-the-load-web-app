@@ -9,21 +9,24 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class MissionPlanController : Controller
     {
+
+        private MissionPlan plan = new MissionPlan();
         //
         // GET: /MissionPlan/
 
-        public ActionResult Index(MissionPlan plan)
+        public ActionResult Index()
         {
+            plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"));
             return View(plan);
         }
 
-		[HttpPost]
+		[HttpGet]
 		public ActionResult Create()
 		{
-			MissionPlan plan = new MissionPlan();
-			plan.planMission(HttpContext.Server.MapPath("~/App_Data/"));
+			//MissionPlan plan = new MissionPlan();
+			//plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"));
 
-			return RedirectToAction("Index", plan);
+			return RedirectToAction("Index");
 		}
 
     }

@@ -331,6 +331,7 @@
     <Content Include="Views\Fighter\Create.cshtml" />
     <Content Include="Views\Fighter\Edit.cshtml" />
     <Content Include="Views\Fighter\Delete.cshtml" />
+    <Content Include="Views\MissionPlan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

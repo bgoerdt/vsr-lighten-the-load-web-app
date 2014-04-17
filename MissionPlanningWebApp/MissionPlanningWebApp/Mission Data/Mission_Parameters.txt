@@ -1,81 +1,40 @@
-#Hash mark (#) indicates comments
-#First number indicates the number of mission parameters
-#In each mission parameter:
-#First column indicate missiion parameter index
-#Second column indicate value of mission parameter
-#
-#The number of mission parameters
-36
-#
+#number of mission parameters
+19
 #Duration
-0     15
-#Threat level
-1     150
-#Expected Enemy Contact: none(0), light(1), medium(2), heavey(3)
-2     1
+0	15
+#Threat Level
+1	150
+#Expected Enemy Contact: none(0), light(10), medium (2), heavy(3)
+2	1
 #Enemy Capabilities: small arms
-3     1
+3	1
 #Enemy Capabilities: RPG
-4     0
+4	0
 #Enemy Capabilities: IED 1
-5     0
+5	0
 #Enemy Capabilities: IED 2
-6     0
-#Enemy Capabilities: NBC (nuclear, biological, chemical)
-7     0
+6	0
+#Enemy Capabilities: NB0C (nuclear, biological, chemical)
+7	0
 #Temperature: cold(0), temperate(1), hot(2)
-8     0
+8	0
 #Light data
-9     0
+9	0
 #Route
-10     0
+10	0
 #Terrain - Mountainous(0), Forrest(1), Urban(2), Desert(3)
-11     0
+11	0
 #Start DTG (date time group)
-12     1
+12	1
 #Patrol: Raid
-13     1
+13	1
 #Patrol: Humanitarian
-14     1
+14	1
 #Patrol: Hasty Defense
-15     1
+15	1
 #End DTG (date time group)
-16     1
+16	1
 #Offensive Tasks: Engage Targets Day
-17     1
+17	1
 #Offensive Tasks: Engage Targets Night
-18     1
-#Offensive Tasks: Call/Adjust Indirect Fires
-19     1
-#Offensive Tasks: Knock out Bunker
-20     1
-#Offensive Tasks: Observe - over distance
-21     1
-#Offensive Tasks: Observe - night
-22     1
-#Survivability Tasks: IMT (Individual Movement Technique)
-23     1
-#Survivability Tasks: Prepare Tactical Position
-24     1
-#1st Aid Tasks: Stop Bleeding
-25     1
-#1st Aid Tasks: Stabilize Casualty
-26     1
-#1st Aid Tasks: Casualty Evacuation
-27     1
-#Misc Tasks: Detainee Ops.
-28     1
-#Misc Tasks: Crowd Control
-29     1
-#C2 Tasks: Commo Internal
-30     1
-#C2 Tasks: Commo External
-31     1
-#Sustainment Tasks: Feed Squad
-32     1
-#Sustainment Tasks: Generate Power
-33     1
-#Sustainment Tasks: Protect vs. Climate
-34     1
-#Sustainment Tasks: Protect vs. NBC Attack
-35     1
+18	1
