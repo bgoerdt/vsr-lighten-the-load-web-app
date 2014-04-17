@@ -1,0 +1,48 @@
+#number of mission parameters
+23
+#Duration
+0	15
+#Threat Level
+1	150
+#Expected Enemy Contact: none(0), light(10), medium (2), heavy(3)
+2	1
+#Enemy Capabilities: small arms
+3	1
+#Enemy Capabilities: RPG
+4	0
+#Enemy Capabilities: IED 1
+5	0
+#Enemy Capabilities: IED 2
+6	0
+#Enemy Capabilities: NB0C (nuclear, biological, chemical)
+7	0
+#Temperature: cold(0), temperate(1), hot(2)
+8	0
+#Light data
+9	0
+#Route
+10	0
+#Terrain - Mountainous(0), Forrest(1), Urban(2), Desert(3)
+11	0
+#Start DTG (date time group)
+12	1
+#Patrol: Raid
+13	1
+#Patrol: Humanitarian
+14	1
+#Patrol: Hasty Defense
+15	1
+#End DTG (date time group)
+16	1
+#Offensive Tasks: Engage Targets Day
+17	1
+#Offensive Tasks: Engage Targets Night
+18	1
+#pTESTS
+19	12
+#sdfsdf
+20	12
+#sdgdfg
+21	13
+#werwer
+22	12
