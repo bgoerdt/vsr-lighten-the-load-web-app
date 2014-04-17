@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -53,6 +54,7 @@ namespace MissionPlanningWebApp.Controllers
             {
                 db.MissionParameters.Add(missionparameter);
                 db.SaveChanges();
+                WriteToFile();
                 return RedirectToAction("Index");
             }
 
@@ -135,6 +137,27 @@ namespace MissionPlanningWebApp.Controllers
             db.MissionParameters.Remove(missionparameter);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public void WriteToFile()
+        {
+            List<MissionParameter> missionParameters = db.MissionParameters.ToList();
+
+            using (StreamWriter file = new StreamWriter(HttpContext.Server.MapPath("~/App_Data/MissionParameter.txt")))
+            {
+                string totalNumberParameters = missionParameters.Count.ToString();
+                file.WriteLine("#number of mission parameters");
+                file.WriteLine(totalNumberParameters);
+                foreach (MissionParameter d in missionParameters)
+                {
+                   
+                    string line = string.Format("{0} {1} {2} {3}",
+                        d.ID, d.Name, d.Value, d.IsSelected);
+                    file.WriteLine("#{0}", d.Name);
+                    file.WriteLine("{0}\t{1}",
+                       ( d.ID-1), d.Value);
+                }
+            }
         }
 
         protected override void Dispose(bool disposing)
