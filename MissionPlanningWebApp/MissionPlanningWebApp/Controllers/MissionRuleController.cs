@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
+using System.IO;
 
 namespace MissionPlanningWebApp.Controllers
 {
@@ -18,6 +19,7 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Index()
         {
+			ExportMissionRules();
             var missionrules = db.MissionRules.Include(m => m.Param).Include(m => m.Equip);
             return View(missionrules.ToList());
         }
@@ -128,5 +130,28 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+		private void ExportMissionRules()
+		{
+			string path = HttpContext.Server.MapPath("~/App_Data/Rules_Mission.txt");
+			StreamWriter writer = new StreamWriter(path);
+			var missionRules = db.MissionRules.ToList();
+			foreach (var rule in missionRules)
+			{
+				Dictionary<string, string> conditions = new Dictionary<string,string>()
+				{
+					{ "<", "L" },
+					{ "=", "E" },
+					{ ">", "G" }
+				};
+
+				string ruleCond = conditions[rule.RuleCond];
+				string constrCond = conditions[rule.ConstrCond];
+
+				writer.WriteLine((rule.ParamId-1) + "\t" + ruleCond + "\t" + rule.RuleData + "\t" + (rule.EquipId-1) + "\t"  + constrCond + "\t" + rule.ConstrRHS);
+			}
+
+			writer.Close();
+		}
     }
 }
