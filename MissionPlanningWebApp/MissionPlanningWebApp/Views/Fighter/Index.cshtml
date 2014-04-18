@@ -46,27 +46,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                @{
-                    // Reset the values.
-                    int items = 0;
-                    string text = "";
-                }
                 @foreach (var chr in item.FighterCharacteristics)
                 {
-                    using(StreamWriter sw = File.AppendText("C:\\Users\\bchau\\VSR\\test.txt"))
-                    {
-                        items = items + 1;
-                        
-                        // Add the values.
-                        text = text + " " + chr.CharValue;
-
-                        // Add the ID.
-                        if (items % 4 == 0)
-                        {
-                            sw.WriteLine(item.ID + text);    
-                        }                        
-                    }
-                    
                     <td>@Html.DisplayFor(c => chr.CharValue)</td>
                 }
                 <td>
