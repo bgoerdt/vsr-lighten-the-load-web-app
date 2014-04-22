@@ -13,5 +13,6 @@ namespace MissionPlanningWebApp.Models
         public string Name { get; set; }
         public float Weight { get; set; }
         public float Firepower { get; set; }
+        public string Category { get; set; }
     }
 }

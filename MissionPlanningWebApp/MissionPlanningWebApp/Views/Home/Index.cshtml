@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Mission Planning Application";
+    ViewBag.Title = "Lighten the Load: Equipment Distribution Training Aid";
 }
 
 @section FormattedTable{
@@ -8,19 +8,23 @@
 
 <div id="content_box_1" class="content_box">
 
-    <h2>@ViewBag.Message</h2>
-    <p>
-        Created in conjunction with Virtual Soldier Research.
-    </p>
+    <h2>Lighten the Load: Equipment Distribution Training Aid</h2>
+    <p>Created in conjunction with Virtual Soldier Research.</p>
 
     <ul data-role="listview" data-inset="true">
         <li class="header" style="text-align:center">Navigation</li>
-        <li>@Html.ActionLink("Equipment", "Index", "Equipment")</li>
+        <li><img src="Military-Rifle-icon.png">@Html.ActionLink("Equipment", "Index", "Equipment")</li>
+
+        <li class="header" style="text-align:center">Input</li>
         <li>@Html.ActionLink("Mission Parameters", "Index", "MissionParameter")</li>
+        <li>@Html.ActionLink("Warfighters", "Index", "Fighter")</li>
+
+        <li class="header" style="text-align:center">Advanced Input</li>
         <li>@Html.ActionLink("Mission Rules", "Index", "MissionRule")</li>
-        <li>@Html.ActionLink("Fighters", "Index", "Fighter")</li>
         <li>@Html.ActionLink("Distribution Rules", "Index", "DistributionRules")</li>
-        <li>@Html.ActionLink("Distribute Equipment", "Distribute", "DistributionResults")</li>
+
+        <li class="header" style="text-align:center">Plan Mission</li>
+        <li>@Html.ActionLink("Plan Mission(Distribute Equipment)", "Distribute", "DistributionResults")</li>
     </ul>
 	<footer style="text-align:center">
 		@Html.ActionLink("About", "About", "Home")
