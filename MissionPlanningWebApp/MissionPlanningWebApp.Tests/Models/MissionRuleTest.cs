@@ -17,7 +17,7 @@ namespace MissionPlanningWebApp.Tests.Models
             missionRule.RuleCond = "night";
             missionRule.RuleData = 6;
             missionRule.EquipId = 8;
-                 missionRule.ConstrCond = "daylight";
+            missionRule.ConstrCond = "daylight";
             missionRule.ConstrRHS = 14;
 
 

@@ -16,32 +16,32 @@ namespace MissionPlanningWebApp.Models
         public double EquipmentWeightPerWarfighter; 
         
 
-		private LtLDbContext db = new LtLDbContext();
-		private string serverDir;
+        private LtLDbContext db = new LtLDbContext();
+        private string serverDir;
 
-		public void planMission(string dir)
-		{
-			serverDir = dir;
+        public void planMission(string dir)
+        {
+            serverDir = dir;
 
-			//export data
-			 _exportEquipment();
-			_exportParameters();
-			_exportMissionRules();
+            //export data
+            _exportEquipment();
+            _exportParameters();
+            _exportMissionRules();
 
-			// call exe on server
+            // call exe on server
 
-			_getMissionResults();
-		}
+            _getMissionResults();
+        }
 
-		private void _getMissionResults()
-		{
-			// get results from MissionPlanning.txt and add to EquipmentList
-			string path = serverDir + "Mission_Planning.txt";
-			StreamReader reader = new StreamReader(path);
-			string line = "";
-			int i = 1;
+        private void _getMissionResults()
+        {
+            // get results from MissionPlanning.txt and add to EquipmentList
+            string path = serverDir + "Mission_Planning.txt";
+            StreamReader reader = new StreamReader(path);
+            string line = "";
+            int i = 1;
             char[] separators = { ' ' };
-    
+
             string[] lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
             NumberOfWarfighters = Convert.ToInt32(lines[lines.Length - 1]);
 
@@ -51,16 +51,16 @@ namespace MissionPlanningWebApp.Models
             EquipmentWeightPerWarfighter = Convert.ToDouble(lines[lines.Length - 1]);
             reader.ReadLine();
             reader.ReadLine();
-            EquipmentList= new Dictionary<Equipment,int>();
+            EquipmentList = new Dictionary<Equipment, int>();
             while ((line = reader.ReadLine()) != null)
-			{
-				EquipmentList.Add(db.Equipment.Find(i), Convert.ToInt32(line));
-				i++;
-			}
-		}
+            {
+                EquipmentList.Add(db.Equipment.Find(i), Convert.ToInt32(line));
+                i++;
+            }
+        }
 
         private void _exportParameters()
-		{
+        {
             List<MissionParameter> missionParameters = db.MissionParameters.ToList();
 
             string path = serverDir + "Mission_Parameters.txt";
@@ -105,27 +105,27 @@ namespace MissionPlanningWebApp.Models
         }
 
 
-		private void _exportMissionRules()
-		{
-			string path = serverDir + "Rules_Mission.txt";
-			StreamWriter writer = new StreamWriter(path);
-			var missionRules = db.MissionRules.ToList();
-			foreach (var rule in missionRules)
-			{
-				Dictionary<string, string> conditions = new Dictionary<string, string>()
-				{
-					{ "<", "L" },
-					{ "=", "E" },
-					{ ">", "G" }
-				};
+        private void _exportMissionRules()
+        {
+            string path = serverDir + "Rules_Mission.txt";
+            StreamWriter writer = new StreamWriter(path);
+            var missionRules = db.MissionRules.ToList();
+            foreach (var rule in missionRules)
+            {
+                Dictionary<string, string> conditions = new Dictionary<string, string>()
+                {
+                    { "<", "L" },
+                    { "=", "E" },
+                    { ">", "G" }
+                };
 
-				string ruleCond = conditions[rule.RuleCond];
-				string constrCond = conditions[rule.ConstrCond];
+                string ruleCond = conditions[rule.RuleCond];
+                string constrCond = conditions[rule.ConstrCond];
 
-				writer.WriteLine((rule.ParamId - 1) + "\t" + ruleCond + "\t" + rule.RuleData + "\t" + (rule.EquipId - 1) + "\t" + constrCond + "\t" + rule.ConstrRHS);
-			}
+                writer.WriteLine((rule.ParamId - 1) + "\t" + ruleCond + "\t" + rule.RuleData + "\t" + (rule.EquipId - 1) + "\t" + constrCond + "\t" + rule.ConstrRHS);
+            }
 
-			writer.Close();
-		}
+            writer.Close();
+        }
 	}
 }
