@@ -8,8 +8,6 @@
     string[] categories = { "Clothing and Armor", "Personal Care", "Supplies", "Weapons and Ammunition", "" };
 }
 
-<h2>Create</h2>
-
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
