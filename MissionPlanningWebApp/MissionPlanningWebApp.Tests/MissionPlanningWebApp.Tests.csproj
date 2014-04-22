@@ -150,7 +150,6 @@
     <Compile Include="Models\FighterTest.cs" />
     <Compile Include="Models\MissionRuleTest.cs" />
     <Compile Include="Models\MissionPlanTest.cs" />
-    <Compile Include="Models\PlanTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="RegistarSteps.cs" />
