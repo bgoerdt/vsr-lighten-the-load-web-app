@@ -1,5 +1,5 @@
 #number of mission parameters
-23
+19
 #Duration
 0	15
 #Threat Level
@@ -38,11 +38,3 @@
 17	1
 #Offensive Tasks: Engage Targets Night
 18	1
-#pTESTS
-19	12
-#sdfsdf
-20	12
-#sdgdfg
-21	13
-#werwer
-22	12
