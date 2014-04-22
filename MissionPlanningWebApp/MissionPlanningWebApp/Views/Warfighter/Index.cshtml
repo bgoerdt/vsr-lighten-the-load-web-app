@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MissionPlanningWebApp.Models.Fighter>
+﻿@model IEnumerable<MissionPlanningWebApp.Models.Warfighter>
 
 @{
     ViewBag.Title = "Warfighter";
@@ -9,9 +9,6 @@
 }
 
 <div id="content_box_1" class="content_box">
-
-    <!--<h2>Warfighter</h2>-->
-
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -46,7 +43,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                @foreach (var chr in item.FighterCharacteristics)
+                @foreach (var chr in item.WarfighterCharacteristics)
                 {
                     <td>@Html.DisplayFor(c => chr.CharValue)</td>
                 }

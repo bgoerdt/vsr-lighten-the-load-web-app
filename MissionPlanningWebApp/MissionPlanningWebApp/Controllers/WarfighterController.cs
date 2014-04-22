@@ -10,159 +10,137 @@ using System.IO;
 
 namespace MissionPlanningWebApp.Controllers
 {
-    public class FighterController : Controller
+    public class WarfighterController : Controller
     {
         private LtLDbContext db = new LtLDbContext();
 
         //
-        // GET: /Fighter/
+        // GET: /Warfighter/
 
         public ActionResult Index()
         {
             var characteristics = db.Characteristics.ToList();
             ViewData["characteristics"] = characteristics;
 
-            return View(db.Fighters.ToList());
+            return View(db.Warfighters.ToList());
         }
 
         //
-        // GET: /Fighter/Details/5
+        // GET: /Warfighter/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Fighter fighter = db.Fighters.Find(id);
-            if (fighter == null)
+            Warfighter Warfighter = db.Warfighters.Find(id);
+            if (Warfighter == null)
             {
                 return HttpNotFound();
             }
-            return View(fighter);
+            return View(Warfighter);
         }
 
         //
-        // GET: /Fighter/Create
+        // GET: /Warfighter/Create
 
         public ActionResult Create()
         {
-            var fighterCharacteristics = new List<FighterCharacteristic>();
-            foreach(Characteristic chr in db.Characteristics.ToList()) {
-                FighterCharacteristic fchr = new FighterCharacteristic();
+            var WarfighterCharacteristics = new List<WarfighterCharacteristic>();
+            foreach (Characteristic chr in db.Characteristics.ToList())
+            {
+                WarfighterCharacteristic fchr = new WarfighterCharacteristic();
                 fchr.CharID = chr.ID;
                 fchr.Characteristic = chr;
                 fchr.CharValue = 0;
 
-                fighterCharacteristics.Add(fchr);
+                WarfighterCharacteristics.Add(fchr);
             }
 
-            ViewData["fighterCharacteristics"] = fighterCharacteristics;
+            ViewData["WarfighterCharacteristics"] = WarfighterCharacteristics;
 
             return View();
         }
 
-		public class FighterData
-		{
-			public string name { get; set; }
-			public string chars { get; set; }
-		}
-
-		//
-		// POST: /Fighter/Create
-		[HttpPost]
-		public ContentResult ManualCreate(FighterData data)
-		{
-			Fighter fighter = new Fighter();
-			if (ModelState.IsValid)
-			{
-				fighter.Name = data.name;
-				db.Fighters.Add(fighter);
-
-				char[] delims = { ',' };
-				string[] charVals = data.chars.Split(delims,StringSplitOptions.RemoveEmptyEntries);
-				var chars = db.Characteristics.ToList();
-				int i = 0;
-				foreach (Characteristic characteristic in chars)
-				{
-					db.FighterCharacteristics.Add(new FighterCharacteristic(fighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
-					i++;
-				}
-				db.SaveChanges();
-			}
-
-			return new ContentResult { Content = "success"};
-		}
-
-        /*//
-        // POST: /Fighter/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Fighter fighter)
+        public class WarfighterData
         {
-            if (ModelState.IsValid)
-            {
-                db.Fighters.Add(fighter);
-                db.SaveChanges();
-
-                // create fighter characteristics
-                fighter.FighterCharacteristics = new List<FighterCharacteristic>();
-                db.Entry(fighter).State = EntityState.Modified;
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            return View(fighter);
-        }*/
+            public string name { get; set; }
+            public string chars { get; set; }
+        }
 
         //
-        // GET: /Fighter/Edit/5
+        // POST: /Warfighter/Create
+        [HttpPost]
+        public ContentResult ManualCreate(WarfighterData data)
+        {
+            Warfighter Warfighter = new Warfighter();
+            if (ModelState.IsValid)
+            {
+                Warfighter.Name = data.name;
+                db.Warfighters.Add(Warfighter);
+
+                char[] delims = { ',' };
+                string[] charVals = data.chars.Split(delims, StringSplitOptions.RemoveEmptyEntries);
+                var chars = db.Characteristics.ToList();
+                int i = 0;
+                foreach (Characteristic characteristic in chars)
+                {
+                    db.WarfighterCharacteristics.Add(new WarfighterCharacteristic(Warfighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
+                    i++;
+                }
+                db.SaveChanges();
+            }
+
+            return new ContentResult { Content = "success" };
+        }
+
+        //
+        // GET: /Warfighter/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Fighter fighter = db.Fighters.Find(id);
-            if (fighter == null)
+            Warfighter Warfighter = db.Warfighters.Find(id);
+            if (Warfighter == null)
             {
                 return HttpNotFound();
             }
-            return View(fighter);
+            return View(Warfighter);
         }
 
         //
-        // POST: /Fighter/Edit/5
+        // POST: /Warfighter/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Fighter fighter)
+        public ActionResult Edit(Warfighter Warfighter)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(fighter).State = EntityState.Modified;
+                db.Entry(Warfighter).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(fighter);
+            return View(Warfighter);
         }
 
         //
-        // GET: /Fighter/Delete/5
+        // GET: /Warfighter/Delete/5
         public ActionResult Delete(int id = 0)
         {
-            Fighter fighter = db.Fighters.Find(id);
-            if (fighter == null)
+            Warfighter Warfighter = db.Warfighters.Find(id);
+            if (Warfighter == null)
             {
                 return HttpNotFound();
             }
-            return View(fighter);
+            return View(Warfighter);
         }
 
         //
-        // POST: /Fighter/Delete/5
+        // POST: /Warfighter/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Fighter fighter = db.Fighters.Find(id);
-            db.Fighters.Remove(fighter);
+            Warfighter Warfighter = db.Warfighters.Find(id);
+            db.Warfighters.Remove(Warfighter);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -188,28 +166,30 @@ namespace MissionPlanningWebApp.Controllers
             return new ContentResult { Content = "success" };
         }
 
-        
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
 
-        public void WriteToFile() // TODO FighterCharacteristics must be in correct order to write to database
+        public void WriteToFile() // TODO WarfighterCharacteristics must be in correct order to write to database
         {
-            List<Fighter> fighters = db.Fighters.ToList();
+            List<Warfighter> Warfighters = db.Warfighters.ToList();
 
             using (StreamWriter file = new StreamWriter(@"C:\Users\Melanie\Documents\Rules_Distribution.txt"))
             {
-                foreach (Fighter f in fighters)
+                foreach (Warfighter f in Warfighters)
                 {
                     string line = f.ID.ToString();
-                    foreach(FighterCharacteristic fChr in f.FighterCharacteristics) {
+                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
+                    {
                         line = line + " " + fChr.CharValue;
                     }
                     file.WriteLine(line);
                 }
             }
         }
+
     }
 }

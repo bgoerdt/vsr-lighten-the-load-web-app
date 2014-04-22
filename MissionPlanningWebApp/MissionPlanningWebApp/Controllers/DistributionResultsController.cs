@@ -29,15 +29,15 @@ namespace MissionPlanningWebApp.Controllers
             DistributionResults results = new DistributionResults();
             results.GetDistributionResults();
 
-            foreach (FighterDistribution fDist in results.Results)
+            foreach (WarfighterDistribution fDist in results.Results)
             {
-                int fId = fDist.FighterID;
-                Fighter fighter = db.Fighters.ToList().Where(f => f.ID == fId).Single();
+                int fId = fDist.WarfighterID;
+                Warfighter fighter = db.Warfighters.ToList().Where(f => f.ID == fId).Single();
                 if (fighter == null)
                 {
                     return HttpNotFound();
                 }
-                fDist.Fighter = fighter;
+                fDist.Warfighter = fighter;
 
                 foreach (EquipmentDistribution eDist in fDist.Distributions)
                 {
