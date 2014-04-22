@@ -1,0 +1,45 @@
+﻿@model MissionPlanningWebApp.Models.DistributionResults
+
+@{
+    ViewBag.Title = "Distribution Results";
+}
+
+@section FormattedTable{
+    <link href="~/Styles/TableFormat.css" rel="stylesheet" />
+}
+
+<h2>Distribution Results</h2>
+
+<p>
+    @Html.ActionLink("Distribute Equipment", "Distribute")
+</p>
+
+<table>
+    @foreach (var fighter in Model.Results)
+    {
+        <tr>
+            <th colspan="2">
+                @Html.DisplayFor(modelItem => fighter.Fighter.Name)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayText("Equipment")
+            </th>
+            <th>
+                @Html.DisplayText("Distribution")
+            </th>
+        </tr>
+        foreach (var dist in fighter.Distributions) 
+        { 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => dist.Equipment.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dist.Distribution)
+                </td>
+            </tr>
+        }
+    }
+</table>
