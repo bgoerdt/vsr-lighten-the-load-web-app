@@ -13,27 +13,32 @@ namespace MissionPlanningWebApp.Models
 		public Dictionary<Equipment, int> EquipmentList { get; set; }
         public int NumberOfWarfighters;
         public double TotalWeightOfEquipment;
-        public double EquipmentWeightPerWarfighter; 
-        
+        public double EquipmentWeightPerWarfighter;
 
-        private LtLDbContext db = new LtLDbContext();
+        public MissionPlan()
+        {
+            EquipmentList=new Dictionary<Equipment,int>();
+
+        }
+
+       // private LtLDbContext db = new LtLDbContext();
         private string serverDir;
 
-        public void planMission(string dir)
+        public void planMission(string dir, List<Equipment> equipment, List<MissionParameter> missionParameter, List<MissionRule> missionRule)
         {
             serverDir = dir;
 
             //export data
-            _exportEquipment();
-            _exportParameters();
-            _exportMissionRules();
+            _exportEquipment(equipment);
+            _exportParameters(missionParameter);
+            _exportMissionRules(missionRule);
 
             // call exe on server
 
-            _getMissionResults();
+            _getMissionResults(equipment);
         }
 
-        private void _getMissionResults()
+        private void _getMissionResults(List<Equipment> equipment)
         {
             // get results from MissionPlanning.txt and add to EquipmentList
             string path = serverDir + "Mission_Planning.txt";
@@ -54,14 +59,15 @@ namespace MissionPlanningWebApp.Models
             EquipmentList = new Dictionary<Equipment, int>();
             while ((line = reader.ReadLine()) != null)
             {
-                EquipmentList.Add(db.Equipment.Find(i), Convert.ToInt32(line));
+                
+                EquipmentList.Add(equipment.Find(e => e.ID == i), Convert.ToInt32(line));
                 i++;
             }
         }
 
-        private void _exportParameters()
+        private void _exportParameters(List<MissionParameter> missionParameter)
         {
-            List<MissionParameter> missionParameters = db.MissionParameters.ToList();
+            List<MissionParameter> missionParameters = missionParameter;
 
             string path = serverDir + "Mission_Parameters.txt";
             using (StreamWriter file = new StreamWriter(path))
@@ -82,10 +88,8 @@ namespace MissionPlanningWebApp.Models
         }
 
 
-        private void _exportEquipment()
+        private void _exportEquipment(List<Equipment> equipment)
         {
-            List<Equipment> equipment = db.Equipment.ToList();
-
             string path = serverDir + "Equipments.txt";
             using (StreamWriter file = new StreamWriter(path))
             {
@@ -105,11 +109,11 @@ namespace MissionPlanningWebApp.Models
         }
 
 
-        private void _exportMissionRules()
+        private void _exportMissionRules(List<MissionRule> missionRule)
         {
             string path = serverDir + "Rules_Mission.txt";
             StreamWriter writer = new StreamWriter(path);
-            var missionRules = db.MissionRules.ToList();
+            var missionRules = missionRule;
             foreach (var rule in missionRules)
             {
                 Dictionary<string, string> conditions = new Dictionary<string, string>()

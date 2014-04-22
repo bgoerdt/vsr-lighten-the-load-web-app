@@ -9,14 +9,14 @@ namespace MissionPlanningWebApp.Controllers
 {
     public class MissionPlanController : Controller
     {
-
+        private LtLDbContext db = new LtLDbContext();
         private MissionPlan plan = new MissionPlan();
         //
         // GET: /MissionPlan/
 
         public ActionResult Index()
         {
-            plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"));
+            plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"), db.Equipment.ToList(), db.MissionParameters.ToList(), db.MissionRules.ToList());
             return View(plan);
         }
 
