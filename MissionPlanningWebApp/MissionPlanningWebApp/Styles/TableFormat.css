@@ -13,6 +13,11 @@ body {
     color: black;
 }
 
+.icon
+{
+    background: url("icon.png");
+}
+
 table 
 {
     border-collapse:collapse;
