@@ -20,6 +20,8 @@ namespace MissionPlanningWebApp.Tests.Models
             missionRule.ConstrCond = "daylight";
             missionRule.ConstrRHS = 14;
 
+            MissionRule missionRule2 = new MissionRule(12,22,"light",10,14,"house",2);
+
 
        
             // act

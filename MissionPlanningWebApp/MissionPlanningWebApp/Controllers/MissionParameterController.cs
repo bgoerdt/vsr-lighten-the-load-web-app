@@ -99,11 +99,31 @@ namespace MissionPlanningWebApp.Controllers
             public bool ck { get; set; }
         }
 
+        public class ValueInfo
+        {
+            public int ID { get; set; }
+            public int val { get; set; }
+        }
+
         [HttpPost]
         public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
         {
             MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
             missionparameter.IsSelected = info.ck;
+            if (ModelState.IsValid)
+            {
+                db.Entry(missionparameter).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
+            return new ContentResult { Content = "success" };
+        }
+
+        [HttpPost]
+        public ContentResult UpdateValue(ValueInfo info)
+        {
+            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
+            missionparameter.Value = info.val;
             if (ModelState.IsValid)
             {
                 db.Entry(missionparameter).State = EntityState.Modified;
