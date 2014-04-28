@@ -36,7 +36,7 @@ Warfighter[1]
 	Equipment[13]	 = 0
 	Equipment[14]	 = 4
 	Equipment[15]	 = 0
-Warfighter[2]
+Warfighter[4]
 	Equipment[0]	 = 12
 	Equipment[1]	 = 0
 	Equipment[2]	 = 0

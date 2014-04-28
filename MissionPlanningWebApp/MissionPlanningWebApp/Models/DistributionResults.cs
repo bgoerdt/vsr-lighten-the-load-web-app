@@ -20,9 +20,13 @@ namespace MissionPlanningWebApp.Models
             Results = new List<FighterDistribution>();
         }
 
-        public void GetDistributionResults()
+        public void GetDistributionResults(List<DistributionRules> distributionRules, List<Fighter> fighters, string path)
         {
-            using (StreamReader file = new StreamReader(@"C:\Users\Melanie\Documents\Equipment_Distribution.txt"))
+            WriteDistributionRulesToFile(distributionRules, string.Concat(path, "Rules_Distribution.txt"));
+            WriteFightersToFile(fighters, string.Concat(path, "Warfighter_Members.txt"));
+            //CALL SERVER
+
+            using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
                 Results = new List<FighterDistribution>();
 
@@ -70,6 +74,36 @@ namespace MissionPlanningWebApp.Models
 
                         if (equipVal != 0) fighterDistribution.Distributions.Add(equipDistribution);
                     }
+                }
+            }
+        }
+
+        public void WriteDistributionRulesToFile(List<DistributionRules> distributionRules, string path)
+        {
+            using (StreamWriter file = new StreamWriter(path))
+            {
+                foreach (DistributionRules d in distributionRules)
+                {
+                    string line = string.Format("{0} {1} {2} {3} {4} {5}",
+                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                    file.WriteLine("{0} {1} {2} {3} {4} {5}",
+                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                }
+            }
+        }
+
+        public void WriteFightersToFile(List<Fighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
+        {
+            using (StreamWriter file = new StreamWriter(path))
+            {
+                foreach (Fighter f in fighters)
+                {
+                    string line = f.ID.ToString();
+                    foreach (FighterCharacteristic fChr in f.FighterCharacteristics)
+                    {
+                        line = line + " " + fChr.CharValue;
+                    }
+                    file.WriteLine(line);
                 }
             }
         }

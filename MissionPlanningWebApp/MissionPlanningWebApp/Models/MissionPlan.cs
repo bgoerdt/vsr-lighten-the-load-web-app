@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -40,7 +41,26 @@ namespace MissionPlanningWebApp.Models
             _exportMissionRules(missionRule);
 
             // call exe on server
+			Process kProcess = new Process();
 
+			// set up folder and EXE file
+			kProcess.StartInfo.WorkingDirectory = serverDir;
+			kProcess.StartInfo.FileName = serverDir + "mission_planning.exe";
+
+			// comment in to hide window
+			kProcess.StartInfo.CreateNoWindow = true;
+			kProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+			// start the EXE
+			kProcess.Start();
+
+			// wait for the EXE to finish
+			while (kProcess.HasExited == false)
+			{
+				System.Threading.Thread.Sleep(100);
+			}
+
+			// get results from file
             _getMissionResults(equipment);
         }
 
