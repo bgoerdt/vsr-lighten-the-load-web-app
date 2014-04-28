@@ -20,14 +20,5 @@ namespace MissionPlanningWebApp.Controllers
             return View(plan);
         }
 
-		[HttpGet]
-		public ActionResult Create()
-		{
-			//MissionPlan plan = new MissionPlan();
-			//plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"));
-
-			return RedirectToAction("Index");
-		}
-
     }
 }

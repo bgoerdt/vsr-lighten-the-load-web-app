@@ -5,14 +5,20 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using MissionPlanningWebApp.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MissionPlanningWebApp.Models
 {
 	public class MissionPlan
 	{
 		public Dictionary<Equipment, int> EquipmentList { get; set; }
+
+		[Display(Name = "Number of Warfighters")]
         public int NumberOfWarfighters;
+
+		[Display(Name = "Total Weight of Equipment")]
         public double TotalWeightOfEquipment;
+
         public double EquipmentWeightPerWarfighter;
 
         public MissionPlan()
@@ -59,8 +65,11 @@ namespace MissionPlanningWebApp.Models
             EquipmentList = new Dictionary<Equipment, int>();
             while ((line = reader.ReadLine()) != null)
             {
-                
-                EquipmentList.Add(equipment.Find(e => e.ID == i), Convert.ToInt32(line));
+                var val = Convert.ToInt32(line);
+				if(val != 0)
+				{
+					EquipmentList.Add(equipment.Find(e => e.ID == i), val);
+				}
                 i++;
             }
         }
