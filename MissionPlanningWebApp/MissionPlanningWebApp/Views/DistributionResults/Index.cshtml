@@ -15,11 +15,11 @@
 </p>
 
 <table>
-    @foreach (var fighter in Model.Results)
+    @foreach (var Warfighter in Model.Results)
     {
         <tr>
             <th colspan="2">
-                @Html.DisplayFor(modelItem => fighter.Fighter.Name)
+                @Html.DisplayFor(modelItem => Warfighter.Warfighter.Name)
             </th>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
                 @Html.DisplayText("Distribution")
             </th>
         </tr>
-        foreach (var dist in fighter.Distributions) 
+        foreach (var dist in Warfighter.Distributions) 
         { 
             <tr>
                 <td>
