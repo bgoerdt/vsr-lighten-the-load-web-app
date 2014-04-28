@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -24,7 +25,26 @@ namespace MissionPlanningWebApp.Models
         {
             WriteDistributionRulesToFile(distributionRules, string.Concat(path, "Rules_Distribution.txt"));
             WriteFightersToFile(fighters, string.Concat(path, "Warfighter_Members.txt"));
-            //CALL SERVER
+
+            //CALL EXE ON SERVER
+			Process kProcess = new Process();
+
+			// set up folder and EXE file
+			kProcess.StartInfo.WorkingDirectory = path;
+			kProcess.StartInfo.FileName = path + "equipment_distribution.exe";
+
+			// comment in to hide window
+			//kProcess.StartInfo.CreateNoWindow = true;
+			//kProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+			// start the EXE
+			kProcess.Start();
+
+			// wait for the EXE to finish
+			while (kProcess.HasExited == false)
+			{
+				System.Threading.Thread.Sleep(100);
+			}
 
             using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
@@ -85,9 +105,9 @@ namespace MissionPlanningWebApp.Models
                 foreach (DistributionRules d in distributionRules)
                 {
                     string line = string.Format("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                        d.ChrId - 1, d.ChrCond, d.ChrData, d.EquipId - 1, d.ConstrCond, d.ConstrRHS);
                     file.WriteLine("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                        d.ChrId - 1, d.ChrCond, d.ChrData, d.EquipId - 1, d.ConstrCond, d.ConstrRHS);
                 }
             }
         }
@@ -98,7 +118,7 @@ namespace MissionPlanningWebApp.Models
             {
                 foreach (Fighter f in fighters)
                 {
-                    string line = f.ID.ToString();
+                    string line = (f.ID-1).ToString();
                     foreach (FighterCharacteristic fChr in f.FighterCharacteristics)
                     {
                         line = line + " " + fChr.CharValue;
