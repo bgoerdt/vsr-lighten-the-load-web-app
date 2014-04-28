@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
 using System.Net;
 using System.Web.Routing;
+using System.IO;
 
 namespace MissionPlanningWebApp.Controllers
 {
@@ -27,7 +28,8 @@ namespace MissionPlanningWebApp.Controllers
         public ActionResult Distribute()
         {
             DistributionResults results = new DistributionResults();
-            results.GetDistributionResults();
+            results.GetDistributionResults(db.DistributionRules.ToList(), db.Fighters.ToList(),
+                HttpContext.Server.MapPath("~/Mission Data/"));
 
             foreach (FighterDistribution fDist in results.Results)
             {
