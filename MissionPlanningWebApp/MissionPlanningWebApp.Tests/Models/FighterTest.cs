@@ -14,6 +14,10 @@ namespace MissionPlanningWebApp.Tests.Models
             Fighter fighter = new Fighter();
             fighter.Name = "marine";
             fighter.ID = 2;
+            FighterCharacteristic fighterChar = new FighterCharacteristic(2,4,8);
+            FighterCharacteristic fighterChar2 = new FighterCharacteristic(); 
+            
+
             //
           
             // act

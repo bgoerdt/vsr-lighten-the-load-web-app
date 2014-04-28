@@ -24,12 +24,7 @@
         @Html.DisplayFor(model => model.Value)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.IsSelected)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IsSelected)
-    </div>
+ 
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
