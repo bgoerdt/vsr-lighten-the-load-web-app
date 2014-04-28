@@ -45,7 +45,7 @@
                 </td>
                 @foreach (var chr in item.WarfighterCharacteristics)
                 {
-                    <td>@Html.DisplayFor(c => chr.CharValue)</td>
+                    <td><input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
                 }
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
@@ -54,11 +54,7 @@
 
             </tr>
         }
-
     </table>
-
-
-
     @section Scripts {
         <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
         <script type="text/javascript">
@@ -72,8 +68,22 @@
                         ck: checked
                     };
 
-                    $.post('/MissionParameter/UpdateChecked', data, function (data) {
-                        //alert(data);
+                    $.post('/Warfighter/UpdateChecked', data, function (data) {
+                    });
+                });
+
+
+                $('.quantity').change(function () {
+                    var id = $(this).attr('id').split(" ")[0];
+                    var charID = parseInt($(this).attr('id').split(" ")[1]);
+                    var charVal = parseFloat($(this).val());
+                    var data = {
+                        id: id,
+                        charID: charID,
+                        charVal: charVal
+                    };
+
+                    $.post('/WarFighter/UpdateValue', data, function (data) {
                     });
                 });
             });

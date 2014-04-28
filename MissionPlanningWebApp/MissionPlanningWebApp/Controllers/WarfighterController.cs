@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
-using System.IO;
-
 namespace MissionPlanningWebApp.Controllers
 {
     public class WarfighterController : Controller
@@ -63,6 +62,34 @@ namespace MissionPlanningWebApp.Controllers
         {
             public string name { get; set; }
             public string chars { get; set; }
+        }
+
+        /// <summary>
+        /// ///
+        /// </summary>
+        public class WarfighterData2
+        {
+            public int ID { get; set; }
+            public int charID { get; set; }
+            public float charVal { get; set; }
+        }
+        [HttpPost]
+       // [ValidateAntiForgeryToken]
+        public ContentResult UpdateValue(WarfighterData2 data)
+        {
+            // Find the warfighter based on the name.
+            Warfighter warfighter = db.Warfighters.Find(data.ID);
+            
+            // Update.
+            warfighter.WarfighterCharacteristics.ElementAt(data.charID-1).CharValue = data.charVal;
+                        
+            // Update the database.
+            if (ModelState.IsValid)
+            {
+                db.Entry(warfighter).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return new ContentResult { Content = "success" };
         }
 
         //
@@ -151,21 +178,19 @@ namespace MissionPlanningWebApp.Controllers
             public int ID { get; set; }
             public bool ck { get; set; }
         }
-
         [HttpPost]
         public ContentResult UpdateChecked(CheckedInfo info)//, bool Selected)
         {
-            MissionParameter missionparameter = db.MissionParameters.Find(info.ID);
-            missionparameter.IsSelected = info.ck;
+            Warfighter warfighter = db.Warfighters.Find(info.ID);
+            warfighter.IsSelected = info.ck;
             if (ModelState.IsValid)
             {
-                db.Entry(missionparameter).State = EntityState.Modified;
+                db.Entry(warfighter).State = EntityState.Modified;
                 db.SaveChanges();
             }
 
             return new ContentResult { Content = "success" };
         }
-
 
         protected override void Dispose(bool disposing)
         {

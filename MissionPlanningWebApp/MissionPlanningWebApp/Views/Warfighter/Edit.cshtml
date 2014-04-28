@@ -22,7 +22,10 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
-
+        @foreach (var chr in model => model.WarfighterCharacteristics)
+        {
+            <input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue">
+        }
         <p>
             <input type="submit" value="Save" />
         </p>
