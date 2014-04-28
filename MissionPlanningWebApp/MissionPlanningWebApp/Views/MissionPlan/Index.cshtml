@@ -4,26 +4,18 @@
     ViewBag.Title = "Details";
 }
 
+@section FormattedTable{
+    <link href="~/Styles/TableFormat.css" rel="stylesheet" />
+}
+
 <h2>Suggested Mission Equipment</h2>
 
 <fieldset>
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.NumberOfWarfighters)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NumberOfWarfighters)
+         <b>Number of Warfighters: </b>@Html.DisplayFor(model => model.NumberOfWarfighters)
     </div>
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TotalWeightOfEquipment)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.TotalWeightOfEquipment)
-    </div>
-        <div class="display-label">
-         @Html.DisplayNameFor(model => model.EquipmentWeightPerWarfighter)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EquipmentWeightPerWarfighter)
+         <b>Total Weight of Equipment: </b>@Html.DisplayFor(model => model.TotalWeightOfEquipment)
     </div>
 
     <table>
@@ -42,7 +34,6 @@
             </td>
         </tr>
     }
-
     </table>
 </fieldset>
 <p>

@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MissionPlanningWebApp.Models;
 using System.Collections.Generic;
+using System.Web;
 
 namespace MissionPlanningWebApp.Tests.Models
 {
@@ -18,13 +19,19 @@ namespace MissionPlanningWebApp.Tests.Models
             knife.ID = 2;
             knife.Weight = 8;
             knife.Firepower = 10;
-            
+
+            List<MissionParameter> missionParameters = new List<MissionParameter>();
+            List<Equipment> equipment = new List<Equipment>();
+            List<MissionRule> missionRules = new List<MissionRule>();
+
+
+            //missionPlan.planMission(HttpContext.Server.MapPath("~/Mission Data/"), equipment, missionParameters, missionRules);
             missionPlan.NumberOfWarfighters = 3;
             missionPlan.TotalWeightOfEquipment = 90.6;
             missionPlan.EquipmentWeightPerWarfighter = 30.2;
            
             missionPlan.EquipmentList.Add(knife, 10);
-           
+            
             //
 
             // act
