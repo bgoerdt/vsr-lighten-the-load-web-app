@@ -198,7 +198,7 @@ namespace MissionPlanningWebApp.Controllers
             base.Dispose(disposing);
         }
 
-        public void WriteToFile() // TODO WarfighterCharacteristics must be in correct order to write to database
+        public void WriteToFile()
         {
             List<Warfighter> Warfighters = db.Warfighters.ToList();
             int numChars = db.WarfighterCharacteristics.ToList().Count;
@@ -221,7 +221,7 @@ namespace MissionPlanningWebApp.Controllers
                     file.WriteLine(line);
                 }
             }
+            Response.Redirect("Index");
         }
-
     }
 }
