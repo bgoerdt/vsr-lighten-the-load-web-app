@@ -201,11 +201,18 @@ namespace MissionPlanningWebApp.Controllers
         public void WriteToFile() // TODO WarfighterCharacteristics must be in correct order to write to database
         {
             List<Warfighter> Warfighters = db.Warfighters.ToList();
-
-            using (StreamWriter file = new StreamWriter(@"C:\Users\Melanie\Documents\Rules_Distribution.txt"))
+            int numChars = db.WarfighterCharacteristics.ToList().Count;
+            using (StreamWriter file = new StreamWriter(@"H:\Downloads\warfighters.txt"))
             {
+                file.WriteLine("# Number of warfighters");
+                file.WriteLine(Warfighters.Count);
+                file.WriteLine("# Number of characteristics (Maximum is 20)");
+                file.WriteLine(numChars);
+                file.WriteLine("# Maximum weight of carriage per warfighter");
+                file.WriteLine("10000");
                 foreach (Warfighter f in Warfighters)
                 {
+                    file.WriteLine("# " + f.Name);
                     string line = f.ID.ToString();
                     foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
                     {
