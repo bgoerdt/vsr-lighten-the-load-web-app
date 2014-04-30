@@ -11,11 +11,11 @@ namespace MissionPlanningWebApp.Tests.Models
         public void Fighter()
         {
             // arrange
-            Fighter fighter = new Fighter();
+            Warfighter fighter = new Warfighter();
             fighter.Name = "marine";
             fighter.ID = 2;
-            FighterCharacteristic fighterChar = new FighterCharacteristic(2,4,8);
-            FighterCharacteristic fighterChar2 = new FighterCharacteristic(); 
+            WarfighterCharacteristic fighterChar = new WarfighterCharacteristic(2,4,8);
+            WarfighterCharacteristic fighterChar2 = new WarfighterCharacteristic(); 
             
 
             //

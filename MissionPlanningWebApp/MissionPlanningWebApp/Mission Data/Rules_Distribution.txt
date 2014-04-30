@@ -1,4 +1,9 @@
-#Hash mark (#) indicates comments
-#ChrIndex, ChrCond, ChrData, EquipIndex, ConstrCond, ConstrRHS
-0    L     6       0     L     6
-0    G     8       0     L     12
+0 < 0 1 > 0
+2 < 0 5 < 0
+3 = 0 6 < 0
+3 < 0 5 > 11
+1 < 10 1 < 2
+2 < 0 7 > 1
+0 < 0 1 < 0
+0 < 5 0 < 5
+1 < 12 6 < 11

@@ -188,6 +188,7 @@
     <Compile Include="Models\LtLDbContext.cs" />
     <Compile Include="Models\MissionParameter.cs" />
     <Compile Include="Models\DistributionRules.cs" />
+    <Compile Include="Models\MissionPlan.cs" />
     <Compile Include="Models\MissionRule.cs" />
     <Compile Include="Models\Warfighter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
