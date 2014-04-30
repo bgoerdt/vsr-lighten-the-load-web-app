@@ -43,7 +43,7 @@ namespace MissionPlanningWebApp.Models
                         string key = Regex.Match(line, @"^.*\[(.*)\].*$").Groups[1].Value;
 
                         int fighterID;
-                        if (!int.TryParse(key, out fighterID)) 
+                        if (!int.TryParse(key, out fighterID))
                         {
                             Console.Write("ERROR - could not parse Equipment_Distribution.txt");
                             return;
@@ -84,12 +84,37 @@ namespace MissionPlanningWebApp.Models
             {
                 foreach (DistributionRules d in distributionRules)
                 {
+                    string chrCond = ParseLogicalSigns(d.ChrCond);
+                    string constrCond = ParseLogicalSigns(d.ConstrCond);
+
                     string line = string.Format("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
-                    file.WriteLine("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, d.ChrCond, d.ChrData, d.EquipId, d.ConstrCond, d.ConstrRHS);
+                        d.ChrId, chrCond, d.ChrData, d.EquipId, constrCond, d.ConstrRHS);
+                    file.WriteLine(line);
                 }
             }
+        }
+
+        private string ParseLogicalSigns(string inputString)
+        {
+            string returnVal;
+
+            switch(inputString)
+            {
+                case "<":
+                    returnVal = "L";
+                    break;
+                case ">":
+                    returnVal = "G";
+                    break;
+                case "=":
+                    returnVal = "E";
+                    break;
+                default:
+                    returnVal = inputString;
+                    break;
+            }
+
+            return returnVal;
         }
 
         public void WriteFightersToFile(List<Fighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database

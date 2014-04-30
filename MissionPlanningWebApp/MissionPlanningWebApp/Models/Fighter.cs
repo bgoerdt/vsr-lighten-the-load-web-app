@@ -44,6 +44,7 @@ namespace MissionPlanningWebApp.Models
     public class Characteristic
     {
         public int ID { get; set; }
+        [Display(Name="Characteristic")]
         public string Char { get; set; }
     }
 }

@@ -291,7 +291,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Styles\DistributionRules.css" />
+    <Content Include="Styles\RulesFormat.css" />
     <Content Include="Styles\TableFormat.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
