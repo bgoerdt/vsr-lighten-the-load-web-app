@@ -1,12 +1,3 @@
-# Number of warfighters
-3
-# Number of characteristics (Maximum is 20)
-4
-# Maximum weight of carriage per warfighter
-10000
-# Ortiz
-0     8.7     83     425     92
-# Beckett
-1     6.5     75     350     78
-# Pujols 
-2     7.4     68     380     86
+1 90 70 450 88
+2 100 100 100 100
+5 0 0 0 0

@@ -269,6 +269,13 @@
     <Content Include="Global.asax" />
     <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Mission Data\Equipments.txt" />
+    <Content Include="Mission Data\Equipment_Distribution.txt" />
+    <Content Include="Mission Data\Mission_Parameters.txt" />
+    <Content Include="Mission Data\Mission_Planning.txt" />
+    <Content Include="Mission Data\Rules_Distribution.txt" />
+    <Content Include="Mission Data\Rules_Mission.txt" />
+    <Content Include="Mission Data\Warfighter_Members.txt" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -283,7 +290,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Styles\DistributionRules.css" />
+    <Content Include="Styles\RulesFormat.css" />
     <Content Include="Styles\TableFormat.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
