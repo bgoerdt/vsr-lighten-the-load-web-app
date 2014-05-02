@@ -28,7 +28,7 @@ namespace MissionPlanningWebApp.Controllers
         public ActionResult Distribute()
         {
             DistributionResults results = new DistributionResults();
-            results.GetDistributionResults(db.DistributionRules.ToList(), db.Fighters.ToList(),
+            results.GetDistributionResults(db.DistributionRules.ToList(), db.Warfighters.ToList(),
                 HttpContext.Server.MapPath("~/Mission Data/"));
 
             foreach (WarfighterDistribution fDist in results.Results)

@@ -197,31 +197,5 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-
-        public void WriteToFile()
-        {
-            List<Warfighter> Warfighters = db.Warfighters.ToList();
-            int numChars = db.WarfighterCharacteristics.ToList().Count;
-            using (StreamWriter file = new StreamWriter(@"H:\Downloads\warfighters.txt"))
-            {
-                file.WriteLine("# Number of warfighters");
-                file.WriteLine(Warfighters.Count);
-                file.WriteLine("# Number of characteristics (Maximum is 20)");
-                file.WriteLine(numChars);
-                file.WriteLine("# Maximum weight of carriage per warfighter");
-                file.WriteLine("10000");
-                foreach (Warfighter f in Warfighters)
-                {
-                    file.WriteLine("# " + f.Name);
-                    string line = f.ID.ToString();
-                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
-                    {
-                        line = line + " " + fChr.CharValue;
-                    }
-                    file.WriteLine(line);
-                }
-            }
-            Response.Redirect("Index");
-        }
     }
 }
