@@ -12,8 +12,8 @@ namespace MissionPlanningWebApp.Models
         public int ID { get; set; }
         [Display(Name="Equipment")]
         public string Name { get; set; }
-        public float Weight { get; set; }
-        public float Firepower { get; set; }
+        public double Weight { get; set; }
+        public double Firepower { get; set; }
         public string Category { get; set; }
     }
 }

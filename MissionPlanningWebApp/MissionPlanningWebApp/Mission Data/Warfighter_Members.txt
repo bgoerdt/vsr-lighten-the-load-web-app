@@ -1,8 +1,6 @@
 # Number of warfighters
-1
+0
 # Number of characteristics (Maximum is 20)
-1
+0
 # Maximum weight of carriage per warfighter
 10000
-# Bob
-1 5555555 6.666667E+08 0 0
