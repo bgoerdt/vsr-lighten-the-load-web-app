@@ -171,6 +171,7 @@
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MissionParameterController.cs" />
+    <Compile Include="Controllers\MissionPlanController.cs" />
     <Compile Include="Controllers\MissionRuleController.cs" />
     <Compile Include="Controllers\WarfighterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -346,6 +347,7 @@
     <Content Include="Views\Warfighter\Create.cshtml" />
     <Content Include="Views\Warfighter\Edit.cshtml" />
     <Content Include="Views\Warfighter\Delete.cshtml" />
+    <Content Include="Views\MissionPlan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -197,24 +197,5 @@ namespace MissionPlanningWebApp.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-
-        public void WriteToFile() // TODO WarfighterCharacteristics must be in correct order to write to database
-        {
-            List<Warfighter> Warfighters = db.Warfighters.ToList();
-
-            using (StreamWriter file = new StreamWriter(@"C:\Users\Melanie\Documents\Rules_Distribution.txt"))
-            {
-                foreach (Warfighter f in Warfighters)
-                {
-                    string line = f.ID.ToString();
-                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
-                    {
-                        line = line + " " + fChr.CharValue;
-                    }
-                    file.WriteLine(line);
-                }
-            }
-        }
-
     }
 }
