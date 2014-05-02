@@ -13,14 +13,14 @@ namespace MissionPlanningWebApp.Models
     public class DistributionResults
     {
         public int ID { get; set; }
-        public virtual ICollection<FighterDistribution> Results { get; set; }
+        public virtual ICollection<WarfighterDistribution> Results { get; set; }
 
         public DistributionResults()
         {
-            Results = new List<FighterDistribution>();
+            Results = new List<WarfighterDistribution>();
         }
 
-        public void GetDistributionResults(List<DistributionRules> distributionRules, List<Fighter> fighters, string path)
+        public void GetDistributionResults(List<DistributionRules> distributionRules, List<Warfighter> fighters, string path)
         {
             WriteDistributionRulesToFile(distributionRules, string.Concat(path, "Rules_Distribution.txt"));
             WriteFightersToFile(fighters, string.Concat(path, "Warfighter_Members.txt"));
@@ -28,10 +28,10 @@ namespace MissionPlanningWebApp.Models
 
             using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
-                Results = new List<FighterDistribution>();
+                Results = new List<WarfighterDistribution>();
 
-                FighterDistribution fighterDistribution = new FighterDistribution();
-                fighterDistribution.Distributions = new List<EquipmentDistribution>();
+                WarfighterDistribution WarfighterDistribution = new WarfighterDistribution();
+                WarfighterDistribution.Distributions = new List<EquipmentDistribution>();
 
                 EquipmentDistribution equipDistribution;
 
@@ -42,18 +42,18 @@ namespace MissionPlanningWebApp.Models
                     {
                         string key = Regex.Match(line, @"^.*\[(.*)\].*$").Groups[1].Value;
 
-                        int fighterID;
-                        if (!int.TryParse(key, out fighterID))
+                        int WarfighterID;
+                        if (!int.TryParse(key, out WarfighterID))
                         {
                             Console.Write("ERROR - could not parse Equipment_Distribution.txt");
                             return;
                         }
 
-                        fighterDistribution = new FighterDistribution();
-                        fighterDistribution.FighterID = fighterID + 1;
-                        fighterDistribution.Distributions = new List<EquipmentDistribution>();
+                        WarfighterDistribution = new WarfighterDistribution();
+                        WarfighterDistribution.WarfighterID = WarfighterID + 1;
+                        WarfighterDistribution.Distributions = new List<EquipmentDistribution>();
 
-                        Results.Add(fighterDistribution);
+                        Results.Add(WarfighterDistribution);
                     }
                     if (line.StartsWith("\tEquipment"))
                     {
@@ -72,7 +72,7 @@ namespace MissionPlanningWebApp.Models
                         equipDistribution.EquipID = equipId + 1;
                         equipDistribution.Distribution = equipVal;
 
-                        if (equipVal != 0) fighterDistribution.Distributions.Add(equipDistribution);
+                        if (equipVal != 0) WarfighterDistribution.Distributions.Add(equipDistribution);
                     }
                 }
             }
@@ -117,14 +117,14 @@ namespace MissionPlanningWebApp.Models
             return returnVal;
         }
 
-        public void WriteFightersToFile(List<Fighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
+        public void WriteFightersToFile(List<Warfighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
         {
             using (StreamWriter file = new StreamWriter(path))
             {
-                foreach (Fighter f in fighters)
+                foreach (Warfighter f in fighters)
                 {
                     string line = f.ID.ToString();
-                    foreach (FighterCharacteristic fChr in f.FighterCharacteristics)
+                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
                     {
                         line = line + " " + fChr.CharValue;
                     }
@@ -134,13 +134,13 @@ namespace MissionPlanningWebApp.Models
         }
     }
 
-    public class FighterDistribution
+    public class WarfighterDistribution
     {
         public int ID { get; set; }
 
-        [ForeignKey("Fighter")]
-        public int FighterID { get; set; }
-        public virtual Fighter Fighter { get; set; }
+        [ForeignKey("Warfighter")]
+        public int WarfighterID { get; set; }
+        public virtual Warfighter Warfighter { get; set; }
 
         public virtual ICollection<EquipmentDistribution> Distributions { get; set; }
     }

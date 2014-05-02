@@ -1,4 +1,4 @@
-﻿@model MissionPlanningWebApp.Models.Fighter
+﻿@model MissionPlanningWebApp.Models.Warfighter
 
 @{
     ViewBag.Title = "Edit";
@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Fighter</legend>
+        <legend>Warfighter</legend>
 
         @Html.HiddenFor(model => model.ID)
 
@@ -22,7 +22,10 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
-
+        @foreach (var chr in model => model.WarfighterCharacteristics)
+        {
+            <input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue">
+        }
         <p>
             <input type="submit" value="Save" />
         </p>

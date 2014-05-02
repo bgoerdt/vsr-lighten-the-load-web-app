@@ -169,11 +169,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DistributionResultsController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
-    <Compile Include="Controllers\FighterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MissionParameterController.cs" />
-    <Compile Include="Controllers\MissionPlanController.cs" />
     <Compile Include="Controllers\MissionRuleController.cs" />
+    <Compile Include="Controllers\WarfighterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,12 +185,12 @@
     <Compile Include="Controllers\DistributionRulesController.cs" />
     <Compile Include="Models\DistributionResults.cs" />
     <Compile Include="Models\Equipment.cs" />
-    <Compile Include="Models\Fighter.cs" />
     <Compile Include="Models\LtLDbContext.cs" />
     <Compile Include="Models\MissionParameter.cs" />
     <Compile Include="Models\DistributionRules.cs" />
     <Compile Include="Models\MissionPlan.cs" />
     <Compile Include="Models\MissionRule.cs" />
+    <Compile Include="Models\Warfighter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -337,17 +336,16 @@
     <Content Include="Views\MissionRule\Create.cshtml" />
     <Content Include="Views\MissionRule\Edit.cshtml" />
     <Content Include="Views\MissionRule\Delete.cshtml" />
-    <Content Include="Views\Fighter\Index.cshtml" />
-    <Content Include="Views\Fighter\Details.cshtml" />
-    <Content Include="Views\Fighter\Create.cshtml" />
-    <Content Include="Views\Fighter\Edit.cshtml" />
-    <Content Include="Views\Fighter\Delete.cshtml" />
-    <Content Include="Views\MissionPlan\Index.cshtml" />
     <Content Include="Views\DistributionResults\Index.cshtml" />
     <Content Include="Views\DistributionResults\Details.cshtml" />
     <Content Include="Views\DistributionResults\Create.cshtml" />
     <Content Include="Views\DistributionResults\Edit.cshtml" />
     <Content Include="Views\DistributionResults\Delete.cshtml" />
+    <Content Include="Views\Warfighter\Index.cshtml" />
+    <Content Include="Views\Warfighter\Details.cshtml" />
+    <Content Include="Views\Warfighter\Create.cshtml" />
+    <Content Include="Views\Warfighter\Edit.cshtml" />
+    <Content Include="Views\Warfighter\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,10 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using MissionPlanningWebApp;
 using MissionPlanningWebApp.Controllers;
 
 namespace MissionPlanningWebApp.Tests.Controllers
@@ -16,12 +19,12 @@ namespace MissionPlanningWebApp.Tests.Controllers
             //MissionParameterController mycontroller = new MissionParameterController();
 
             // Act
-            //ViewResult result = controller.Index() as ViewResult;
+           // ViewResult result = mycontroller.Index() as ViewResult;
 
             // Assert
-           // Assert.IsNotNull(result);
+          //  Assert.IsNotNull(result);
             //Console.WriteLine(result.ViewName);
-           // Assert.AreEqual(result.ViewName, "Index");
+           //Assert.AreEqual(result.ViewName, "Index");
         }
     }
 }

@@ -12,8 +12,8 @@ namespace MissionPlanningWebApp.Models
     {
         public DbSet<DistributionRules> DistributionRules { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
-        public DbSet<Fighter> Fighters { get; set; }
-        public DbSet<FighterCharacteristic> FighterCharacteristics { get; set; }
+        public DbSet<Warfighter> Warfighters { get; set; }
+        public DbSet<WarfighterCharacteristic> WarfighterCharacteristics { get; set; }
         public DbSet<Characteristic> Characteristics { get; set; }
         public DbSet<MissionParameter> MissionParameters { get; set; }
         public DbSet<MissionRule> MissionRules { get; set; }

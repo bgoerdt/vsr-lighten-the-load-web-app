@@ -12,9 +12,13 @@
 
     <!--<h2>Mission Parameters</h2>-->
 
-    <p>
+  
+     <p>
+         <div style = style="margin-left:10%; >
         @Html.ActionLink("Create New", "Create")
+         </div>
     </p>
+         
     <table>
         <tr>
 			<th style="width:50px;"></th>
@@ -44,7 +48,7 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Value)
+                    <input type="number" class="quantity" min="0" max="500" id="@item.ID" value="@item.Value">
                 </td>
 
                 <td>
@@ -56,7 +60,9 @@
 
     </table>
 
-    @section Scripts {
+  
+
+     @section Scripts {
         <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
@@ -72,7 +78,21 @@
                     $.post('/MissionParameter/UpdateChecked', data, function (data) {
                     });
                 });
+
+                $('.quantity').change(function () {
+                    var intValue = $(this).val();
+                    var id = $(this).attr('id');
+                    alert(NaN(intValue));
+                    var data = {
+                        id: id,
+                        val: intValue
+                    };
+
+                    $.post('/MissionParameter/UpdateValue', data, function (data) {
+                    });
+                });
             });
         </script>
     }
 </div>
+

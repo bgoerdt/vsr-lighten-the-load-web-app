@@ -9,33 +9,34 @@ using System.ComponentModel.DataAnnotations.Resources;
 
 namespace MissionPlanningWebApp.Models
 {
-    public class Fighter
+    public class Warfighter
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public Boolean IsSelected { get; set; }
-        public virtual ICollection<FighterCharacteristic> FighterCharacteristics { get; set; }
+        public virtual ICollection<WarfighterCharacteristic> WarfighterCharacteristics { get; set; }
     }
 
-    public class FighterCharacteristic
+    public class WarfighterCharacteristic
     {
-		public FighterCharacteristic(){}
-		public FighterCharacteristic(int fID, int cID, float cVal)
-		{
-			FighterID = fID;
-			CharID = cID;
-			CharValue = cVal;
-		}
+        public WarfighterCharacteristic() { }
+        public WarfighterCharacteristic(int fID, int cID, float cVal)
+        {
+            WarfighterID = fID;
+            CharID = cID;
+            CharValue = cVal;
+        }
 
         public float CharValue { get; set; }
 
         [Key]
         [Column(Order = 0)]
-        [ForeignKey("Fighter")]
-        public int FighterID { get; set; }
-        public virtual Fighter Fighter { get; set; }
+        [ForeignKey("Warfighter")]
+        public int WarfighterID { get; set; }
+        public virtual Warfighter Warfighter { get; set; }
 
-        [Key][Column(Order = 1)]
+        [Key]
+        [Column(Order = 1)]
         [ForeignKey("Characteristic")]
         public int CharID { get; set; }
         public virtual Characteristic Characteristic { get; set; }

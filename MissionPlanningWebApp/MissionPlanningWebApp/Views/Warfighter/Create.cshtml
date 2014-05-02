@@ -1,4 +1,4 @@
-﻿@model MissionPlanningWebApp.Models.Fighter
+﻿@model MissionPlanningWebApp.Models.Warfighter
 
 @{
     ViewBag.Title = "Create";
@@ -8,7 +8,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Fighter</legend>
+        <legend>Warfighter</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -19,7 +19,7 @@
         </div>
 
         <table>
-            @foreach (var item in ViewData["fighterCharacteristics"] as List<MissionPlanningWebApp.Models.FighterCharacteristic>)
+            @foreach (var item in ViewData["WarfighterCharacteristics"] as List<MissionPlanningWebApp.Models.WarfighterCharacteristic>)
             {
                 <tr>
                     <td>@Html.DisplayFor(i => item.Characteristic.Char)</td>
@@ -60,8 +60,8 @@
 					chars: chars
 				};
 
-				$.post('/Fighter/ManualCreate', data, function (data) {
-					window.location.href = "@Url.Action("Index", "Fighter")";
+				$.post('/Warfighter/ManualCreate', data, function (data) {
+					window.location.href = "@Url.Action("Index", "Warfighter")";
 				});
 				
 			});
