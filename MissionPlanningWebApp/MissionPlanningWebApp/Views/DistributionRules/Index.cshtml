@@ -13,9 +13,20 @@
     <!--<h2>Distribution Rules</h2>-->
 
     <p>
+         <div style = style="margin-left:10%; >
         @Html.ActionLink("Create New", "Create")
+         </div>
     </p>
     <table>
+        <tr>
+            <th colspan="3" style="text-align:center">
+                @Html.Label("If")
+            </th>
+            <th colspan="3" style="text-align:center">
+                @Html.Label("Then")
+            </th>
+            <th />
+        </tr>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Chr.Char)

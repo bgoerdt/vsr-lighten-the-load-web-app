@@ -8,6 +8,8 @@
     string[] options = { "<", ">", "=" };
 }
 
+<link href="~/Styles/RulesFormat.css" rel="stylesheet" /> 
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -15,52 +17,62 @@
     <fieldset>
         <legend>MissionRule</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ParamId, "Param")
+        <div class="Header">
+            @Html.Label("If")
         </div>
-        <div class="editor-field">
-            @Html.DropDownList("ParamId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ParamId)
+        <div class="content_box">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ParamId, "Param")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("ParamId", String.Empty)
+                @Html.ValidationMessageFor(model => model.ParamId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RuleCond)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.RuleCond, new SelectList(@options))
+                @Html.ValidationMessageFor(model => model.RuleCond)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RuleData)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RuleData)
+                @Html.ValidationMessageFor(model => model.RuleData)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RuleCond)
+        <div class="Header">
+            @Html.Label("Then")
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.RuleCond, new SelectList(@options))
-            @Html.ValidationMessageFor(model => model.RuleCond)
-        </div>
+        <div class="content_box">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EquipId, "Equip")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("EquipId", String.Empty)
+                @Html.ValidationMessageFor(model => model.EquipId)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RuleData)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.RuleData)
-            @Html.ValidationMessageFor(model => model.RuleData)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConstrCond)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
+                @Html.ValidationMessageFor(model => model.ConstrCond)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.EquipId, "Equip")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("EquipId", String.Empty)
-            @Html.ValidationMessageFor(model => model.EquipId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ConstrCond)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
-            @Html.ValidationMessageFor(model => model.ConstrCond)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ConstrRHS)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ConstrRHS)
-            @Html.ValidationMessageFor(model => model.ConstrRHS)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConstrRHS)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ConstrRHS)
+                @Html.ValidationMessageFor(model => model.ConstrRHS)
+            </div>
         </div>
 
         <p>

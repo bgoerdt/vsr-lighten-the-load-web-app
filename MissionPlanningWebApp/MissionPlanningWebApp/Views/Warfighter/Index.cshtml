@@ -9,9 +9,10 @@
 }
 
 <div id="content_box_1" class="content_box">
-    <p>
+       <p>
+         <div style = style="margin-left:10%; >
         @Html.ActionLink("Create New", "Create")
-        @Html.ActionLink("Export to File", "WriteToFile")
+         </div>
     </p>
     <table>
         <tr>
@@ -49,6 +50,7 @@
                     <td><input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
                 }
                 <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
 

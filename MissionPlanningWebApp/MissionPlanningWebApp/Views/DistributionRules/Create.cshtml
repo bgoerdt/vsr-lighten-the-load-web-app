@@ -8,6 +8,8 @@
     string[] options = { "<", ">", "=" };
 }
 
+<link href="~/Styles/RulesFormat.css" rel="stylesheet" /> 
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -15,52 +17,62 @@
     <fieldset>
         <legend>DistributionRules</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChrId, "Chr")
+        <div class="Header">
+            @Html.Label("If")
         </div>
-        <div class="editor-field">
-            @Html.DropDownList("ChrId", String.Empty)
-            @Html.ValidationMessageFor(model => model.ChrId)
+        <div class="content_box">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ChrId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("ChrId", String.Empty)
+                @Html.ValidationMessageFor(model => model.ChrId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ChrCond)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.ChrCond, new SelectList(@options))
+                @Html.ValidationMessageFor(model => model.ChrCond)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ChrData)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ChrData)
+                @Html.ValidationMessageFor(model => model.ChrData)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChrCond)
+        <div class="Header">
+            @Html.Label("Then")
         </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.ChrCond, new SelectList(@options))
-            @Html.ValidationMessageFor(model => model.ChrCond)
-        </div>
+        <div class="content_box">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EquipId)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("EquipId", String.Empty)
+                @Html.ValidationMessageFor(model => model.EquipId)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChrData)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ChrData)
-            @Html.ValidationMessageFor(model => model.ChrData)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConstrCond)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
+                @Html.ValidationMessageFor(model => model.ConstrCond)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.EquipId, "Equip")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("EquipId", String.Empty)
-            @Html.ValidationMessageFor(model => model.EquipId)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ConstrCond)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(model => model.ConstrCond, new SelectList(@options))
-            @Html.ValidationMessageFor(model => model.ConstrCond)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ConstrRHS)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ConstrRHS)
-            @Html.ValidationMessageFor(model => model.ConstrRHS)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConstrRHS)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ConstrRHS)
+                @Html.ValidationMessageFor(model => model.ConstrRHS)
+            </div>
         </div>
 
         <p>

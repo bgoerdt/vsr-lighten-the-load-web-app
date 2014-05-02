@@ -20,9 +20,13 @@ namespace MissionPlanningWebApp.Models
             Results = new List<WarfighterDistribution>();
         }
 
-        public void GetDistributionResults()
+        public void GetDistributionResults(List<DistributionRules> distributionRules, List<Warfighter> fighters, string path)
         {
-            using (StreamReader file = new StreamReader(@"C:\Users\Melanie\Documents\Equipment_Distribution.txt"))
+            WriteDistributionRulesToFile(distributionRules, string.Concat(path, "Rules_Distribution.txt"));
+            WriteFightersToFile(fighters, string.Concat(path, "Warfighter_Members.txt"));
+            //CALL SERVER
+
+            using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
                 Results = new List<WarfighterDistribution>();
 
@@ -34,12 +38,12 @@ namespace MissionPlanningWebApp.Models
                 string line = null;
                 while ((line = file.ReadLine()) != null)
                 {
-                    if (line.StartsWith("WarWarfighter"))
+                    if (line.StartsWith("Warfighter"))
                     {
                         string key = Regex.Match(line, @"^.*\[(.*)\].*$").Groups[1].Value;
 
                         int WarfighterID;
-                        if (!int.TryParse(key, out WarfighterID)) 
+                        if (!int.TryParse(key, out WarfighterID))
                         {
                             Console.Write("ERROR - could not parse Equipment_Distribution.txt");
                             return;
@@ -70,6 +74,61 @@ namespace MissionPlanningWebApp.Models
 
                         if (equipVal != 0) WarfighterDistribution.Distributions.Add(equipDistribution);
                     }
+                }
+            }
+        }
+
+        public void WriteDistributionRulesToFile(List<DistributionRules> distributionRules, string path)
+        {
+            using (StreamWriter file = new StreamWriter(path))
+            {
+                foreach (DistributionRules d in distributionRules)
+                {
+                    string chrCond = ParseLogicalSigns(d.ChrCond);
+                    string constrCond = ParseLogicalSigns(d.ConstrCond);
+
+                    string line = string.Format("{0} {1} {2} {3} {4} {5}",
+                        d.ChrId, chrCond, d.ChrData, d.EquipId, constrCond, d.ConstrRHS);
+                    file.WriteLine(line);
+                }
+            }
+        }
+
+        private string ParseLogicalSigns(string inputString)
+        {
+            string returnVal;
+
+            switch(inputString)
+            {
+                case "<":
+                    returnVal = "L";
+                    break;
+                case ">":
+                    returnVal = "G";
+                    break;
+                case "=":
+                    returnVal = "E";
+                    break;
+                default:
+                    returnVal = inputString;
+                    break;
+            }
+
+            return returnVal;
+        }
+
+        public void WriteFightersToFile(List<Warfighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
+        {
+            using (StreamWriter file = new StreamWriter(path))
+            {
+                foreach (Warfighter f in fighters)
+                {
+                    string line = f.ID.ToString();
+                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
+                    {
+                        line = line + " " + fChr.CharValue;
+                    }
+                    file.WriteLine(line);
                 }
             }
         }
