@@ -117,20 +117,28 @@ namespace MissionPlanningWebApp.Models
             return returnVal;
         }
 
-        public void WriteFightersToFile(List<Warfighter> fighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
+        public void WriteFightersToFile(List<Warfighter> warfighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
         {
-            using (StreamWriter file = new StreamWriter(path))
-            {
-                foreach (Warfighter f in fighters)
-                {
-                    string line = f.ID.ToString();
-                    foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
-                    {
-                        line = line + " " + fChr.CharValue;
-                    }
-                    file.WriteLine(line);
-                }
-            }
+			int numChars = warfighters.Count;
+			using (StreamWriter file = new StreamWriter(path))
+			{
+				file.WriteLine("# Number of warfighters");
+				file.WriteLine(warfighters.Count);
+				file.WriteLine("# Number of characteristics (Maximum is 20)");
+				file.WriteLine(numChars);
+				file.WriteLine("# Maximum weight of carriage per warfighter");
+				file.WriteLine("10000");
+				foreach (Warfighter f in warfighters)
+				{
+					file.WriteLine("# " + f.Name);
+					string line = f.ID.ToString();
+					foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
+					{
+						line = line + " " + fChr.CharValue;
+					}
+					file.WriteLine(line);
+				}
+			}
         }
     }
 
