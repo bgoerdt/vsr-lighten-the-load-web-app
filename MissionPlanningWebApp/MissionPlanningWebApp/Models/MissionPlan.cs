@@ -13,7 +13,7 @@ namespace MissionPlanningWebApp.Models
 	{
 		public Dictionary<Equipment, int> EquipmentList { get; set; }
 
-		[Display(Name = "Number of Warfighters")]
+		[Display(Name = "Number of Warfighters")]  
         public int NumberOfWarfighters;
 
 		[Display(Name = "Total Weight of Equipment")]

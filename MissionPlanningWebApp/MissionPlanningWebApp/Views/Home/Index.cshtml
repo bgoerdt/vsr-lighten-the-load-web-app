@@ -8,24 +8,28 @@
 
 <div id="content_box_1" class="content_box">
 
-    <h2>Lighten the Load: Equipment Distribution Training Aid</h2>
-    <p>Created in conjunction with Virtual Soldier Research.</p>
+    <p><h2><img height="100px" width="80px" align="middle" src="~/Content/images/VSR Logo__Final.png" />Equipment Distribution Training Aid<img height="100px" width="100px" align="middle" src="~/Content/images/marine-corps-logo.jpg" /></h2></p>
 
-    <ul data-role="listview" data-inset="true">
-
-        <li>@Html.ActionLink("Equipment", "Index", "Equipment")</li>
-
-        <li class="header" style="text-align:center">Input</li>
-        <li>@Html.ActionLink("Mission Parameters", "Index", "MissionParameter")</li>
-        <li>@Html.ActionLink("Warfighters", "Index", "Warfighter")</li>
-
-        <li class="header" style="text-align:center">Advanced Input</li>
-        <li>@Html.ActionLink("Mission Rules", "Index", "MissionRule")</li>
-        <li>@Html.ActionLink("Distribution Rules", "Index", "DistributionRules")</li>
+	<ul data-role="listview" data-inset="true">
+        <li>@Html.ActionLink("Input Mission Parameters", "Index", "MissionParameter")</li>
+        <li>@Html.ActionLink("Input Warfighters", "Index", "Warfighter")</li>
+	</ul>
+	<ul data-role="listview" data-inset="true">
         <li class="header" style="text-align:center">Plan Mission</li>
         <li>@Html.ActionLink("Predict Equipment", "Index", "MissionPlan")</li>
         <li>@Html.ActionLink("Distribute Equipment", "Distribute", "DistributionResults")</li>
     </ul>
+	<div data-role="collapsible" data-collapsed="true">
+		<h1>Advanced Decision Engine</h1>
+	<ul data-role="listview" data-inset="true">
+        <li>@Html.ActionLink("Mission Rules", "Index", "MissionRule")</li>
+        <li>@Html.ActionLink("Distribution Rules", "Index", "DistributionRules")</li>
+	</ul>
+	</div>
+	<ul data-role="listview" data-inset="true">
+        <li>@Html.ActionLink("Equipment Library", "Index", "Equipment")</li>
+	</ul>
+
 	<footer style="text-align:center">
 		@Html.ActionLink("About", "About", "Home")
 		@Html.ActionLink("Contact", "Contact", "Home")

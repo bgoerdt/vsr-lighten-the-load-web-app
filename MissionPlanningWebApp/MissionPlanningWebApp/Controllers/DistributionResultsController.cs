@@ -34,7 +34,7 @@ namespace MissionPlanningWebApp.Controllers
             foreach (WarfighterDistribution fDist in results.Results)
             {
                 int fId = fDist.WarfighterID;
-                Warfighter fighter = db.Warfighters.ToList().Where(f => f.ID == fId).Single();
+                Warfighter fighter = db.Warfighters.Where(f => f.ID == fId).Single();
                 if (fighter == null)
                 {
                     return HttpNotFound();
