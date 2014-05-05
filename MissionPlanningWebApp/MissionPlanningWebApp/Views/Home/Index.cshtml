@@ -10,24 +10,24 @@
 
     <p><h2><img height="100px" width="80px" align="middle" src="~/Content/images/VSR Logo__Final.png" style="margin-right:3px" />Equipment Distribution Training Aid<img height="100px" width="100px" align="middle" src="~/Content/images/marine-corps-logo_final.jpg" style="margin-left:3px" /></h2></p>
 
-	<ul data-role="listview" data-inset="true">
-        <li>@Html.ActionLink("Input Mission Parameters", "Index", "MissionParameter")</li>
-        <li>@Html.ActionLink("Input Warfighters", "Index", "Warfighter")</li>
-	</ul>
-	<ul data-role="listview" data-inset="true">
+    <ul data-role="listview" data-inset="true">
+        <li><a href="/MissionParameter"><img src="~/Content/images/add-list-24.png" class="ui-li-icon">Input Mission Parameters</a></li>
+        <li><a href="/Warfighter"><img src="~/Content/images/add-user-24.png" class="ui-li-icon">Input Warfighters</a></li>
+    </ul>
+    <ul data-role="listview" data-inset="true">
         <li class="header" style="text-align:center">Plan Mission</li>
-        <li>@Html.ActionLink("Predict Equipment", "Index", "MissionPlan")</li>
-        <li>@Html.ActionLink("Distribute Equipment", "Distribute", "DistributionResults")</li>
+        <li><a href="/MissionPlan"><img src="~/Content/images/line-24.png" class="ui-li-icon">Predict Equipment</a></li>
+        <li><a href="/DistributionResults"><img src="~/Content/images/parallel-tasks-24.png" class="ui-li-icon">Distribute Equipment</a></li>
     </ul>
 	<div data-role="collapsible" data-collapsed="true">
 		<h1>Advanced Decision Engine</h1>
 	<ul data-role="listview" data-inset="true">
-        <li>@Html.ActionLink("Mission Rules", "Index", "MissionRule")</li>
-        <li>@Html.ActionLink("Distribution Rules", "Index", "DistributionRules")</li>
+        <li><a href="/MissionRule"><img src="~/Content/images/ruler-24.png" class="ui-li-icon">Mission Rules</a></li>
+        <li><a href="/DistributionRules"><img src="~/Content/images/flow-chart-24.png" class="ui-li-icon">Distribution Rules</a></li>
 	</ul>
 	</div>
 	<ul data-role="listview" data-inset="true">
-        <li>@Html.ActionLink("Equipment Library", "Index", "Equipment")</li>
+        <li><a href="/Equipment"><img src="~/Content/images/book-stack-24.png" class="ui-li-icon">Equipment Library</a></li>
 	</ul>
 
 	<footer style="text-align:center">

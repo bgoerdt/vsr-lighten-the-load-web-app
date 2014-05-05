@@ -199,12 +199,19 @@
     <Content Include="Content\camo40.jpg" />
     <Content Include="Content\camo50.jpg" />
     <Content Include="Content\camo60.jpg" />
+    <Content Include="Content\images\add-list-24.png" />
+    <Content Include="Content\images\add-user-24.png" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\book-stack-24.png" />
+    <Content Include="Content\images\flow-chart-24.png" />
     <Content Include="Content\images\icons-18-black.png" />
     <Content Include="Content\images\icons-18-white.png" />
     <Content Include="Content\images\icons-36-black.png" />
     <Content Include="Content\images\icons-36-white.png" />
+    <Content Include="Content\images\line-24.png" />
     <Content Include="Content\images\marine-corps-logo.jpg" />
+    <Content Include="Content\images\parallel-tasks-24.png" />
+    <Content Include="Content\images\ruler-24.png" />
     <Content Include="Content\images\VSR Logo__Final.png" />
     <Content Include="Content\jquery.mobile-1.2.0.css" />
     <Content Include="Content\jquery.mobile-1.2.0.min.css" />
@@ -212,7 +219,6 @@
     <Content Include="Content\jquery.mobile.structure-1.2.0.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.css" />
     <Content Include="Content\jquery.mobile.theme-1.2.0.min.css" />
-    <Content Include="Content\Military-Rifle-icon.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -267,7 +273,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\Weather-Sun-icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ClassDiagram1.cd" />
