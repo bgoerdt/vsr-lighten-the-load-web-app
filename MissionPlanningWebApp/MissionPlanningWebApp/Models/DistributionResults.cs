@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -45,7 +46,26 @@ namespace MissionPlanningWebApp.Models
         {
             WriteDistributionRulesToFile(distributionRules, string.Concat(path, "Rules_Distribution.txt"));
             WriteFightersToFile(fighters, string.Concat(path, "Warfighter_Members.txt"));
-            //CALL SERVER
+
+			// call exe on server
+			Process kProcess = new Process();
+
+			// set up folder and EXE file
+			kProcess.StartInfo.WorkingDirectory = path;
+			kProcess.StartInfo.FileName = path + "equipment_distribution.exe";
+
+			// comment in to hide window
+			kProcess.StartInfo.CreateNoWindow = true;
+			kProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+			// start the EXE
+			kProcess.Start();
+
+			// wait for the EXE to finish
+			while (kProcess.HasExited == false)
+			{
+				System.Threading.Thread.Sleep(100);
+			}
 
             using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
@@ -109,13 +129,13 @@ namespace MissionPlanningWebApp.Models
                     string constrCond = ParseLogicalSigns(d.ConstrCond);
 
 					string charVal = "";
-					if (d.ChrId == 0)
+					if (d.ChrId == 1)
 						charVal = getIDfromRole[d.ChrData];
 					else
 						charVal = d.ChrData;
 
                     string line = string.Format("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, chrCond, charVal, d.EquipId, constrCond, d.ConstrRHS);
+                        d.ChrId - 1, chrCond, charVal, d.EquipId - 1, constrCond, d.ConstrRHS);
                     file.WriteLine(line);
                 }
             }
@@ -146,7 +166,7 @@ namespace MissionPlanningWebApp.Models
 
         public void WriteFightersToFile(List<Warfighter> warfighters, string path) // TODO FighterCharacteristics must be in correct order to write to database
         {
-			int numChars = warfighters.Count;
+			int numChars = warfighters.First().WarfighterCharacteristics.Count;
 			using (StreamWriter file = new StreamWriter(path))
 			{
 				file.WriteLine("# Number of warfighters");
@@ -158,10 +178,10 @@ namespace MissionPlanningWebApp.Models
 				foreach (Warfighter f in warfighters)
 				{
 					file.WriteLine("# " + f.Name);
-					string line = f.ID.ToString();
+					string line = (f.ID - 1).ToString();
 					foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
 					{
-						if (fChr.CharID == 0)
+						if (fChr.CharID == 1)
 							line = line + " " + getIDfromRole[fChr.CharValue];
 						else
 							line = line + " " + fChr.CharValue;

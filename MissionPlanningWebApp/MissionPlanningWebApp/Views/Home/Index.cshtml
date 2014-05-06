@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Lighten the Load: Equipment Distribution Training Aid";
+    ViewBag.Title = "VSR Lighten the Load";
 }
 
 @section FormattedTable{
@@ -17,8 +17,11 @@
     <ul data-role="listview" data-inset="true">
         <li class="header" style="text-align:center">Plan Mission</li>
         <li><a href="/MissionPlan"><img src="~/Content/images/line-24.png" class="ui-li-icon">Predict Equipment</a></li>
-        <li><a href="/DistributionResults"><img src="~/Content/images/parallel-tasks-24.png" class="ui-li-icon">Distribute Equipment</a></li>
+        <li><a href="/DistributionResults/Distribute"><img src="~/Content/images/parallel-tasks-24.png" class="ui-li-icon">Distribute Equipment</a></li>
     </ul>
+	<ul data-role="listview" data-inset="true">
+        <li><a href="/Equipment"><img src="~/Content/images/book-stack-24.png" class="ui-li-icon">Equipment Library</a></li>
+	</ul>
 	<div data-role="collapsible" data-collapsed="true">
 		<h1>Advanced Decision Engine</h1>
 	<ul data-role="listview" data-inset="true">
@@ -26,9 +29,6 @@
         <li><a href="/DistributionRules"><img src="~/Content/images/flow-chart-24.png" class="ui-li-icon">Distribution Rules</a></li>
 	</ul>
 	</div>
-	<ul data-role="listview" data-inset="true">
-        <li><a href="/Equipment"><img src="~/Content/images/book-stack-24.png" class="ui-li-icon">Equipment Library</a></li>
-	</ul>
 
 	<footer style="text-align:center">
 		@Html.ActionLink("About", "About", "Home")
