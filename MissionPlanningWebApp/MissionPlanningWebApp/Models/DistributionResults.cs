@@ -12,7 +12,28 @@ namespace MissionPlanningWebApp.Models
 {
     public class DistributionResults
     {
-        public int ID { get; set; }
+
+		public Dictionary<string, string> getIDfromRole = new Dictionary<string, string>()
+		{
+				{ "Squad Leader", "0" },
+				{ "Fire Team Leader", "1" },
+				{ "Assistant Automatic Rifleman", "2" },
+				{ "Automatic Rifleman", "3" },
+				{ "Rifleman", "4" },
+				{ "Medical Corpsman", "5" }
+		};
+
+		public Dictionary<string, string> getRolefromID = new Dictionary<string, string>()
+		{
+				{ "0", "Squad Leader" },
+				{ "1", "Fire Team Leader" },
+				{ "2", "Assistant Automatic Rifleman" },
+				{ "3", "Automatic Rifleman" },
+				{ "4", "Rifleman" },
+				{ "5", "Medical Corpsman" }
+		};
+
+		public int ID { get; set; }
         public virtual ICollection<WarfighterDistribution> Results { get; set; }
 
         public DistributionResults()
@@ -87,8 +108,14 @@ namespace MissionPlanningWebApp.Models
                     string chrCond = ParseLogicalSigns(d.ChrCond);
                     string constrCond = ParseLogicalSigns(d.ConstrCond);
 
+					string charVal = "";
+					if (d.ChrId == 0)
+						charVal = getIDfromRole[d.ChrData];
+					else
+						charVal = d.ChrData;
+
                     string line = string.Format("{0} {1} {2} {3} {4} {5}",
-                        d.ChrId, chrCond, d.ChrData, d.EquipId, constrCond, d.ConstrRHS);
+                        d.ChrId, chrCond, charVal, d.EquipId, constrCond, d.ConstrRHS);
                     file.WriteLine(line);
                 }
             }
@@ -134,7 +161,10 @@ namespace MissionPlanningWebApp.Models
 					string line = f.ID.ToString();
 					foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
 					{
-						line = line + " " + fChr.CharValue;
+						if (fChr.CharID == 0)
+							line = line + " " + getIDfromRole[fChr.CharValue];
+						else
+							line = line + " " + fChr.CharValue;
 					}
 					file.WriteLine(line);
 				}

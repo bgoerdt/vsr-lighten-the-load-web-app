@@ -96,7 +96,6 @@ namespace MissionPlanningWebApp.Models
             }
         }
 
-
         private void _exportEquipment(List<Equipment> equipment)
         {
             string path = serverDir + "Equipments.txt";
@@ -116,7 +115,6 @@ namespace MissionPlanningWebApp.Models
                 }
             }
         }
-
 
         private void _exportMissionRules(List<MissionRule> missionRule)
         {

@@ -20,14 +20,14 @@ namespace MissionPlanningWebApp.Models
     public class WarfighterCharacteristic
     {
         public WarfighterCharacteristic() { }
-        public WarfighterCharacteristic(int fID, int cID, float cVal)
+        public WarfighterCharacteristic(int fID, int cID, string cVal)
         {
             WarfighterID = fID;
             CharID = cID;
             CharValue = cVal;
         }
 
-        public float CharValue { get; set; }
+        public string CharValue { get; set; }
 
         [Key]
         [Column(Order = 0)]

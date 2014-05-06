@@ -1,8 +1,18 @@
 # Number of warfighters
-1
+6
 # Number of characteristics (Maximum is 20)
-1
+6
 # Maximum weight of carriage per warfighter
 10000
-# Ortiz
-1 0 0 0 0
+# Johnson
+1 Squad Leader 76 490 88
+# Smith
+2 Fire Team Leader 83 425 92
+# Miller
+3 Assistant Automatic Rifleman 79 370 88
+# Perkin
+4 Automatic Rifleman 91 410 93
+# Turner
+5 Rifleman 81 340 79
+# Martinez 
+6 Medic 57 460 79

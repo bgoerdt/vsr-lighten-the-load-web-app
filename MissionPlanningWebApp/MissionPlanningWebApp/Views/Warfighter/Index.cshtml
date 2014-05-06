@@ -46,10 +46,10 @@
                 </td>
                 @foreach (var chr in item.WarfighterCharacteristics)
                 {
-                    <td><input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
+                    <td><input type="text" class="quantity" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
                 }
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    <!--@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |-->
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
 
@@ -77,7 +77,7 @@
                 $('.quantity').change(function () {
                     var id = $(this).attr('id').split(" ")[0];
                     var charID = parseInt($(this).attr('id').split(" ")[1]);
-                    var charVal = parseFloat($(this).val());
+                    var charVal = $(this).val();
                     var data = {
                         id: id,
                         charID: charID,

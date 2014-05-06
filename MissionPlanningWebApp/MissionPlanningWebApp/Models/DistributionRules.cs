@@ -21,7 +21,7 @@ namespace MissionPlanningWebApp.Models
         [Display(Name = "Condition")]
         public string ChrCond { get; set; }
         [Display(Name = "Value")]
-        public int ChrData { get; set; }
+        public string ChrData { get; set; }
 
         [ForeignKey("Equip")]
         [Display(Name="Equipment")]

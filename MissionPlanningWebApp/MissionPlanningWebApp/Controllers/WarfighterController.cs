@@ -48,7 +48,7 @@ namespace MissionPlanningWebApp.Controllers
                 WarfighterCharacteristic fchr = new WarfighterCharacteristic();
                 fchr.CharID = chr.ID;
                 fchr.Characteristic = chr;
-                fchr.CharValue = 0;
+                fchr.CharValue = "0";
 
                 WarfighterCharacteristics.Add(fchr);
             }
@@ -71,7 +71,7 @@ namespace MissionPlanningWebApp.Controllers
         {
             public int ID { get; set; }
             public int charID { get; set; }
-            public float charVal { get; set; }
+            public string charVal { get; set; }
         }
         [HttpPost]
        // [ValidateAntiForgeryToken]
@@ -109,7 +109,7 @@ namespace MissionPlanningWebApp.Controllers
                 int i = 0;
                 foreach (Characteristic characteristic in chars)
                 {
-                    db.WarfighterCharacteristics.Add(new WarfighterCharacteristic(Warfighter.ID, characteristic.ID, (float)Convert.ToDouble(charVals[i])));
+                    db.WarfighterCharacteristics.Add(new WarfighterCharacteristic(Warfighter.ID, characteristic.ID, charVals[i]));
                     i++;
                 }
                 db.SaveChanges();

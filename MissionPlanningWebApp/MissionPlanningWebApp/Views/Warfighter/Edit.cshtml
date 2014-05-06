@@ -1,7 +1,9 @@
 ﻿@model MissionPlanningWebApp.Models.Warfighter
+@using MissionPlanningWebApp.Models
 
 @{
     ViewBag.Title = "Edit";
+	ICollection<WarfighterCharacteristic> WarfighterCharacteristics = Model.WarfighterCharacteristics;
 }
 
 <h2>Edit</h2>
@@ -22,9 +24,9 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
-        @foreach (var chr in model => model.WarfighterCharacteristics)
+        @foreach (var chr in WarfighterCharacteristics)
         {
-            <input type="number" class="quantity" min="0" max="500" id="@item.ID @chr.CharID" value="@chr.CharValue">
+            <input type="text" class="quantity" value="@chr.CharValue">
         }
         <p>
             <input type="submit" value="Save" />
