@@ -80,13 +80,15 @@
                 });
 
                 $('.quantity').change(function () {
-                    var intValue = $(this).val();
-                    var id = $(this).attr('id');
-                    alert(NaN(intValue));
+                	var intValue = $(this).val();
+                	var id = $(this).attr('id');
                     var data = {
                         id: id,
                         val: intValue
                     };
+
+                    
+                    
 
                     $.post('/MissionParameter/UpdateValue', data, function (data) {
                     });

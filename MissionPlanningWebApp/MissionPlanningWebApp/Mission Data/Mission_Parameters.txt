@@ -1,11 +1,11 @@
 #number of mission parameters
 36
 #Duration
-0	15
+0	25
 #Threat level
-1	150
+1	299
 #Expected Enemy Contact: none(0), light(1), medium(2), heavey(3)
-2	1
+2	2
 #Enemy Capabilities: small arms
 3	1
 #Enemy Capabilities: RPG
@@ -23,7 +23,7 @@
 #Route
 10	0
 #Terrain - Mountainous(0), Forrest(1), Urban(2), Desert(3)
-11	0
+11	2
 #Start DTG (date time group)
 12	1
 #Patrol: Raid
