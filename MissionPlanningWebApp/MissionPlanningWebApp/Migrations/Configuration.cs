@@ -20,11 +20,15 @@ namespace MissionPlanningWebApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+			//AutomaticMigrationsEnabled = true;
+			AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(LtLDbContext context)
         {
+			if (System.Diagnostics.Debugger.IsAttached == false)
+				System.Diagnostics.Debugger.Launch();
+
  	        base.Seed(context);
 
 			var equipment = new List<Equipment>()
@@ -162,32 +166,149 @@ namespace MissionPlanningWebApp.Migrations
 				new MissionParameter { Name ="Sustainment Tasks: Protect vs. NBC Attack", Value = 1, IsSelected = true}
 			};
 
-            var characteristics = new List<Characteristic>()
-            { 
-                //Toughness, Size/Strength, Experience, PFT Score
-                new Characteristic { Char = "Squad Role" },
-                new Characteristic { Char = "Size/Strength" },
-                new Characteristic { Char = "Experience" },
-                new Characteristic { Char = "PFT Score" }
-            };
-
-			/*
-			var rules = new List<MissionRule>(){
-				new MissionRule { ParamId = 0, RuleCond = "G", RuleData = 6, EquipId = 0, ConstrCond = "G", ConstrRHS = 13 },
-				new MissionRule { ParamId = 0, RuleCond = "G", RuleData = 14, EquipId = 0, ConstrCond = "G", ConstrRHS =  26},
-				new MissionRule { ParamId = 0, RuleCond = "G", RuleData = 22, EquipId = 0, ConstrCond = "G", ConstrRHS =  39},
-				new MissionRule { ParamId = 0, RuleCond = "G", RuleData = 30, EquipId = 0, ConstrCond = "G", ConstrRHS =  52},
-				new MissionRule { ParamId = 0, RuleCond = "G", RuleData = 30, EquipId = 0, ConstrCond = "G", ConstrRHS =  65},
-				new MissionRule { ParamId = 22, RuleCond = "E", RuleData = 1, EquipId = 14, ConstrCond = "G", ConstrRHS =  10},
-				new MissionRule { ParamId = 22, RuleCond = "E", RuleData = 1, EquipId = 12, ConstrCond = "G", ConstrRHS =  2},
-				new MissionRule { ParamId = 30, RuleCond = "E", RuleData = 1, EquipId = 15, ConstrCond = "G", ConstrRHS =  4}
+			var characteristics = new List<Characteristic>()
+			{ 
+				//Toughness, Size/Strength, Experience, PFT Score
+				new Characteristic { Char = "Squad Role" },
+				new Characteristic { Char = "Size/Strength" },
+				new Characteristic { Char = "Experience" },
+				new Characteristic { Char = "PFT Score" }
 			};
-			rules.ForEach(r => context.MissionRules.AddOrUpdate(a => a.ParamId, r));
-			*/
 
-			equipment.ForEach(e => context.Equipment.AddOrUpdate(b => b.Name, e));
-			parameters.ForEach(p => context.MissionParameters.AddOrUpdate(q => q.Name, p));
-			characteristics.ForEach(chr => context.Characteristics.AddOrUpdate(c => c.Char, chr));
+			var warfighters = new List<Warfighter>()
+			{
+				new Warfighter { Name = "Johnson", IsSelected = true },
+				new Warfighter { Name = "Smith", IsSelected = true },
+				new Warfighter { Name = "Miller", IsSelected = true },
+				new Warfighter { Name = "Perkins", IsSelected = true },
+				new Warfighter { Name = "Turner", IsSelected = true },
+				new Warfighter { Name = "Williams", IsSelected = true }
+			};
+
+			var warfighter_characteristics = new List<WarfighterCharacteristic>()
+			{
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Johnson"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Squad Leader" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Johnson"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "76" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Johnson"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "490" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Johnson"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "88" },
+				
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Smith"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Fire Team Leader" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Smith"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "83" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Smith"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "425" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Smith"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "92" },
+				
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Miller"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Assistant Automatic Rifleman" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Miller"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "79" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Miller"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "340" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Miller"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "88" },
+				
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Perkins"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Automatic Rifleman" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Perkins"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "91" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Perkins"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "385" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Perkins"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "93" },
+				
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Turner"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Rifleman" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Turner"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "81" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Turner"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "360" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Turner"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "83" },
+				
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Williams"), Characteristic = characteristics.First(c => c.Char == "Squad Role"), CharValue = "Medical Corpsman" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Williams"), Characteristic = characteristics.First(c => c.Char == "Size/Strength"), CharValue = "57" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Williams"), Characteristic = characteristics.First(c => c.Char == "Experience"), CharValue = "460" },
+				new WarfighterCharacteristic { Warfighter = warfighters.First(w => w.Name == "Williams"), Characteristic = characteristics.First(c => c.Char == "PFT Score"), CharValue = "79" },
+			};
+
+			var missionRules = new List<MissionRule>()
+			{
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 12, Equip = equipment.First(e => e.Name == "MRE"), ConstrCond = "G", ConstrRHS = 12 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 22, Equip = equipment.First(e => e.Name == "MRE"), ConstrCond = "G", ConstrRHS = 18 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 36, Equip = equipment.First(e => e.Name == "MRE"), ConstrCond = "G", ConstrRHS = 24 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 12, Equip = equipment.First(e => e.Name == "Water"), ConstrCond = "G", ConstrRHS = 24 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 22, Equip = equipment.First(e => e.Name == "Water"), ConstrCond = "G", ConstrRHS = 30 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 36, Equip = equipment.First(e => e.Name == "Water"), ConstrCond = "G", ConstrRHS = 36 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "FR Gloves, Frog"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Patrol Pack"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "RCO"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Individual First Aid Kit (IFAK)"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Personal Illumination System"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Knee, Elbow Pad Set"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Regular Complete Uniform"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Thermal Binoculars"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Duration"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "UNIT 1 BAG/ 6 IV'S/ 02 TANK QUESTIONABLE"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Helmet"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Armor Vest w/ SAPPI Plates"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Grenade, Hand, G8811 Fragmentation"), ConstrCond = "G", ConstrRHS = 12 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 400, Equip = equipment.First(e => e.Name == "Grenade, Hand, G8811 Fragmentation"), ConstrCond = "G", ConstrRHS = 24 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M50 Gas Mask w/ Hood, All Accessories (medium)"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Ballistic Eye Protection"), ConstrCond = "E", ConstrRHS = 6 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Service Rifle, M16A4"), ConstrCond = "E", ConstrRHS = 4 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds"), ConstrCond = "E", ConstrRHS = 28 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M249"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "LBE for M249"), ConstrCond = "G", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Cartridge, 5.56 Link (200)"), ConstrCond = "E", ConstrRHS = 2 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M9 Pistol"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M9 Magazine with 15 Rounds"), ConstrCond = "E", ConstrRHS = 2 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "M203"), ConstrCond = "E", ConstrRHS = 2 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Ammunition, Smoke"), ConstrCond = "E", ConstrRHS = 2 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Ammunition, Flares"), ConstrCond = "E", ConstrRHS = 2 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "PVS-17C"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Optics: PVS-14 (night vision goggles)"), ConstrCond = "E", ConstrRHS = 3 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "148"), ConstrCond = "E", ConstrRHS = 1 },
+				new MissionRule { Param = parameters.First(p => p.Name == "Threat level"), RuleCond = "G", RuleData = 0, Equip = equipment.First(e => e.Name == "Multi-purpose Bayonet"), ConstrCond = "E", ConstrRHS = 3 }
+			};
+
+			var distRules = new List<DistributionRules>()
+			{
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "MRE"), ConstrCond = "G", ConstrRHS = 2 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Water"), ConstrCond = "G", ConstrRHS = 4 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Helmet"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "FR Gloves, Frog"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Armor Vest w/ SAPPI Plates"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Patrol Pack"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "RCO"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Grenade, Hand, G8811 Fragmentation"), ConstrCond = "G", ConstrRHS = 2 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Individual First Aid Kit (IFAK)"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Personal Illumination System"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Ballistic Eye Protection"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "M50 Gas Mask w/ Hood, All Accessories (medium)"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Knee, Elbow Pad Set"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Experience"), ChrCond = "G", ChrData = "0", Equip = equipment.First(e => e.Name == "Regular Complete Uniform"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Service Rifle, M16A4"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds"), ConstrCond = "E", ConstrRHS = 7 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Multi-purpose Bayonet"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "148"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Optics: PVS-14 (night vision goggles)"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "M203"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Ammunition, Smoke"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Ammunition, Flares"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Squad Leader", Equip = equipment.First(e => e.Name == "Thermal Binoculars"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "Service Rifle, M16A4"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds"), ConstrCond = "E", ConstrRHS = 7 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "M203"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "Ammunition, Smoke"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "Ammunition, Flares"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Fire Team Leader", Equip = equipment.First(e => e.Name == "Optics: PVS-14 (night vision goggles)"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Rifleman", Equip = equipment.First(e => e.Name == "Service Rifle, M16A4"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Rifleman", Equip = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds"), ConstrCond = "E", ConstrRHS = 7 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Rifleman", Equip = equipment.First(e => e.Name == "Multi-purpose Bayonet"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Rifleman", Equip = equipment.First(e => e.Name == "Optics: PVS-14 (night vision goggles)"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Automatic Rifleman", Equip = equipment.First(e => e.Name == "M249"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Automatic Rifleman", Equip = equipment.First(e => e.Name == "Cartridge, 5.56 Link (200)"), ConstrCond = "E", ConstrRHS = 2 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Automatic Rifleman", Equip = equipment.First(e => e.Name == "PVS-17C"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Assistant Automatic Rifleman", Equip = equipment.First(e => e.Name == "Service Rifle, M16A4"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Assistant Automatic Rifleman", Equip = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds"), ConstrCond = "E", ConstrRHS = 7 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Medical Corpsman", Equip = equipment.First(e => e.Name == "M9 Pistol"), ConstrCond = "E", ConstrRHS = 1 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Medical Corpsman", Equip = equipment.First(e => e.Name == "M9 Magazine with 15 Rounds"), ConstrCond = "E", ConstrRHS = 2 },
+				new DistributionRules { Chr = characteristics.First(c => c.Char == "Squad Role"), ChrCond = "E", ChrData = "Medical Corpsman", Equip = equipment.First(e => e.Name == "UNIT 1 BAG/ 6 IV'S/ 02 TANK QUESTIONABLE"), ConstrCond = "E", ConstrRHS = 1 }
+			};
+
+			context.Equipment.AddOrUpdate(b => b.Name, equipment.ToArray());
+			context.MissionParameters.AddOrUpdate(q => q.Name, parameters.ToArray());
+			context.Characteristics.AddOrUpdate(c => c.Char, characteristics.ToArray());
+			context.Warfighters.AddOrUpdate(b => b.Name, warfighters.ToArray());
+			context.WarfighterCharacteristics.AddOrUpdate(b => new {b.Warfighter, b.Characteristic}, warfighter_characteristics.ToArray());
+			context.MissionRules.AddOrUpdate(b => new {b.Param, b.RuleCond, b.RuleData, b.Equip, b.ConstrCond, b.ConstrRHS}, missionRules.ToArray());
+			context.DistributionRules.AddOrUpdate(b => new {b.Chr, b.ChrCond, b.ChrData, b.Equip, b.ConstrCond, b.ConstrRHS}, distRules.ToArray());
             context.SaveChanges();
         }
     }

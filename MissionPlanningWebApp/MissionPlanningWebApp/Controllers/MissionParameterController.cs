@@ -18,7 +18,7 @@ namespace MissionPlanningWebApp.Controllers
         // GET: /MissionParameter/
 
         public ActionResult Index()
-        {
+		{
             return View(db.MissionParameters.ToList());
         }
 
