@@ -7,27 +7,18 @@ namespace MissionPlanningWebApp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    //internal sealed class Configuration : DbMigrationsConfiguration<MissionPlanningWebApp.Models.DistributionRulesDBContext>
-    //{
-    //    public Configuration()
-    //    {
-    //        AutomaticMigrationsEnabled = true;
-    //    }
-
-    //}
-
     internal sealed class Configuration : DbMigrationsConfiguration<MissionPlanningWebApp.Models.LtLDbContext>
     {
         public Configuration()
         {
-			//AutomaticMigrationsEnabled = true;
+			AutomaticMigrationsEnabled = true;
 			AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(LtLDbContext context)
         {
-			if (System.Diagnostics.Debugger.IsAttached == false)
-				System.Diagnostics.Debugger.Launch();
+			//if (System.Diagnostics.Debugger.IsAttached == false)
+			//	System.Diagnostics.Debugger.Launch();
 
  	        base.Seed(context);
 

@@ -177,10 +177,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201404041720478_ComplexDataModel.cs" />
-    <Compile Include="Migrations\201404041720478_ComplexDataModel.Designer.cs">
-      <DependentUpon>201404041720478_ComplexDataModel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Controllers\DistributionRulesController.cs" />
@@ -277,11 +273,25 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="Mission Data\lndapi80.lic" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Mission Data\conopt3.dll" />
+    <Content Include="Mission Data\dformd.dll" />
     <Content Include="Mission Data\Equipments.txt" />
+    <Content Include="Mission Data\equipment_distribution.exe" />
     <Content Include="Mission Data\Equipment_Distribution.txt" />
+    <Content Include="Mission Data\libguide40.dll" />
+    <Content Include="Mission Data\libiomp5md.dll" />
+    <Content Include="Mission Data\lindo8_0.dll" />
+    <Content Include="Mission Data\lindojni.dll" />
     <Content Include="Mission Data\Mission_Parameters.txt" />
+    <Content Include="Mission Data\mission_planning.exe" />
     <Content Include="Mission Data\Mission_Planning.txt" />
+    <Content Include="Mission Data\mosek5_0.dll" />
+    <Content Include="Mission Data\mosek6_0.dll" />
+    <Content Include="Mission Data\msvcr71.dll" />
+    <Content Include="Mission Data\mxlindo.dll" />
+    <Content Include="Mission Data\oxlindo.dll" />
     <Content Include="Mission Data\Rules_Distribution.txt" />
     <Content Include="Mission Data\Rules_Mission.txt" />
     <Content Include="Mission Data\Warfighter_Members.txt" />
@@ -364,11 +374,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404041720478_ComplexDataModel.resx">
-      <DependentUpon>201404041720478_ComplexDataModel.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -385,7 +390,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59962</DevelopmentServerPort>
+          <DevelopmentServerPort>60795</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:63343/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
