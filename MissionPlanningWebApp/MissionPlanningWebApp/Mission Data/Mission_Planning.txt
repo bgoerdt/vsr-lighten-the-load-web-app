@@ -1,10 +1,10 @@
 Number of warfighters = 6
-Total weight of equipment = 1786.54
-Equipment weight per warfighter = 297.756
+Total weight of equipment = 1613.14
+Equipment weight per warfighter = 268.856
 
 Number of pieces of equipment 
-18
-30
+12
+24
 0
 1
 2

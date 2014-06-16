@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Management;
 using System.Web.Mvc;
 using MissionPlanningWebApp.Models;
 using System.Net;
@@ -31,6 +32,8 @@ namespace MissionPlanningWebApp.Controllers
             results.GetDistributionResults(db.DistributionRules.ToList(), db.Warfighters.ToList(),
                 HttpContext.Server.MapPath("~/Mission Data/"));
 
+			new LogEvent(HttpContext.Server.MapPath("~/Mission Data/")).Raise();
+
             foreach (WarfighterDistribution fDist in results.Results)
             {
                 int fId = fDist.WarfighterID;
@@ -56,5 +59,13 @@ namespace MissionPlanningWebApp.Controllers
             TempData["model"] = results;
             return RedirectToAction("Index");
         }
+
+		public class LogEvent : WebRequestErrorEvent
+		{
+			public LogEvent(string message)
+				: base(null, null, 100001, new Exception(message))
+			{
+			}
+		}
     }
 }

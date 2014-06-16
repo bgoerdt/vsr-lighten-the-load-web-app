@@ -1,5 +1,5 @@
 Number of warfighters = 6
-Total weight of equipment = 2105.54
+Total weight of equipment = 1932.14
 
 Number of pieces of equipment 
 Warfighter[0]
@@ -120,7 +120,7 @@ Warfighter[1]
 	Equipment[23]	 = 1
 	Equipment[24]	 = 0
 	Equipment[25]	 = 7
-	Equipment[26]	 = 0
+	Equipment[26]	 = 1
 	Equipment[27]	 = 2
 	Equipment[28]	 = 0
 	Equipment[29]	 = 1
@@ -185,8 +185,8 @@ Warfighter[1]
 	Equipment[88]	 = 0
 	Equipment[89]	 = 0
 Warfighter[2]
-	Equipment[0]	 = 8
-	Equipment[1]	 = 6
+	Equipment[0]	 = 2
+	Equipment[1]	 = 4
 	Equipment[2]	 = 0
 	Equipment[3]	 = 0
 	Equipment[4]	 = 0
@@ -211,7 +211,7 @@ Warfighter[2]
 	Equipment[23]	 = 1
 	Equipment[24]	 = 0
 	Equipment[25]	 = 7
-	Equipment[26]	 = 1
+	Equipment[26]	 = 0
 	Equipment[27]	 = 2
 	Equipment[28]	 = 0
 	Equipment[29]	 = 1
@@ -277,7 +277,7 @@ Warfighter[2]
 	Equipment[89]	 = 0
 Warfighter[3]
 	Equipment[0]	 = 2
-	Equipment[1]	 = 6
+	Equipment[1]	 = 4
 	Equipment[2]	 = 0
 	Equipment[3]	 = 1
 	Equipment[4]	 = 0
@@ -459,7 +459,7 @@ Warfighter[4]
 	Equipment[89]	 = 0
 Warfighter[5]
 	Equipment[0]	 = 2
-	Equipment[1]	 = 6
+	Equipment[1]	 = 4
 	Equipment[2]	 = 0
 	Equipment[3]	 = 0
 	Equipment[4]	 = 0
