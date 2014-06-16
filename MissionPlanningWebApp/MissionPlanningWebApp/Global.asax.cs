@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MissionPlanningWebApp.App_Start;
 
 namespace MissionPlanningWebApp
 {
@@ -23,5 +24,11 @@ namespace MissionPlanningWebApp
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 		}
+
+		/*public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+		{
+			filters.Add(new HandleAndLogErrorAttribute()); //Todo: log all errors
+			throw new Exception("not called???");
+		}*/
 	}
 }
