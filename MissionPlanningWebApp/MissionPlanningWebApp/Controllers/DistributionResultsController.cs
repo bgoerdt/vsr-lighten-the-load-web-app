@@ -30,9 +30,9 @@ namespace MissionPlanningWebApp.Controllers
         {
             DistributionResults results = new DistributionResults();
             results.GetDistributionResults(db.DistributionRules.ToList(), db.Warfighters.ToList(),
-                HttpContext.Server.MapPath("~/Mission Data/"));
+                HttpContext.Server.MapPath("~/MissionData/"));
 
-			new LogEvent(HttpContext.Server.MapPath("~/Mission Data/")).Raise();
+			//new LogEvent(HttpContext.Server.MapPath("~/MissionData/")).Raise();
 
             foreach (WarfighterDistribution fDist in results.Results)
             {

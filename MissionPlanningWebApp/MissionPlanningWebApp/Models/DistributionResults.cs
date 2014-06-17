@@ -117,6 +117,8 @@ namespace MissionPlanningWebApp.Models
                     }
                 }
             }
+
+			File.Delete(path + "Equipment_Distribution.txt");
         }
 
         public void WriteDistributionRulesToFile(List<DistributionRules> distributionRules, string path)

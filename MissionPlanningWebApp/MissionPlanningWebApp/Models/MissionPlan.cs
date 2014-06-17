@@ -13,25 +13,24 @@ namespace MissionPlanningWebApp.Models
 	public class MissionPlan
 	{
 		public Dictionary<Equipment, int> EquipmentList { get; set; }
-
+		
 		[Display(Name = "Number of Warfighters")]  
-        public int NumberOfWarfighters;
-
+		public int NumberOfWarfighters;
+		
 		[Display(Name = "Total Weight of Equipment")]
-        public double TotalWeightOfEquipment;
-
-        public double EquipmentWeightPerWarfighter;
-
-        public MissionPlan()
+		public double TotalWeightOfEquipment;
+		
+		public double EquipmentWeightPerWarfighter;
+		
+		public MissionPlan()
         {
             EquipmentList=new Dictionary<Equipment,int>();
-
         }
-
-       // private LtLDbContext db = new LtLDbContext();
-        private string serverDir;
-
-        public void planMission(string dir, List<Equipment> equipment, List<MissionParameter> missionParameter, List<MissionRule> missionRule)
+		
+		// private LtLDbContext db = new LtLDbContext();
+		private string serverDir;
+		
+		public void planMission(string dir, List<Equipment> equipment, List<MissionParameter> missionParameter, List<MissionRule> missionRule, List<Warfighter> warfighters)
         {
             serverDir = dir;
 
@@ -39,6 +38,7 @@ namespace MissionPlanningWebApp.Models
             _exportEquipment(equipment);
             _exportParameters(missionParameter);
             _exportMissionRules(missionRule);
+			_exportWarfighters(warfighters);
 
             // call exe on server
 			Process kProcess = new Process();
@@ -60,41 +60,45 @@ namespace MissionPlanningWebApp.Models
 				System.Threading.Thread.Sleep(100);
 			}
 
+			kProcess.Close();
+
 			// get results from file
-            _getMissionResults(equipment);
+			_getMissionResults(equipment);
         }
-
-        private void _getMissionResults(List<Equipment> equipment)
+		
+		private void _getMissionResults(List<Equipment> equipment)
         {
-            // get results from MissionPlanning.txt and add to EquipmentList
-            string path = serverDir + "Mission_Planning.txt";
-            StreamReader reader = new StreamReader(path);
-            string line = "";
-            int i = 1;
-            char[] separators = { ' ' };
-
-            string[] lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            NumberOfWarfighters = Convert.ToInt32(lines[lines.Length - 1]);
-
-            lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            TotalWeightOfEquipment = Convert.ToDouble(lines[lines.Length - 1]);
-            lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            EquipmentWeightPerWarfighter = Convert.ToDouble(lines[lines.Length - 1]);
-            reader.ReadLine();
-            reader.ReadLine();
-            EquipmentList = new Dictionary<Equipment, int>();
-            while ((line = reader.ReadLine()) != null)
-            {
-                var val = Convert.ToInt32(line);
+			// get results from MissionPlanning.txt and add to EquipmentList
+			string path = serverDir + "Mission_Planning.txt";
+			StreamReader reader = new StreamReader(path);
+			string line = "";
+			int i = 1;
+			char[] separators = { ' ' };
+			
+			string[] lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+			NumberOfWarfighters = Convert.ToInt32(lines[lines.Length - 1]);
+			
+			lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+			TotalWeightOfEquipment = Convert.ToDouble(lines[lines.Length - 1]);
+			lines = reader.ReadLine().Split(separators, StringSplitOptions.RemoveEmptyEntries);
+			EquipmentWeightPerWarfighter = Convert.ToDouble(lines[lines.Length - 1]);
+			reader.ReadLine();
+			reader.ReadLine();
+			EquipmentList = new Dictionary<Equipment, int>();
+			while ((line = reader.ReadLine()) != null)
+			{
+				var val = Convert.ToInt32(line);
 				if(val != 0)
 				{
 					EquipmentList.Add(equipment.Find(e => e.ID == i), val);
 				}
-                i++;
-            }
-        }
+				i++;
+			}
 
-        private void _exportParameters(List<MissionParameter> missionParameter)
+			reader.Close();
+		}
+		
+		private void _exportParameters(List<MissionParameter> missionParameter)
         {
             List<MissionParameter> missionParameters = missionParameter;
 
@@ -115,8 +119,8 @@ namespace MissionPlanningWebApp.Models
                 }
             }
         }
-
-        private void _exportEquipment(List<Equipment> equipment)
+		
+		private void _exportEquipment(List<Equipment> equipment)
         {
             string path = serverDir + "Equipments.txt";
             using (StreamWriter file = new StreamWriter(path))
@@ -136,7 +140,7 @@ namespace MissionPlanningWebApp.Models
             }
         }
 
-        private void _exportMissionRules(List<MissionRule> missionRule)
+		private void _exportMissionRules(List<MissionRule> missionRule)
         {
             string path = serverDir + "Rules_Mission.txt";
             StreamWriter writer = new StreamWriter(path);
@@ -158,5 +162,43 @@ namespace MissionPlanningWebApp.Models
 
             writer.Close();
         }
+
+		public void _exportWarfighters(List<Warfighter> warfighters) // TODO FighterCharacteristics must be in correct order to write to database
+		{
+			string path = serverDir + "Warfighter_Members.txt";
+			int numChars = warfighters.First().WarfighterCharacteristics.Count;
+			using (StreamWriter file = new StreamWriter(path))
+			{
+				file.WriteLine("# Number of warfighters");
+				file.WriteLine(warfighters.Count);
+				file.WriteLine("# Number of characteristics (Maximum is 20)");
+				file.WriteLine(numChars);
+				file.WriteLine("# Maximum weight of carriage per warfighter");
+				file.WriteLine("10000");
+				foreach (Warfighter f in warfighters)
+				{
+					file.WriteLine("# " + f.Name);
+					string line = (f.ID - 1).ToString();
+					foreach (WarfighterCharacteristic fChr in f.WarfighterCharacteristics)
+					{
+						if (fChr.CharID == 1)
+							line = line + " " + getIDfromRole[fChr.CharValue];
+						else
+							line = line + " " + fChr.CharValue;
+					}
+					file.WriteLine(line);
+				}
+			}
+		}
+
+		public Dictionary<string, string> getIDfromRole = new Dictionary<string, string>()
+		{
+				{ "Squad Leader", "0" },
+				{ "Fire Team Leader", "1" },
+				{ "Assistant Automatic Rifleman", "2" },
+				{ "Automatic Rifleman", "3" },
+				{ "Rifleman", "4" },
+				{ "Medical Corpsman", "5" }
+		};
 	}
 }

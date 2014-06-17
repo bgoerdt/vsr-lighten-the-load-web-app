@@ -25,7 +25,7 @@ namespace MissionPlanningWebApp.Tests.Models
             List<MissionRule> missionRules = new List<MissionRule>();
 
 
-            //missionPlan.planMission(HttpContext.Server.MapPath("~/Mission Data/"), equipment, missionParameters, missionRules);
+            //missionPlan.planMission(HttpContext.Server.MapPath("~/MissionData/"), equipment, missionParameters, missionRules);
             missionPlan.NumberOfWarfighters = 3;
             missionPlan.TotalWeightOfEquipment = 90.6;
             missionPlan.EquipmentWeightPerWarfighter = 30.2;

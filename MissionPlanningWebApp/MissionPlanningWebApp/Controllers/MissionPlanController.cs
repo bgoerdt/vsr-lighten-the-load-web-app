@@ -17,8 +17,8 @@ namespace MissionPlanningWebApp.Controllers
 
         public ActionResult Index()
         {
-            plan.planMission(HttpContext.Server.MapPath("~/Mission Data/"), db.Equipment.ToList(), db.MissionParameters.ToList(), db.MissionRules.ToList());
-			new LogEvent(HttpContext.Server.MapPath("~/Mission Data/")).Raise();
+            plan.planMission(HttpContext.Server.MapPath("~/MissionData/"), db.Equipment.ToList(), db.MissionParameters.ToList(), db.MissionRules.ToList(), db.Warfighters.ToList());
+			//new LogEvent(HttpContext.Server.MapPath("~/MissionData/")).Raise();
             return View(plan);
         }
 
