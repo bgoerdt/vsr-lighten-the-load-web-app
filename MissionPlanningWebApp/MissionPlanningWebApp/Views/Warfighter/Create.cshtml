@@ -17,6 +17,10 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
         </div>
+		<div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
 
         <table>
             @foreach (var item in ViewData["WarfighterCharacteristics"] as List<MissionPlanningWebApp.Models.WarfighterCharacteristic>)

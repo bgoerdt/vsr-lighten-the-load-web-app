@@ -14,7 +14,8 @@
     @foreach (var WarfighterDist in Model.Results)
     {
 	<div data-role="collapsible" data-collapsed="true">
-    <h1>@Html.DisplayFor(modelItem => WarfighterDist.Warfighter.Name)</h1>
+	@{ double weightPercent = Math.Round(WarfighterDist.TotalWeight / WarfighterDist.Warfighter.Weight * 100, 2); }
+    <h1>@Html.DisplayFor(modelItem => WarfighterDist.Warfighter.Name), Load: @Html.DisplayFor(modelItem => WarfighterDist.TotalWeight) lbs (@Html.Raw(weightPercent.ToString())% of body weight)</h1>
 	<table>
         <tr>
             <th>
@@ -23,6 +24,9 @@
             <th>
                 Qty
             </th>
+			<th>
+				Weight
+			</th>
         </tr>
         @foreach (var dist in WarfighterDist.Distributions)
         { 
@@ -33,6 +37,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => dist.Distribution)
                 </td>
+				<td>
+					@{ string equipWeight = (dist.Equipment.Weight * (double)dist.Distribution).ToString(); }
+					@Html.Raw(equipWeight)
+				</td>
             </tr>
         }
 	</table>

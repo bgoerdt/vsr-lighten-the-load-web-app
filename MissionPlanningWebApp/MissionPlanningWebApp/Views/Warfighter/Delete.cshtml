@@ -16,6 +16,9 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
+	<div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

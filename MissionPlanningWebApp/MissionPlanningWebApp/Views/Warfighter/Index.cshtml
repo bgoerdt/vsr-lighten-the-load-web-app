@@ -21,6 +21,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+			<th>
+				@Html.DisplayNameFor(model => model.Weight)
+			</th>
             @foreach (var chr in ViewData["characteristics"] as List<MissionPlanningWebApp.Models.Characteristic>)
             {
                 <th>@Html.DisplayFor(c => chr.Char)</th>
@@ -44,12 +47,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Weight)
+				</td>
                 @foreach (var chr in item.WarfighterCharacteristics)
                 {
                     <td><input type="text" class="quantity" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
                 }
                 <td>
-                    <!--@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |-->
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
 

@@ -67,6 +67,8 @@ namespace MissionPlanningWebApp.Models
 				System.Threading.Thread.Sleep(100);
 			}
 
+			// TO DO: Check for error file here
+
             using (StreamReader file = new StreamReader(string.Concat(path, "Equipment_Distribution.txt")))
             {
                 Results = new List<WarfighterDistribution>();
@@ -113,7 +115,8 @@ namespace MissionPlanningWebApp.Models
                         equipDistribution.EquipID = equipId + 1;
                         equipDistribution.Distribution = equipVal;
 
-                        if (equipVal != 0) WarfighterDistribution.Distributions.Add(equipDistribution);
+						if (equipVal != 0)
+							WarfighterDistribution.Distributions.Add(equipDistribution);
                     }
                 }
             }
@@ -201,6 +204,8 @@ namespace MissionPlanningWebApp.Models
         [ForeignKey("Warfighter")]
         public int WarfighterID { get; set; }
         public virtual Warfighter Warfighter { get; set; }
+
+		public double TotalWeight { get; set; }
 
         public virtual ICollection<EquipmentDistribution> Distributions { get; set; }
     }

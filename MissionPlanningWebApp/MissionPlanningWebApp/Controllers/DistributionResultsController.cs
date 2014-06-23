@@ -36,6 +36,7 @@ namespace MissionPlanningWebApp.Controllers
 
             foreach (WarfighterDistribution fDist in results.Results)
             {
+				fDist.TotalWeight = 0;
                 int fId = fDist.WarfighterID;
                 Warfighter fighter = db.Warfighters.Where(f => f.ID == fId).Single();
                 if (fighter == null)
@@ -53,6 +54,7 @@ namespace MissionPlanningWebApp.Controllers
                         return HttpNotFound();
                     }
                     eDist.Equipment = equip;
+					fDist.TotalWeight += (equip.Weight * eDist.Distribution);
                 }
             }
 

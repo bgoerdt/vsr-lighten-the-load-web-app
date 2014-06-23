@@ -19,7 +19,8 @@ namespace MissionPlanningWebApp.Models
 		
 		[Display(Name = "Total Weight of Equipment")]
 		public double TotalWeightOfEquipment;
-		
+
+		[Display(Name = "Equipment Weight per Warfighter (if distributed equally)")]
 		public double EquipmentWeightPerWarfighter;
 		
 		public MissionPlan()

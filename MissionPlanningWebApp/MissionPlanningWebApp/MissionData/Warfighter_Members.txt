@@ -5,14 +5,14 @@
 # Maximum weight of carriage per warfighter
 10000
 # Johnson
-0 0 76 490 88
+0 0 76 490 288
 # Smith
-1 1 83 425 92
+1 1 83 425 292
 # Miller
-2 2 79 340 88
+2 2 79 340 288
 # Perkins
-3 3 91 385 93
+3 3 91 385 293
 # Turner
-4 4 81 360 83
-# Williams 
-5 5 57 460 79
+4 4 81 360 283
+# Williams
+5 5 57 460 279

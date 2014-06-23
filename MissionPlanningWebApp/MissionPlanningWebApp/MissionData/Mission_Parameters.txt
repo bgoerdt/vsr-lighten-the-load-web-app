@@ -1,12 +1,12 @@
 #number of mission parameters
 36
-#Duration
+#Duration (hrs)
 0	15
-#Threat level
+#Threat level (0-500)
 1	150
-#Expected Enemy Contact: none(0), light(1), medium(2), heavey(3)
+#Expected Enemy Contact: None(0), Light(1), Medium(2), Heavy(3)
 2	1
-#Enemy Capabilities: small arms
+#Enemy Capabilities: Small Arms
 3	1
 #Enemy Capabilities: RPG
 4	0
@@ -14,17 +14,17 @@
 5	0
 #Enemy Capabilities: IED 2
 6	0
-#Enemy Capabilities: NBC (nuclear, biological, chemical)
+#Enemy Capabilities: NBC (Nuclear, Biological, Chemical)
 7	0
-#Temperature: cold(0), temperate(1), hot(2)
+#Temperature: Cold(0), Temperate(1), Hot(2)
 8	0
-#Light data
+#Light Data
 9	0
 #Route
 10	0
 #Terrain - Mountainous(0), Forrest(1), Urban(2), Desert(3)
 11	0
-#Start DTG (date time group)
+#Start DTG (Date Time Group)
 12	1
 #Patrol: Raid
 13	1
@@ -32,7 +32,7 @@
 14	1
 #Patrol: Hasty Defense
 15	1
-#End DTG (date time group)
+#End DTG (Date Time Group)
 16	1
 #Offensive Tasks: Engage Targets Day
 17	1
@@ -40,11 +40,11 @@
 18	1
 #Offensive Tasks: Call/Adjust Indirect Fires
 19	1
-#Offensive Tasks: Knock out Bunker
+#Offensive Tasks: Knock Out Bunker
 20	1
-#Offensive Tasks: Observe - over distance
+#Offensive Tasks: Observe - Over Distance
 21	1
-#Offensive Tasks: Observe - night
+#Offensive Tasks: Observe - Night
 22	1
 #Survivability Tasks: IMT (Individual Movement Technique)
 23	1
