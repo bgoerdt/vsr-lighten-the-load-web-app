@@ -1,0 +1,18 @@
+# Number of warfighters
+6
+# Number of characteristics (Maximum is 20)
+4
+# Maximum weight of carriage per warfighter
+10000
+# Johnson
+0 0 76 490 88
+# Smith
+1 1 83 425 92
+# Miller
+2 2 79 340 88
+# Perkins
+3 3 91 385 93
+# Turner
+4 4 81 360 83
+# Williams 
+5 5 57 460 79
