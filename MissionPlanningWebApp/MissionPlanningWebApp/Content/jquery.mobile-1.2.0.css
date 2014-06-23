@@ -771,7 +771,7 @@
 -----------------------------------------------------------------------------------------------------------*/
 
 .ui-page.ui-body-f {
-    background: url(images/camo60.jpg);
+    background-image: url(images/camo60.jpg);
     background-repeat:repeat;
     background-position:center center;  
 }
