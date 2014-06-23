@@ -41,9 +41,11 @@ namespace MissionPlanningWebApp.Models
         }
 
 		[Required]
+		[DisplayName("Condition")]
 		public string RuleCond { get; set; }
 
 		[Required]
+		[DisplayName("Value")]
 		public int RuleData { get; set; }
 
 		[Required]
@@ -60,9 +62,11 @@ namespace MissionPlanningWebApp.Models
         }
 
 		[Required]
+		[DisplayName("Condition")]
 		public string ConstrCond { get; set; }
 
 		[Required]
+		[DisplayName("Value")]
 		public int ConstrRHS { get; set; }
 	}
 }

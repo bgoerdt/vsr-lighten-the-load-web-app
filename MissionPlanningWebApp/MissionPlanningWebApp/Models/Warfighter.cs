@@ -13,6 +13,7 @@ namespace MissionPlanningWebApp.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+		[Display(Name="Weight (lbs)")]
 		public double Weight { get; set; }
         public Boolean IsSelected { get; set; }
         public virtual ICollection<WarfighterCharacteristic> WarfighterCharacteristics { get; set; }
