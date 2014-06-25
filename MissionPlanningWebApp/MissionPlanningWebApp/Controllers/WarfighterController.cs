@@ -61,21 +61,20 @@ namespace MissionPlanningWebApp.Controllers
         public class WarfighterData
         {
             public string name { get; set; }
+			public double weight { get; set; }
             public string chars { get; set; }
         }
 
-        /// <summary>
-        /// ///
-        /// </summary>
-        public class WarfighterData2
+        public class WarfighterCharacteristicData
         {
             public int ID { get; set; }
             public int charID { get; set; }
             public string charVal { get; set; }
         }
+
         [HttpPost]
        // [ValidateAntiForgeryToken]
-        public ContentResult UpdateValue(WarfighterData2 data)
+        public ContentResult UpdateValue(WarfighterCharacteristicData data)
         {
             // Find the warfighter based on the name.
             Warfighter warfighter = db.Warfighters.Find(data.ID);
@@ -101,6 +100,8 @@ namespace MissionPlanningWebApp.Controllers
             if (ModelState.IsValid)
             {
                 Warfighter.Name = data.name;
+				Warfighter.Weight = data.weight;
+				Warfighter.IsSelected = true;
                 db.Warfighters.Add(Warfighter);
 
                 char[] delims = { ',' };

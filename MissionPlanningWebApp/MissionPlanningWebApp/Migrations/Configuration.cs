@@ -157,9 +157,9 @@ namespace MissionPlanningWebApp.Migrations
 			{ 
 				//Toughness, Size/Strength, Experience, PFT Score
 				new Characteristic { Char = "Squad Role" },
-				new Characteristic { Char = "Size/Strength (0-100)" },
-				new Characteristic { Char = "Experience (0-500)" },
-				new Characteristic { Char = "PFT Score (0-300)" }
+				new Characteristic { Char = "Size/Strength", Min = 0, Max = 100 },
+				new Characteristic { Char = "Experience", Min = 0, Max = 500 },
+				new Characteristic { Char = "PFT Score", Min = 0, Max = 300 }
 			};
 
 			var warfighters = new List<Warfighter>()
@@ -181,34 +181,34 @@ namespace MissionPlanningWebApp.Migrations
 			var warfighter_characteristics = new List<WarfighterCharacteristic>()
 			{
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Squad Leader" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "76" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "490" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "288" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "76" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "490" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Johnson").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "288" },
 				
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Fire Team Leader" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "83" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "425" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "292" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "83" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "425" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Smith").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "292" },
 				
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Assistant Automatic Rifleman" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "79" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "340" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "288" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "79" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "340" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Miller").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "288" },
 				
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Automatic Rifleman" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "91" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "385" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "293" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "91" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "385" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Perkins").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "293" },
 				
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Rifleman" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "81" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "360" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "283" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "81" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "360" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Turner").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "283" },
 				
 				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "Squad Role").ID, CharValue = "Medical Corpsman" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "Size/Strength (0-100)").ID, CharValue = "57" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "Experience (0-500)").ID, CharValue = "460" },
-				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "PFT Score (0-300)").ID, CharValue = "279" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "Size/Strength").ID, CharValue = "57" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "Experience").ID, CharValue = "460" },
+				new WarfighterCharacteristic { WarfighterID = warfighters.First(w => w.Name == "Williams").ID, CharID = characteristics.First(c => c.Char == "PFT Score").ID, CharValue = "279" },
 			};
 
 			var missionRules = new List<MissionRule>()
@@ -250,20 +250,20 @@ namespace MissionPlanningWebApp.Migrations
 
 			var distRules = new List<DistributionRules>()
 			{
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "MRE").ID, ConstrCond = ">", ConstrRHS = 2 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "100oz Hydration System (filled)").ID, ConstrCond = ">", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Helmet").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "FR Gloves, Frog").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Armor Vest w/ SAPPI Plates & Accessories").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Patrol Pack").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "RCO").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Grenade, Hand, G8811 Fragmentation").ID, ConstrCond = ">", ConstrRHS = 2 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Individual First Aid Kit (IFAK)").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Personal Illumination System").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Ballistic Eye Wear").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "M50 Gas Mask w/ Hood, All Accessories (medium)").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Knee, Elbow Pad Set").ID, ConstrCond = "=", ConstrRHS = 1 },
-				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience (0-500)").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Regular Complete Uniform").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "MRE").ID, ConstrCond = ">", ConstrRHS = 2 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "100oz Hydration System (filled)").ID, ConstrCond = ">", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Helmet").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "FR Gloves, Frog").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Armor Vest w/ SAPPI Plates & Accessories").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Patrol Pack").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "RCO").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Grenade, Hand, G8811 Fragmentation").ID, ConstrCond = ">", ConstrRHS = 2 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Individual First Aid Kit (IFAK)").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Personal Illumination System").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Ballistic Eye Wear").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "M50 Gas Mask w/ Hood, All Accessories (medium)").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Knee, Elbow Pad Set").ID, ConstrCond = "=", ConstrRHS = 1 },
+				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Experience").ID, ChrCond = ">", ChrData = "0", EquipId = equipment.First(e => e.Name == "Regular Complete Uniform").ID, ConstrCond = "=", ConstrRHS = 1 },
 				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Squad Role").ID, ChrCond = "=", ChrData = "Squad Leader", EquipId = equipment.First(e => e.Name == "Service Rifle, M16A4").ID, ConstrCond = "=", ConstrRHS = 1 },
 				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Squad Role").ID, ChrCond = "=", ChrData = "Squad Leader", EquipId = equipment.First(e => e.Name == "M-16 Magazine with 30 Rounds").ID, ConstrCond = "=", ConstrRHS = 7 },
 				new DistributionRules { ChrId = characteristics.First(c => c.Char == "Squad Role").ID, ChrCond = "=", ChrData = "Squad Leader", EquipId = equipment.First(e => e.Name == "Multi-purpose Bayonet").ID, ConstrCond = "=", ConstrRHS = 1 },

@@ -14,6 +14,8 @@ namespace MissionPlanningWebApp.Models
         public int ID { get; set; }
         public string Name { get; set; }
 		[Display(Name="Weight (lbs)")]
+		[Required]
+		[DisplayFormat(DataFormatString= "{0:0.0}", ApplyFormatInEditMode=true)]
 		public double Weight { get; set; }
         public Boolean IsSelected { get; set; }
         public virtual ICollection<WarfighterCharacteristic> WarfighterCharacteristics { get; set; }
@@ -49,5 +51,7 @@ namespace MissionPlanningWebApp.Models
         public int ID { get; set; }
         [Display(Name="Characteristic")]
         public string Char { get; set; }
+		public int Min { get; set; }
+		public int Max { get; set; }
     }
 }

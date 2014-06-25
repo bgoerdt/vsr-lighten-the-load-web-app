@@ -50,50 +50,95 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Weight)
 				</td>
-                @foreach (var chr in item.WarfighterCharacteristics)
-                {
-                    <td><input type="text" class="quantity" id="@item.ID @chr.CharID" value="@chr.CharValue"></td>
-                }
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
+				@foreach (var chr in item.WarfighterCharacteristics)
+				{
+					if (chr.Characteristic.Char == "Squad Role")
+					{
+						<td>
+							<select class="selectRole" name="select-choice-min" data-mini="true" id="@item.ID;@chr.CharID;@chr.CharValue" val="@chr.CharValue">
+								<option>Squad Leader</option>
+								<option>Fire Team Leader</option>
+								<option>Rifleman</option>
+								<option>Automatic Rifleman</option>
+								<option>Assistant Automatic Rifleman</option>
+								<option>Medical Corpsman</option>
+							</select>
+						</td>
+					}
+					else
+					{
+						<td>
+							<input type="range" class="quantity" name="slider-mini" id="@item.ID @chr.CharID" value="@chr.CharValue" min="@chr.Characteristic.Min" max="@chr.Characteristic.Max" data-mini="true" />
+						</td>
+					}
+				}
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.ID })
+					@Html.ActionLink("Delete", "Delete", new { id = item.ID })
+				</td>
 
-            </tr>
-        }
+			</tr>
+		}
     </table>
     @section Scripts {
-        <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.ckbox').click(function () {
-                    var checked = $(this).is(':checked');
-                    var id = $(this).attr('id');
-
-                    var data = {
-                        id: id,
-                        ck: checked
-                    };
-
-                    $.post('/Warfighter/UpdateChecked', data, function (data) {
-                    });
-                });
-
-
-                $('.quantity').change(function () {
-                    var id = $(this).attr('id').split(" ")[0];
-                    var charID = parseInt($(this).attr('id').split(" ")[1]);
-                    var charVal = $(this).val();
-                    var data = {
-                        id: id,
-                        charID: charID,
-                        charVal: charVal
-                    };
-
-                    $.post('/WarFighter/UpdateValue', data, function (data) {
-                    });
-                });
-            });
-        </script>
-    }
+		<script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				var roleToNum = {
+					"Squad Leader" : 0,
+					"Fire Team Leader" : 1,
+					"Rifleman" : 2,
+					"Automatic Rifleman" : 3,
+					"Assistant Automatic Rifleman" : 4,
+					"Medical Corpsman" : 5
+				};
+	
+				$('select').each(function (i, elem) {
+					$(elem)[0].selectedIndex = roleToNum[elem.id.split(";")[2]];
+					$(elem).selectmenu("refresh");
+				});
+	
+				$('.ckbox').click(function () {
+					var checked = $(this).is(':checked');
+					var id = $(this).attr('id');
+					
+					var data = {
+						id: id,
+						ck: checked
+					};
+					
+					$.post('/Warfighter/UpdateChecked', data, function (data) {
+					});
+				});
+				
+				$('.selectRole').change(function () {
+					var id = $(this).attr('id').split(";")[0];
+					var charID = parseInt($(this).attr('id').split(";")[1]);
+					var charVal = $(this).val();
+					var data = {
+						id: id,
+						charID: charID,
+						charVal: charVal
+					};
+				
+					$.post('/WarFighter/UpdateValue', data, function (data) {
+					});
+				});
+				
+				$('.quantity').change(function () {
+					var id = $(this).attr('id').split(" ")[0];
+					var charID = parseInt($(this).attr('id').split(" ")[1]);
+					var charVal = $(this).val();
+					var data = {
+						id: id,
+						charID: charID,
+						charVal: charVal
+					};
+					
+					$.post('/WarFighter/UpdateValue', data, function (data) {
+					});
+				});
+			});
+		</script>
+	}
 </div>

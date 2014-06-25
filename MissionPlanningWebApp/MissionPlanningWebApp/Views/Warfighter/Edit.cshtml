@@ -16,6 +16,7 @@
         <legend>Warfighter</legend>
 
         @Html.HiddenFor(model => model.ID)
+		@Html.HiddenFor(model => model.IsSelected)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -31,10 +32,6 @@
             @Html.EditorFor(model => model.Weight)
             @Html.ValidationMessageFor(model => model.Weight)
         </div>
-        @foreach (var chr in WarfighterCharacteristics)
-        {
-            <input type="text" class="quantity" value="@chr.CharValue">
-        }
         <p>
             <input type="submit" value="Save" />
         </p>
