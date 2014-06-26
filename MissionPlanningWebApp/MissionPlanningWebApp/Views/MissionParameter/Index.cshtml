@@ -9,15 +9,11 @@
 }
 
 <div id="content_box_1" class="content_box">
-
-    <!--<h2>Mission Parameters</h2>-->
-
-  
-     <p>
-         <div style = style="margin-left:10%; >
-        @Html.ActionLink("Create New", "Create")
-         </div>
-    </p>
+	<p>
+		<div style = style="margin-left:10%; >
+			@Html.ActionLink("Create New", "Create")
+		</div>
+	</p>
          
     <table>
         <tr>
@@ -60,8 +56,6 @@
 
     </table>
 
-  
-
      @section Scripts {
         <script type="text/javascript" src="scripts/jquery-1.4.1.js"></script>
         <script type="text/javascript">
@@ -86,9 +80,6 @@
                         id: id,
                         val: intValue
                     };
-
-                    
-                    
 
                     $.post('/MissionParameter/UpdateValue', data, function (data) {
                     });
