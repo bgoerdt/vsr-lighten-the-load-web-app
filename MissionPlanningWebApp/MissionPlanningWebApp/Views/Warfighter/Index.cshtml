@@ -15,9 +15,9 @@
 	</p>
 	<table>
 		<tr>
-			<th style="width:50px;">
+			<!--<th style="width:50px;">
 
-			</th>
+			</th>-->
 			<th>
 				@Html.DisplayNameFor(model => model.Name)
 			</th>
@@ -34,7 +34,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <!--<td>
                     @if (item.IsSelected)
                     {
                         <input type="checkbox" class="ckbox" id="@item.ID" checked />
@@ -43,7 +43,7 @@
                     {
                         <input type="checkbox" class="ckbox" id="@item.ID" />
                     }
-                </td>
+                </td>-->
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

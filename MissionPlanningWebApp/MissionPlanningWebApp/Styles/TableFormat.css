@@ -34,6 +34,7 @@ th
     border-color: #35332b;
     border-style:solid;
     padding:3px 7px 2px 7px;
+	font-size: 90%;
 }
 td
 {
@@ -42,5 +43,7 @@ td
     border-color: #35332b;
     border-style:solid;
     padding:3px 7px 2px 7px;
+	text-align: center;
+	vertical-align: middle;
 }
 
