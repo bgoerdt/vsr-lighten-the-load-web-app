@@ -21,7 +21,7 @@
             @Html.LabelFor(model => model.Weight)
         </div>
 		<div class="editor-field">
-			<input class="text-box single-line ui-input-text ui-body-b ui-corner-all ui-shadow-inset valid charVal" data-val="true" data-val-number="The Weight field must be a number." data-val-required="The Weight field is required." name="item.CharValue" type="text" value="0">
+			<input id="Weight" class="text-box single-line ui-input-text ui-body-b ui-corner-all ui-shadow-inset valid" data-val="true" data-val-number="The Weight field must be a number." data-val-required="The Weight field is required." name="item.CharValue" type="text" value="0">
 			@Html.ValidationMessageFor(model => model.Weight)
         </div>
 
@@ -47,7 +47,7 @@
 					{
 						<td>
 							<div class="editor-field">
-								<input type="range" class="quantity" name="slider-1" value="0" min="@item.Characteristic.Min" max="@item.Characteristic.Max" data-mini="true" />
+								<input type="range" class="quantity charVal" name="slider-1" value="0" min="@item.Characteristic.Min" max="@item.Characteristic.Max" data-mini="true" />
 								<!--<input class="text-box single-line ui-input-text ui-body-b ui-corner-all ui-shadow-inset valid charVal" data-val="true" data-val-number="The field CharValue must be a number." data-val-required="The CharValue field is required." name="item.CharValue" type="text" value="0">-->
 							</div>
 						</td>
